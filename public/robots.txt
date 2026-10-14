@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://redjadet.github.io/sitemap.xml
+Sitemap: https://ilkersevim.github.io/sitemap.xml

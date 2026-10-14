@@ -31,15 +31,23 @@ jobs:
       - run: pnpm lint
       - run: pnpm test:run
       - run: pnpm build
-      # User site: publish the real app at https://redjadet.github.io/
+      # Org site: publish the real app at https://ilkersevim.github.io/
+      - uses: actions/upload-pages-artifact@v5
+        if: >-
+          github.repository == 'ilkersevim/ilkersevim.github.io' &&
+          (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+        with:
+          path: dist
+          include-hidden-files: true
+      # Legacy user site: redirect https://redjadet.github.io/ → org site
       - uses: actions/upload-pages-artifact@v5
         if: >-
           github.repository == 'redjadet/redjadet.github.io' &&
           (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         with:
-          path: dist
+          path: redirect-usersite
           include-hidden-files: true
-      # Project site: publish redirect only at https://redjadet.github.io/react-web-portfolio/
+      # Project site: redirect https://redjadet.github.io/react-web-portfolio/ → org site
       - uses: actions/upload-pages-artifact@v5
         if: >-
           github.repository == 'redjadet/react-web-portfolio' &&

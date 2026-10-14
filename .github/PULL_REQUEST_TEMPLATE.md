@@ -11,13 +11,13 @@
 - [ ] RTL smoke: Arabic (`ar`) sets `lang`/`dir` and readable layout
 - [ ] Theme: toggle updates `data-theme`, persists, no FOUC on reload
 - [ ] Responsive: header + language strip usable at ~320–390px and desktop
-- [ ] Dual-remote tip sync when shipping: `origin` (`react-web-portfolio`) **and** `usersite` (`redjadet.github.io`)
-- [ ] Old URL redirect still targets `https://redjadet.github.io/` (`redirect-pages/`)
+- [ ] Triple-remote tip sync when shipping: `origin` (`react-web-portfolio`), `usersite` (`redjadet.github.io`), and `orgsite` (`ilkersevim.github.io`)
+- [ ] Legacy redirects still target `https://ilkersevim.github.io/` (`redirect-pages/`, `redirect-usersite/`)
 - [ ] No secrets, tokens, or private credentials in the diff
 
 ## CI
 
-GitHub Actions workflow **CI** must be green on this PR before merge. Enable branch protection on `main` to require the **CI** check (see `docs/pre-merge-checklist.md` if rulesets cannot be set via API).
+GitHub Actions workflow **CI** must be green on this PR before merge. Enable branch protection on `main` to require the **quality** check (see `docs/pre-merge-checklist.md` if rulesets cannot be set via API).
 
 ## Test plan
 

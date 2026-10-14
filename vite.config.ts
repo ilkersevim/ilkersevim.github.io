@@ -1,7 +1,7 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vitest/config'
 
-// GitHub Pages user site: https://redjadet.github.io/
+// GitHub Pages org site: https://ilkersevim.github.io/
 export default defineConfig({
   plugins: [react()],
   base: '/',

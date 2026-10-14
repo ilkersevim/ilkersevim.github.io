@@ -1,12 +1,12 @@
 # İlker Sevim — Personal Website
 
-[![Live site](https://img.shields.io/badge/site-live-0B6E4F?logo=githubpages&logoColor=white)](https://redjadet.github.io/)
-[![Deploy GitHub Pages](https://github.com/redjadet/redjadet.github.io/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/redjadet/redjadet.github.io/actions/workflows/deploy-pages.yml)
+[![Live site](https://img.shields.io/badge/site-live-0B6E4F?logo=githubpages&logoColor=white)](https://ilkersevim.github.io/)
+[![Deploy GitHub Pages](https://github.com/ilkersevim/ilkersevim.github.io/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/ilkersevim/ilkersevim.github.io/actions/workflows/deploy-pages.yml)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
 [![Node.js 24](https://img.shields.io/badge/Node.js-24-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 
-Professional website for a senior iOS and Flutter engineer based in Istanbul. Live at [redjadet.github.io](https://redjadet.github.io/). It brings together selected public projects, engineering practices, availability and contact links. React and TypeScript are demonstrated through the website itself; the mobile apps are clearly presented as portfolio references.
+Professional website for a senior iOS and Flutter engineer based in Istanbul. Live at [ilkersevim.github.io](https://ilkersevim.github.io/). It brings together selected public projects, engineering practices, availability and contact links. React and TypeScript are demonstrated through the website itself; the mobile apps are clearly presented as portfolio references.
 
 ![Portfolio preview — hero and selected work sections](public/og.png)
 
@@ -29,7 +29,7 @@ Contact: [ilkersevim2007@gmail.com](mailto:ilkersevim2007@gmail.com) · [LinkedI
 - Semantic headings, skip navigation, descriptive external links, visible keyboard focus and reduced-motion support.
 - Portrait dimensions reserve space; no analytics, tracking scripts or pretend contact form.
 - Canonical URL, robots/sitemap, Person structured data and Open Graph metadata.
-- GitHub Pages user-site deployment (`redjadet.github.io`) with frozen dependency installation, lint and TypeScript/build checks.
+- GitHub Pages org-site deployment (`ilkersevim.github.io`) with frozen dependency installation, lint and TypeScript/build checks.
 
 ## Local development
 
@@ -54,13 +54,16 @@ Pre-merge gate: [docs/pre-merge-checklist.md](docs/pre-merge-checklist.md). PRs 
 
 ## Update content
 
-Edit `src/content/profile.ts`, `projects.ts` and `skills.ts`. Put static assets in `public/`; reference them through `import.meta.env.BASE_URL` so asset paths stay correct for the user-site root (`base: '/'`).
+Edit `src/content/profile.ts`, `projects.ts` and `skills.ts`. Put static assets in `public/`; reference them through `import.meta.env.BASE_URL` so asset paths stay correct for the org-site root (`base: '/'`).
 
 ## Deploy
 
-Live site source of truth for Pages is [`redjadet/redjadet.github.io`](https://github.com/redjadet/redjadet.github.io) (user site at `/`). Pushes to `main` there run `.github/workflows/deploy-pages.yml` and publish the app. This repository (`react-web-portfolio`) remains the working clone and mirrors the same codebase; its project Pages site publishes only a static redirect from `/react-web-portfolio/` to `https://redjadet.github.io/` (`redirect-pages/`).
+Live site source of truth for Pages is [`ilkersevim/ilkersevim.github.io`](https://github.com/ilkersevim/ilkersevim.github.io) (org site at `/`). Pushes to `main` there run `.github/workflows/deploy-pages.yml` and publish the app.
 
-Preferred personal URL `https://ilkersevim.github.io/` requires claiming the `ilkersevim` GitHub username or organization (not done here — see project notes).
+This repository (`react-web-portfolio`) remains the working clone and mirrors the same codebase. Legacy hosts stay alive as redirects:
+
+- `https://redjadet.github.io/` → `https://ilkersevim.github.io/` (`redirect-usersite/`)
+- `https://redjadet.github.io/react-web-portfolio/` → `https://ilkersevim.github.io/` (`redirect-pages/`)
 
 ## Manual review
 
