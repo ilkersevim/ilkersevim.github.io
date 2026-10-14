@@ -7,15 +7,19 @@ import {
   openSourceProjectsEn,
   openSourceProjectsEs,
   openSourceProjectsFr,
+  openSourceProjectsIt,
   openSourceProjectsJa,
   openSourceProjectsTr,
+  openSourceProjectsZh,
   projectsAr,
   projectsDe,
   projectsEn,
   projectsEs,
   projectsFr,
+  projectsIt,
   projectsJa,
   projectsTr,
+  projectsZh,
   type OpenSourceProject,
 } from '../content/projects'
 import {
@@ -24,8 +28,10 @@ import {
   skillGroupsEn,
   skillGroupsEs,
   skillGroupsFr,
+  skillGroupsIt,
   skillGroupsJa,
   skillGroupsTr,
+  skillGroupsZh,
 } from '../content/skills'
 import {
   profileCopyAr,
@@ -33,8 +39,10 @@ import {
   profileCopyEn,
   profileCopyEs,
   profileCopyFr,
+  profileCopyIt,
   profileCopyJa,
   profileCopyTr,
+  profileCopyZh,
   type ProfileCopy,
 } from '../content/profile'
 
@@ -623,14 +631,162 @@ const de: Messages = {
   skillGroups: skillGroupsDe,
 }
 
+const it: Messages = {
+  meta: {
+    title: 'İlker Sevim — Ingegnere senior iOS e Flutter',
+    description:
+      'İlker Sevim — Ingegnere senior iOS e Flutter a Istanbul. Esplora progetti mobili, pratiche di ingegneria e disponibilità immediata per ruoli remoti, a tempo pieno e a contratto.',
+    ogLocale: 'it_IT',
+  },
+  a11y: {
+    skipToContent: 'Vai al contenuto',
+    primaryNav: 'Navigazione principale',
+    brandTop: '— inizio pagina',
+    language: 'Lingua',
+    opensInNewTab: ' (si apre in una nuova scheda)',
+    emailName: (name) => `Invia email a ${name}`,
+    projectLink: (project, label) => `${project}: ${label}`,
+    openSourceLink: (project) => `${project}: Vedi il codice sorgente`,
+  },
+  theme: {
+    switchToLight: 'Passa al tema chiaro',
+    switchToDark: 'Passa al tema scuro',
+    darkOn: 'Tema scuro attivo',
+    lightOn: 'Tema chiaro attivo',
+  },
+  nav: {
+    work: 'Lavori',
+    skills: 'Competenze',
+    about: 'Chi sono',
+    contact: 'Contatti',
+  },
+  hero: {
+    exploreWork: 'Esplora i miei lavori',
+    getInTouch: 'Contattami',
+    portraitAlt: 'Ritratto di İlker Sevim',
+  },
+  work: {
+    title: 'Lavori selezionati',
+    lead: 'Progetti pubblici che mostrano come progetto, costruisco e verifico il software.',
+    moreTitle: 'Altri lavori open source',
+    viewSource: 'Vedi il codice sorgente',
+  },
+  skills: {
+    title: 'Competenze e pratiche di ingegneria',
+    lead: 'Profondità mobile nativa, delivery multipiattaforma e uno stack web pragmatico.',
+  },
+  about: {
+    title: 'Esperienza con vincoli di prodotto reali',
+    paragraphs: [
+      'Sono un ingegnere mobile senior con base a Istanbul. La mia esperienza spazia tra banking, pagamenti, telecomunicazioni e comunicazioni sicure, incluse app native per iPhone e iPad, framework iOS condivisi e delivery multipiattaforma.',
+      'Ho guidato lo sviluppo mobile, fatto da mentor ad altri ingegneri e automatizzato i flussi di build e release. I miei progetti pubblici rendono facili da esaminare decisioni di architettura, integrazione di piattaforma e pratiche di test.',
+      'Porto la stessa cura nello sviluppo assistito da IA: contesto utile, modifiche circoscritte, review umana e verifica.',
+    ],
+    location: 'Sede',
+    arrangements: 'Modalità di lavoro',
+    availability: 'Disponibilità',
+    education: 'Formazione',
+    educationValue:
+      'Laurea in Ingegneria Informatica · Università Işık\nMBA · Università Maltepe',
+  },
+  contact: {
+    title: 'Costruiamo qualcosa di affidabile.',
+    note: 'Aperto a opportunità in iOS, Flutter e ingegneria mobile.\nRemoto dalla Türkiye, oppure ibrido e in sede a Istanbul.',
+    emailMe: 'Scrivimi',
+    invitation:
+      'Per conversazioni di assunzione, parlami del prodotto, del team e del ruolo.',
+  },
+  footer: {
+    websiteSource: 'Codice sorgente del sito',
+  },
+  profile: profileCopyIt,
+  projects: projectsIt,
+  openSourceProjects: openSourceProjectsIt,
+  skillGroups: skillGroupsIt,
+}
+
+const zh: Messages = {
+  meta: {
+    title: 'İlker Sevim — 高级 iOS 与 Flutter 工程师',
+    description:
+      'İlker Sevim — 驻伊斯坦布尔的高级 iOS 与 Flutter 工程师。探索移动项目、工程实践，以及远程、全职与合同制岗位的即时可用性。',
+    ogLocale: 'zh_CN',
+  },
+  a11y: {
+    skipToContent: '跳到主要内容',
+    primaryNav: '主导航',
+    brandTop: '— 返回页顶',
+    language: '语言',
+    opensInNewTab: '（在新标签页打开）',
+    emailName: (name) => `给 ${name} 发邮件`,
+    projectLink: (project, label) => `${project}：${label}`,
+    openSourceLink: (project) => `${project}：查看源码`,
+  },
+  theme: {
+    switchToLight: '切换到浅色主题',
+    switchToDark: '切换到深色主题',
+    darkOn: '深色主题已开启',
+    lightOn: '浅色主题已开启',
+  },
+  nav: {
+    work: '作品',
+    skills: '技能',
+    about: '关于',
+    contact: '联系',
+  },
+  hero: {
+    exploreWork: '浏览我的作品',
+    getInTouch: '联系我',
+    portraitAlt: 'İlker Sevim 肖像',
+  },
+  work: {
+    title: '精选作品',
+    lead: '公开项目，展示我如何设计、构建并验证软件。',
+    moreTitle: '更多开源作品',
+    viewSource: '查看源码',
+  },
+  skills: {
+    title: '技能与工程实践',
+    lead: '原生移动深度、跨平台交付，以及务实的 Web 技术栈。',
+  },
+  about: {
+    title: '面对真实产品约束的经验',
+    paragraphs: [
+      '我是一名驻伊斯坦布尔的高级移动工程师。经验覆盖银行、支付、电信与安全通信，包括原生 iPhone 与 iPad 应用、共享 iOS 框架以及跨平台交付。',
+      '我曾主导移动开发、指导工程师，并自动化构建与发布流程。我的公开项目便于评审架构决策、平台集成与测试实践。',
+      '我将同样的严谨带到 AI 辅助开发中：有用的上下文、范围明确的变更、人工审查与验证。',
+    ],
+    location: '地点',
+    arrangements: '工作方式',
+    availability: '可用性',
+    education: '教育背景',
+    educationValue: '计算机工程学士 · Işık 大学\n工商管理硕士 · Maltepe 大学',
+  },
+  contact: {
+    title: '一起构建可靠的产品。',
+    note: '欢迎 iOS、Flutter 与移动工程相关机会。\n可从土耳其远程，或在伊斯坦布尔混合/现场办公。',
+    emailMe: '给我发邮件',
+    invitation: '招聘沟通时，请告诉我产品、团队与岗位信息。',
+  },
+  footer: {
+    websiteSource: '网站源码',
+  },
+  profile: profileCopyZh,
+  projects: projectsZh,
+  openSourceProjects: openSourceProjectsZh,
+  skillGroups: skillGroupsZh,
+}
+
 export const messagesByLocale: Record<Locale, Messages> = {
   en,
   tr,
   fr,
   es,
   de,
+  it,
   ar,
   ja,
+  zh,
 }
 
 export function getMessages(locale: Locale): Messages {

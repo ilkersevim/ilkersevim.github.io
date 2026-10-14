@@ -399,5 +399,119 @@ export const skillGroupsDe: SkillGroup[] = [
   },
 ]
 
+export const skillGroupsIt: SkillGroup[] = [
+  {
+    id: 'native',
+    title: 'iOS e iPadOS nativi',
+    items: [
+      'Swift · SwiftUI · UIKit',
+      'Objective-C · Swift Concurrency',
+      'Xcode · CocoaPods',
+    ],
+  },
+  {
+    id: 'flutter',
+    title: 'Flutter e Dart',
+    items: [
+      'BLoC / Cubit · Clean Architecture',
+      'UI responsive e adattiva',
+      'Integrazione di piattaforma Swift / Kotlin',
+    ],
+  },
+  {
+    id: 'architecture',
+    title: 'Architettura e dati',
+    items: [
+      'Feature modulari · Dependency injection',
+      'API REST · Caching offline',
+      'Firebase · Supabase',
+    ],
+  },
+  {
+    id: 'quality',
+    title: 'Qualità e delivery',
+    items: [
+      'Test unitari · UI · Widget · Integrazione',
+      'GitHub Actions · Fastlane',
+      'Flussi App Store e Google Play',
+    ],
+  },
+  {
+    id: 'web',
+    title: 'Web con React',
+    items: [
+      'React · TypeScript · Vite',
+      'HTML / CSS · CSS Modules',
+      'UI responsive e accessibile',
+    ],
+  },
+  {
+    id: 'ai',
+    title: 'Sviluppo assistito da IA',
+    items: [
+      'Cursor · Codex · Skill IA riutilizzabili',
+      'Modifiche circoscritte e review dell’architettura',
+      'Code review umana e verifica con test',
+    ],
+  },
+]
+
+export const skillGroupsZh: SkillGroup[] = [
+  {
+    id: 'native',
+    title: '原生 iOS 与 iPadOS',
+    items: [
+      'Swift · SwiftUI · UIKit',
+      'Objective-C · Swift Concurrency',
+      'Xcode · CocoaPods',
+    ],
+  },
+  {
+    id: 'flutter',
+    title: 'Flutter 与 Dart',
+    items: [
+      'BLoC / Cubit · Clean Architecture',
+      '响应式与自适应界面',
+      'Swift / Kotlin 平台集成',
+    ],
+  },
+  {
+    id: 'architecture',
+    title: '架构与数据',
+    items: [
+      '模块化功能 · 依赖注入',
+      'REST API · 离线缓存',
+      'Firebase · Supabase',
+    ],
+  },
+  {
+    id: 'quality',
+    title: '质量与交付',
+    items: [
+      '单元 · UI · Widget · 集成测试',
+      'GitHub Actions · Fastlane',
+      'App Store 与 Google Play 工作流',
+    ],
+  },
+  {
+    id: 'web',
+    title: 'React Web',
+    items: [
+      'React · TypeScript · Vite',
+      'HTML / CSS · CSS Modules',
+      '响应式与无障碍界面',
+    ],
+  },
+  {
+    id: 'ai',
+    title: 'AI 辅助开发',
+    items: [
+      'Cursor · Codex · 可复用 AI 技能',
+      '范围明确的变更与架构评审',
+      '人工代码审查与测试验证',
+    ],
+  },
+]
+
 /** @deprecated Prefer locale-aware copies via `useLocale().t.skillGroups`. */
 export const skillGroups = skillGroupsEn

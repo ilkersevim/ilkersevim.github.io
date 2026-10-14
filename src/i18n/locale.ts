@@ -1,4 +1,13 @@
-export type Locale = 'en' | 'tr' | 'fr' | 'es' | 'de' | 'ar' | 'ja'
+export type Locale =
+  | 'en'
+  | 'tr'
+  | 'fr'
+  | 'es'
+  | 'de'
+  | 'it'
+  | 'ar'
+  | 'ja'
+  | 'zh'
 
 export const LOCALES: readonly Locale[] = [
   'en',
@@ -6,8 +15,10 @@ export const LOCALES: readonly Locale[] = [
   'fr',
   'es',
   'de',
+  'it',
   'ar',
   'ja',
+  'zh',
 ] as const
 
 export const LOCALE_STORAGE_KEY = 'locale'
@@ -18,8 +29,10 @@ export const LOCALE_LABELS: Record<Locale, string> = {
   fr: 'FR',
   es: 'ES',
   de: 'DE',
+  it: 'IT',
   ar: 'AR',
   ja: 'JA',
+  zh: 'ZH',
 }
 
 export const LOCALE_NATIVE_NAMES: Record<Locale, string> = {
@@ -28,8 +41,10 @@ export const LOCALE_NATIVE_NAMES: Record<Locale, string> = {
   fr: 'Français',
   es: 'Español',
   de: 'Deutsch',
+  it: 'Italiano',
   ar: 'العربية',
   ja: '日本語',
+  zh: '简体中文',
 }
 
 export function isLocale(value: string | null): value is Locale {
@@ -39,8 +54,10 @@ export function isLocale(value: string | null): value is Locale {
     value === 'fr' ||
     value === 'es' ||
     value === 'de' ||
+    value === 'it' ||
     value === 'ar' ||
-    value === 'ja'
+    value === 'ja' ||
+    value === 'zh'
   )
 }
 

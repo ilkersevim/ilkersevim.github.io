@@ -68,6 +68,13 @@ html[lang='ja'] {
     sans-serif;
 }
 
+html[lang='zh'] {
+  --font-display: 'Noto Sans SC', 'Syne', 'PingFang SC', 'Microsoft YaHei',
+    sans-serif;
+  --font-body: 'Noto Sans SC', 'Manrope', 'PingFang SC', 'Microsoft YaHei',
+    sans-serif;
+}
+
 [data-theme='dark'] {
   --ink: #e6eef1;
   --muted: #9bb0b8;

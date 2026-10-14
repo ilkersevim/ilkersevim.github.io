@@ -40,7 +40,17 @@
     <script>
       ;(function () {
         try {
-          var allowed = { en: 1, tr: 1, fr: 1, es: 1, de: 1, ar: 1, ja: 1 }
+          var allowed = {
+            en: 1,
+            tr: 1,
+            fr: 1,
+            es: 1,
+            de: 1,
+            it: 1,
+            ar: 1,
+            ja: 1,
+            zh: 1,
+          }
           var key = 'locale'
           var stored = localStorage.getItem(key)
           var locale = Object.prototype.hasOwnProperty.call(allowed, stored)
@@ -126,14 +136,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&family=Syne:wght@700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&family=Noto+Sans+SC:wght@400;600;700&family=Syne:wght@700;800&display=swap"
       rel="stylesheet"
       media="print"
       onload="this.media='all'"
     />
     <noscript>
       <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&family=Syne:wght@700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&family=Noto+Sans+SC:wght@400;600;700&family=Syne:wght@700;800&display=swap"
         rel="stylesheet"
       />
     </noscript>

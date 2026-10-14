@@ -743,6 +743,209 @@ export const openSourceProjectsDe = [
   },
 ] as const satisfies readonly OpenSourceProject[]
 
+export const projectsIt: Project[] = [
+  {
+    id: 'flutter-bloc-app',
+    title: 'Portfolio di ingegneria Flutter',
+    blurb:
+      'App di riferimento multipiattaforma con BLoC / Cubit, sincronizzazione offline e integrazione nativa Swift / Kotlin.',
+    tags: ['Flutter', 'Dart', 'Clean Architecture'],
+    evidence: [
+      'Feature a livelli e stato prevedibile',
+      'Dati offline e integrazione di piattaforma',
+      'Test unitari, widget, golden e di integrazione',
+    ],
+    links: [
+      {
+        label: 'Demo live',
+        href: 'https://redjadet.github.io/flutter_bloc_app/',
+      },
+      {
+        label: 'Review in 3 minuti',
+        href: 'https://github.com/redjadet/flutter_bloc_app#3-minute-review',
+      },
+      {
+        label: 'Google Play',
+        href: 'https://play.google.com/store/apps/details?id=com.ilkersevim.blocflutter',
+      },
+      {
+        label: 'Codice e architettura',
+        href: 'https://github.com/redjadet/flutter_bloc_app',
+      },
+    ],
+  },
+  {
+    id: 'super-demo-ios',
+    title: 'Portfolio nativo iOS e iPadOS',
+    blurb:
+      'Esempio SwiftUI / SwiftData con feed offline, concurrency e interoperabilità UIKit.',
+    tags: ['SwiftUI', 'SwiftData', 'iOS / iPadOS'],
+    evidence: [
+      'Livelli di feature e dependency injection',
+      'Cache offline e networking con URLSession',
+      'Test UI e bridge Flutter opzionale',
+    ],
+    links: [
+      {
+        label: 'Percorso in 3 minuti',
+        href: 'https://github.com/redjadet/super_demo_ios#3-minute-path',
+      },
+      {
+        label: 'Codice e guida per reviewer',
+        href: 'https://github.com/redjadet/super_demo_ios',
+      },
+    ],
+  },
+  {
+    id: 'react-website',
+    title: 'Sito personale con React e TypeScript',
+    blurb:
+      'Questo sito responsive: contenuti tipizzati, navigazione accessibile e un piccolo sistema di componenti riusabili.',
+    tags: ['React', 'TypeScript', 'Vite', 'CSS Modules'],
+    evidence: [
+      'Design accessibile e responsive',
+      'Contenuti tipizzati e componenti riusabili',
+      'Build ottimizzata e struttura di progetto chiara',
+    ],
+    links: [
+      {
+        label: 'Vedi il codice sorgente',
+        href: 'https://github.com/redjadet/react-web-portfolio',
+      },
+    ],
+  },
+]
+
+export const openSourceProjectsIt = [
+  {
+    id: 'type-safe-bloc',
+    title: 'Helper BLoC type-safe',
+    blurb:
+      'Pacchetto Flutter pubblicato con selector, builder e listener tipizzati per BLoC / Cubit.',
+    href: 'https://github.com/redjadet/ilkersevim_type_safe_bloc',
+  },
+  {
+    id: 'platform-comparison',
+    title: 'Studio comparativo multipiattaforma',
+    blurb:
+      'Lo stesso prodotto di esempio in SwiftUI, Jetpack Compose e Flutter, con i trade-off di implementazione.',
+    href: 'https://github.com/redjadet/iOS_Android_Flutter_Comparison',
+  },
+  {
+    id: 'safe-parse',
+    title: 'Utility di parsing sicuro',
+    blurb:
+      'Helper Dart per il parsing prevedibile di valori dinamici e simili a JSON.',
+    href: 'https://github.com/redjadet/ilkersevim_safe_parse',
+  },
+  {
+    id: 'async-utils',
+    title: 'Utility di coalescenza asincrona',
+    blurb:
+      'Utility Dart senza dipendenze per coalescere il lavoro e rifiutare risultati obsoleti.',
+    href: 'https://github.com/redjadet/ilkersevim_async_utils',
+  },
+] as const satisfies readonly OpenSourceProject[]
+
+export const projectsZh: Project[] = [
+  {
+    id: 'flutter-bloc-app',
+    title: 'Flutter 工程作品集',
+    blurb:
+      '跨平台参考应用，采用 BLoC / Cubit、离线同步以及原生 Swift / Kotlin 集成。',
+    tags: ['Flutter', 'Dart', 'Clean Architecture'],
+    evidence: [
+      '分层功能与可预测状态',
+      '离线数据与平台集成',
+      '单元、Widget、Golden 与集成测试',
+    ],
+    links: [
+      {
+        label: '在线演示',
+        href: 'https://redjadet.github.io/flutter_bloc_app/',
+      },
+      {
+        label: '三分钟评审',
+        href: 'https://github.com/redjadet/flutter_bloc_app#3-minute-review',
+      },
+      {
+        label: 'Google Play',
+        href: 'https://play.google.com/store/apps/details?id=com.ilkersevim.blocflutter',
+      },
+      {
+        label: '源码与架构',
+        href: 'https://github.com/redjadet/flutter_bloc_app',
+      },
+    ],
+  },
+  {
+    id: 'super-demo-ios',
+    title: '原生 iOS 与 iPadOS 作品集',
+    blurb: 'SwiftUI / SwiftData 示例，含离线信息流、并发与 UIKit 互操作。',
+    tags: ['SwiftUI', 'SwiftData', 'iOS / iPadOS'],
+    evidence: [
+      '功能分层与依赖注入',
+      '离线缓存与 URLSession 网络',
+      'UI 测试与可选 Flutter 桥接',
+    ],
+    links: [
+      {
+        label: '三分钟路径',
+        href: 'https://github.com/redjadet/super_demo_ios#3-minute-path',
+      },
+      {
+        label: '源码与评审指南',
+        href: 'https://github.com/redjadet/super_demo_ios',
+      },
+    ],
+  },
+  {
+    id: 'react-website',
+    title: 'React 与 TypeScript 个人网站',
+    blurb: '本响应式网站：类型化内容、无障碍导航与小型可复用组件系统。',
+    tags: ['React', 'TypeScript', 'Vite', 'CSS Modules'],
+    evidence: [
+      '无障碍与响应式设计',
+      '类型化内容与可复用组件',
+      '优化构建与清晰项目结构',
+    ],
+    links: [
+      {
+        label: '查看源码',
+        href: 'https://github.com/redjadet/react-web-portfolio',
+      },
+    ],
+  },
+]
+
+export const openSourceProjectsZh = [
+  {
+    id: 'type-safe-bloc',
+    title: '类型安全的 BLoC 辅助工具',
+    blurb: '已发布的 Flutter 包，为 BLoC / Cubit 提供类型化选择器、构建器与监听器。',
+    href: 'https://github.com/redjadet/ilkersevim_type_safe_bloc',
+  },
+  {
+    id: 'platform-comparison',
+    title: '跨平台对比研究',
+    blurb:
+      '同一示例产品分别用 SwiftUI、Jetpack Compose 与 Flutter 实现，并说明实现取舍。',
+    href: 'https://github.com/redjadet/iOS_Android_Flutter_Comparison',
+  },
+  {
+    id: 'safe-parse',
+    title: '安全解析工具',
+    blurb: '用于可预测解析动态值与类 JSON 值的 Dart 辅助工具。',
+    href: 'https://github.com/redjadet/ilkersevim_safe_parse',
+  },
+  {
+    id: 'async-utils',
+    title: '异步合并工具',
+    blurb: '无依赖的 Dart 工具，用于合并工作并拒绝过期结果。',
+    href: 'https://github.com/redjadet/ilkersevim_async_utils',
+  },
+] as const satisfies readonly OpenSourceProject[]
+
 /** @deprecated Prefer locale-aware copies via `useLocale().t.projects`. */
 export const projects = projectsEn
 
