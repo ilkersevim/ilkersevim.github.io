@@ -342,5 +342,62 @@ export const skillGroupsEs: SkillGroup[] = [
   },
 ]
 
+export const skillGroupsDe: SkillGroup[] = [
+  {
+    id: 'native',
+    title: 'Natives iOS & iPadOS',
+    items: [
+      'Swift · SwiftUI · UIKit',
+      'Objective-C · Swift Concurrency',
+      'Xcode · CocoaPods',
+    ],
+  },
+  {
+    id: 'flutter',
+    title: 'Flutter & Dart',
+    items: [
+      'BLoC / Cubit · Clean Architecture',
+      'Responsives und adaptives UI',
+      'Swift- / Kotlin-Plattformintegration',
+    ],
+  },
+  {
+    id: 'architecture',
+    title: 'Architektur & Daten',
+    items: [
+      'Modulare Features · Dependency Injection',
+      'REST-APIs · Offline-Caching',
+      'Firebase · Supabase',
+    ],
+  },
+  {
+    id: 'quality',
+    title: 'Qualität & Delivery',
+    items: [
+      'Unit- · UI- · Widget- · Integrationstests',
+      'GitHub Actions · Fastlane',
+      'App-Store- und Google-Play-Workflows',
+    ],
+  },
+  {
+    id: 'web',
+    title: 'React-Web',
+    items: [
+      'React · TypeScript · Vite',
+      'HTML / CSS · CSS Modules',
+      'Responsives und barrierefreies UI',
+    ],
+  },
+  {
+    id: 'ai',
+    title: 'KI-gestützte Entwicklung',
+    items: [
+      'Cursor · Codex · Wiederverwendbare KI-Skills',
+      'Begrenzte Änderungen und Architektur-Review',
+      'Menschliche Code-Review und Testverifikation',
+    ],
+  },
+]
+
 /** @deprecated Prefer locale-aware copies via `useLocale().t.skillGroups`. */
 export const skillGroups = skillGroupsEn

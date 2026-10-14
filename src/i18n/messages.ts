@@ -3,12 +3,14 @@ import type { Project } from '../content/projects'
 import type { SkillGroup } from '../content/skills'
 import {
   openSourceProjectsAr,
+  openSourceProjectsDe,
   openSourceProjectsEn,
   openSourceProjectsEs,
   openSourceProjectsFr,
   openSourceProjectsJa,
   openSourceProjectsTr,
   projectsAr,
+  projectsDe,
   projectsEn,
   projectsEs,
   projectsFr,
@@ -18,6 +20,7 @@ import {
 } from '../content/projects'
 import {
   skillGroupsAr,
+  skillGroupsDe,
   skillGroupsEn,
   skillGroupsEs,
   skillGroupsFr,
@@ -26,6 +29,7 @@ import {
 } from '../content/skills'
 import {
   profileCopyAr,
+  profileCopyDe,
   profileCopyEn,
   profileCopyEs,
   profileCopyFr,
@@ -545,11 +549,86 @@ const es: Messages = {
   skillGroups: skillGroupsEs,
 }
 
+const de: Messages = {
+  meta: {
+    title: 'İlker Sevim — Senior iOS- & Flutter-Ingenieur',
+    description:
+      'İlker Sevim — Senior iOS- & Flutter-Ingenieur in Istanbul. Entdecken Sie Mobile-Projekte, Engineering-Praktiken und sofortige Verfügbarkeit für Remote-, Vollzeit- und Vertragsrollen.',
+    ogLocale: 'de_DE',
+  },
+  a11y: {
+    skipToContent: 'Zum Inhalt springen',
+    primaryNav: 'Hauptnavigation',
+    brandTop: '— Seitenanfang',
+    language: 'Sprache',
+    opensInNewTab: ' (öffnet in einem neuen Tab)',
+    emailName: (name) => `E-Mail an ${name}`,
+    projectLink: (project, label) => `${project}: ${label}`,
+    openSourceLink: (project) => `${project}: Quellcode ansehen`,
+  },
+  theme: {
+    switchToLight: 'Zum hellen Design wechseln',
+    switchToDark: 'Zum dunklen Design wechseln',
+    darkOn: 'Dunkles Design aktiv',
+    lightOn: 'Helles Design aktiv',
+  },
+  nav: {
+    work: 'Arbeiten',
+    skills: 'Fähigkeiten',
+    about: 'Über mich',
+    contact: 'Kontakt',
+  },
+  hero: {
+    exploreWork: 'Meine Arbeiten entdecken',
+    getInTouch: 'Kontakt aufnehmen',
+    portraitAlt: 'Porträt von İlker Sevim',
+  },
+  work: {
+    title: 'Ausgewählte Arbeiten',
+    lead: 'Öffentliche Projekte, die zeigen, wie ich Software entwerfe, baue und verifiziere.',
+    moreTitle: 'Weitere Open-Source-Arbeiten',
+    viewSource: 'Quellcode ansehen',
+  },
+  skills: {
+    title: 'Fähigkeiten & Engineering-Praktiken',
+    lead: 'Native Mobile-Tiefe, plattformübergreifende Delivery und ein praxisnaher Web-Stack.',
+  },
+  about: {
+    title: 'Erfahrung mit echten Produktanforderungen',
+    paragraphs: [
+      'Ich bin ein Senior-Mobile-Ingenieur mit Sitz in Istanbul. Meine Erfahrung umfasst Banking, Payments, Telekommunikation und sichere Kommunikation — inklusive nativer iPhone- und iPad-Apps, gemeinsamer iOS-Frameworks und plattformübergreifender Delivery.',
+      'Ich habe Mobile-Entwicklung geleitet, Ingenieure mentored und Build- sowie Release-Workflows automatisiert. Meine öffentlichen Projekte machen Architekturentscheidungen, Plattformintegration und Testpraktiken leicht überprüfbar.',
+      'Denselben Anspruch bringe ich in die KI-gestützte Entwicklung ein: nützlicher Kontext, begrenzte Änderungen, menschliche Review und Verifikation.',
+    ],
+    location: 'Standort',
+    arrangements: 'Arbeitsmodell',
+    availability: 'Verfügbarkeit',
+    education: 'Ausbildung',
+    educationValue:
+      'B.Sc. Informatikingenieurwesen · Işık-Universität\nMBA · Maltepe-Universität',
+  },
+  contact: {
+    title: 'Lassen Sie uns etwas Zuverlässiges bauen.',
+    note: 'Offen für Chancen in iOS, Flutter und Mobile Engineering.\nRemote aus der Türkiye, oder hybrid und vor Ort in Istanbul.',
+    emailMe: 'E-Mail schreiben',
+    invitation:
+      'Für Einstellungsgespräche erzählen Sie mir bitte von Produkt, Team und Rolle.',
+  },
+  footer: {
+    websiteSource: 'Quellcode der Website',
+  },
+  profile: profileCopyDe,
+  projects: projectsDe,
+  openSourceProjects: openSourceProjectsDe,
+  skillGroups: skillGroupsDe,
+}
+
 export const messagesByLocale: Record<Locale, Messages> = {
   en,
   tr,
   fr,
   es,
+  de,
   ar,
   ja,
 }

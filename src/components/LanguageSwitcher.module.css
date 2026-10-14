@@ -59,8 +59,8 @@
   }
 
   .switcher button {
-    min-width: 1.9rem;
-    padding: 0 0.28rem;
-    font-size: 0.65rem;
+    min-width: 1.65rem;
+    padding: 0 0.22rem;
+    font-size: 0.62rem;
   }
 }

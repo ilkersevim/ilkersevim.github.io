@@ -639,6 +639,110 @@ export const openSourceProjectsEs = [
   },
 ] as const satisfies readonly OpenSourceProject[]
 
+export const projectsDe: Project[] = [
+  {
+    id: 'flutter-bloc-app',
+    title: 'Flutter-Engineering-Portfolio',
+    blurb:
+      'Eine plattformübergreifende Referenz-App mit BLoC / Cubit, Offline-Synchronisation und nativer Swift- / Kotlin-Integration.',
+    tags: ['Flutter', 'Dart', 'Clean Architecture'],
+    evidence: [
+      'Geschichtete Features und vorhersagbarer State',
+      'Offline-Daten und Plattformintegration',
+      'Unit-, Widget-, Golden- und Integrationstests',
+    ],
+    links: [
+      {
+        label: 'Live-Demo',
+        href: 'https://redjadet.github.io/flutter_bloc_app/',
+      },
+      {
+        label: '3-Minuten-Review',
+        href: 'https://github.com/redjadet/flutter_bloc_app#3-minute-review',
+      },
+      {
+        label: 'Google Play',
+        href: 'https://play.google.com/store/apps/details?id=com.ilkersevim.blocflutter',
+      },
+      {
+        label: 'Quellcode & Architektur',
+        href: 'https://github.com/redjadet/flutter_bloc_app',
+      },
+    ],
+  },
+  {
+    id: 'super-demo-ios',
+    title: 'Natives iOS- & iPadOS-Portfolio',
+    blurb:
+      'Ein SwiftUI- / SwiftData-Beispiel mit Offline-Feed, Concurrency und UIKit-Interoperabilität.',
+    tags: ['SwiftUI', 'SwiftData', 'iOS / iPadOS'],
+    evidence: [
+      'Feature-Schichten und Dependency Injection',
+      'Offline-Cache und URLSession-Networking',
+      'UI-Tests und optionale Flutter-Bridge',
+    ],
+    links: [
+      {
+        label: '3-Minuten-Pfad',
+        href: 'https://github.com/redjadet/super_demo_ios#3-minute-path',
+      },
+      {
+        label: 'Quellcode & Reviewer-Guide',
+        href: 'https://github.com/redjadet/super_demo_ios',
+      },
+    ],
+  },
+  {
+    id: 'react-website',
+    title: 'Persönliche Website mit React & TypeScript',
+    blurb:
+      'Diese responsive Website: typisierte Inhalte, barrierefreie Navigation und ein kleines, wiederverwendbares Komponentensystem.',
+    tags: ['React', 'TypeScript', 'Vite', 'CSS Modules'],
+    evidence: [
+      'Barrierefreies und responsives Design',
+      'Typisierte Inhalte und wiederverwendbare Komponenten',
+      'Optimierter Build und klare Projektstruktur',
+    ],
+    links: [
+      {
+        label: 'Quellcode ansehen',
+        href: 'https://github.com/redjadet/react-web-portfolio',
+      },
+    ],
+  },
+]
+
+export const openSourceProjectsDe = [
+  {
+    id: 'type-safe-bloc',
+    title: 'Typsichere BLoC-Helfer',
+    blurb:
+      'Veröffentlichtes Flutter-Paket mit typisierten Selectors, Builders und Listeners für BLoC / Cubit.',
+    href: 'https://github.com/redjadet/ilkersevim_type_safe_bloc',
+  },
+  {
+    id: 'platform-comparison',
+    title: 'Plattformübergreifende Vergleichsstudie',
+    blurb:
+      'Ein Beispielprodukt in SwiftUI, Jetpack Compose und Flutter — inklusive Implementierungs-Tradeoffs.',
+    href: 'https://github.com/redjadet/iOS_Android_Flutter_Comparison',
+  },
+  {
+    id: 'safe-parse',
+    title: 'Sichere Parse-Utilities',
+    blurb:
+      'Dart-Helfer für vorhersagbares Parsen dynamischer und JSON-ähnlicher Werte.',
+    href: 'https://github.com/redjadet/ilkersevim_safe_parse',
+  },
+  {
+    id: 'async-utils',
+    title: 'Async-Coalescing-Utilities',
+    blurb:
+      'Abhängigkeitsfreie Dart-Utilities zum Zusammenführen von Arbeit und Ablehnen veralteter Ergebnisse.',
+    href: 'https://github.com/redjadet/ilkersevim_async_utils',
+  },
+] as const satisfies readonly OpenSourceProject[]
+
 /** @deprecated Prefer locale-aware copies via `useLocale().t.projects`. */
 export const projects = projectsEn
 

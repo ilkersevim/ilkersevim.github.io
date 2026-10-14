@@ -1,10 +1,11 @@
-export type Locale = 'en' | 'tr' | 'fr' | 'es' | 'ar' | 'ja'
+export type Locale = 'en' | 'tr' | 'fr' | 'es' | 'de' | 'ar' | 'ja'
 
 export const LOCALES: readonly Locale[] = [
   'en',
   'tr',
   'fr',
   'es',
+  'de',
   'ar',
   'ja',
 ] as const
@@ -16,6 +17,7 @@ export const LOCALE_LABELS: Record<Locale, string> = {
   tr: 'TR',
   fr: 'FR',
   es: 'ES',
+  de: 'DE',
   ar: 'AR',
   ja: 'JA',
 }
@@ -25,6 +27,7 @@ export const LOCALE_NATIVE_NAMES: Record<Locale, string> = {
   tr: 'Türkçe',
   fr: 'Français',
   es: 'Español',
+  de: 'Deutsch',
   ar: 'العربية',
   ja: '日本語',
 }
@@ -35,6 +38,7 @@ export function isLocale(value: string | null): value is Locale {
     value === 'tr' ||
     value === 'fr' ||
     value === 'es' ||
+    value === 'de' ||
     value === 'ar' ||
     value === 'ja'
   )
