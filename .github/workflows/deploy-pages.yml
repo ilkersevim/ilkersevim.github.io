@@ -29,6 +29,7 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
+      - run: pnpm test:run
       - run: pnpm build
       # User site: publish the real app at https://redjadet.github.io/
       - uses: actions/upload-pages-artifact@v5

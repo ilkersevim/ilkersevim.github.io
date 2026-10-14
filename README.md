@@ -44,9 +44,13 @@ Open http://127.0.0.1:43123/
 
 ```bash
 pnpm lint
-pnpm check   # lint + production build
+pnpm test        # Vitest watch
+pnpm test:run    # CI-friendly single run
+pnpm check       # lint + test:run + production build
 pnpm preview
 ```
+
+Pre-merge gate: [docs/pre-merge-checklist.md](docs/pre-merge-checklist.md). PRs use `.github/PULL_REQUEST_TEMPLATE.md`. GitHub Actions workflow **CI** runs lint, tests, and build on PRs and `main`.
 
 ## Update content
 
