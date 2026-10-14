@@ -7,6 +7,9 @@
   gap: var(--space-8);
   align-items: start;
 }
+.copy {
+  min-width: 0;
+}
 .copy p {
   margin: var(--space-5) 0 0;
   color: var(--muted);
@@ -16,6 +19,7 @@
 }
 .facts {
   margin: 0;
+  min-width: 0;
 }
 .facts div {
   padding: var(--space-5) 0;

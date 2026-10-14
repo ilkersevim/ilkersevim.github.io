@@ -141,6 +141,8 @@ a {
   font: 700 var(--text-2xl)/1.15 var(--font-display);
   letter-spacing: -0.035em;
   text-wrap: balance;
+  overflow-wrap: anywhere;
+  max-width: 100%;
 }
 .section__lead {
   margin: 0 0 var(--space-5);
