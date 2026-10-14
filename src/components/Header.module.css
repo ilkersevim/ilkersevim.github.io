@@ -39,7 +39,8 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  flex-shrink: 0;
+  min-width: 0;
+  flex-shrink: 1;
 }
 .nav {
   display: flex;
@@ -77,7 +78,8 @@
   text-decoration: underline;
   text-decoration-color: var(--accent);
 }
-@media (max-width: 550px) {
+/* Stack until a single-row header fits brand + nav + 9 locales + theme. */
+@media (max-width: 820px) {
   .inner {
     flex-wrap: wrap;
     justify-content: center;
@@ -97,6 +99,11 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 0.5rem 0.75rem;
+  }
+  .toggles {
+    flex: 1 1 auto;
+    max-width: 100%;
+    justify-content: center;
   }
   .nav {
     gap: 0.25rem 0.9rem;

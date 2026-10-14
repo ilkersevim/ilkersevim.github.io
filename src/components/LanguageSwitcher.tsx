@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import styles from './LanguageSwitcher.module.css'
 import {
   LOCALES,
@@ -9,6 +10,16 @@ import { useLocale } from '../i18n/useLocale'
 
 export function LanguageSwitcher() {
   const { locale, setLocale, t } = useLocale()
+  const activeRef = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    // Prefer scrollIntoView so RTL (AR) scroll directions stay correct.
+    activeRef.current?.scrollIntoView({
+      inline: 'center',
+      block: 'nearest',
+      behavior: 'smooth',
+    })
+  }, [locale])
 
   return (
     <div
@@ -22,6 +33,7 @@ export function LanguageSwitcher() {
         return (
           <button
             key={code}
+            ref={selected ? activeRef : undefined}
             type="button"
             className={selected ? styles.active : undefined}
             onClick={() => setLocale(code)}
