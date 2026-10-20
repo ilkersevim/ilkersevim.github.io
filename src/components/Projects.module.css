@@ -52,13 +52,47 @@
   border-inline-start: 1px solid var(--line);
   padding-block: var(--space-3);
   padding-inline: var(--space-5) 0;
-  list-style: none;
   margin: 0;
   display: grid;
   gap: 0.7rem;
   align-content: center;
   color: var(--muted);
   font-size: var(--text-md);
+  line-height: 1.5;
+}
+.evidence ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+.proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  margin-top: var(--space-3);
+}
+.proof a {
+  font-size: var(--text-sm);
+}
+.preview {
+  margin: var(--space-5) 0 0;
+}
+.preview img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 21rem;
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  background: var(--surface);
+}
+.preview figcaption {
+  margin-top: 0.65rem;
+  color: var(--muted);
+  font-size: var(--text-sm);
   line-height: 1.5;
 }
 .moreTitle {

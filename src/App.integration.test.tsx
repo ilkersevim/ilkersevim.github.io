@@ -9,6 +9,18 @@ import { THEME_STORAGE_KEY } from './theme/theme'
 import { renderWithProviders } from './test/render'
 
 describe('App integration', () => {
+  it('exposes the visible email label and two named CV downloads', async () => {
+    renderWithProviders(createElement(App))
+    const { contact } = getMessages('en')
+    expect(await screen.findByRole('link', { name: contact.emailMe, exact: true }))
+      .toHaveAttribute('href', 'mailto:ilkersevim2007@gmail.com')
+    for (const [label, filename] of [[contact.flutterCv, 'flutter'], [contact.iosCv, 'ios']]) {
+      const link = screen.getByRole('link', { name: label })
+      expect(link).toHaveAttribute('href', `/cv/ilker-sevim-${filename}.pdf`)
+      expect(link).toHaveAttribute('download')
+    }
+  })
+
   it('switches language copy and document lang/dir', async () => {
     const user = userEvent.setup()
     renderWithProviders(createElement(App))

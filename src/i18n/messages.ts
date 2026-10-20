@@ -102,6 +102,8 @@ export type Messages = {
     title: string
     note: string
     emailMe: string
+    flutterCv: string
+    iosCv: string
     invitation: string
   }
   footer: {
@@ -115,9 +117,8 @@ export type Messages = {
 
 const en: Messages = {
   meta: {
-    title: 'İlker Sevim — Senior iOS & Flutter Engineer',
-    description:
-      'İlker Sevim — Senior iOS & Flutter Engineer in Istanbul. Explore mobile projects, engineering practices and immediate availability for remote, full-time and contract roles.',
+    title: "İlker Sevim — " + profileCopyEn.role,
+    description: profileCopyEn.headline + " " + profileCopyEn.arrangements,
     ogLocale: 'en_US',
   },
   a11y: {
@@ -155,14 +156,14 @@ const en: Messages = {
   },
   skills: {
     title: 'Skills & engineering practices',
-    lead: 'Native mobile depth, cross-platform delivery and a practical web stack.',
+    lead: "Flutter first, a professional Apple foundation, and personal Android and React projects.",
   },
   about: {
     title: 'Experience with real product constraints',
     paragraphs: [
-      'I am a senior mobile engineer based in Istanbul. My experience spans banking, payments, telecom and secure communications, including native iPhone and iPad apps, shared iOS frameworks and cross-platform delivery.',
-      'I have led mobile development, mentored engineers and automated build and release workflows. My public projects make architecture decisions, platform integration and testing practices easy to review.',
-      'I bring the same care to AI-assisted development: useful context, scoped changes, human review and verification.',
+      "I am a mobile engineer in Istanbul, with professional experience in banking, payments, telecom and secure communications. My Flutter background includes 1.5 years of commercial work and, separately, 3 years of personal development.",
+      "My professional Apple work uses Swift, UIKit and Objective-C, alongside WebRTC and audio/video development. My public Apple portfolio demonstrates SwiftUI, SwiftData and Swift Concurrency; Android and React are personal portfolio projects.",
+      "I have led mobile development, mentored engineers and automated builds and releases. With Cursor and Codex, I keep changes scoped, review the code and verify the result with tests.",
     ],
     location: 'Location',
     arrangements: 'Working arrangements',
@@ -173,7 +174,9 @@ const en: Messages = {
   },
   contact: {
     title: 'Let’s build something reliable.',
-    note: 'Open to iOS, Flutter and mobile engineering opportunities.\nRemote from Türkiye, or hybrid and onsite in Istanbul.',
+    note: "Open to Flutter and iOS engineering roles.\nRemote from Istanbul, Türkiye; hybrid in Istanbul.",
+    flutterCv: "Download Flutter CV (PDF)",
+    iosCv: "Download iOS CV (PDF)",
     emailMe: 'Email me',
     invitation:
       'For hiring conversations, tell me about the product, team and the role.',
@@ -189,9 +192,8 @@ const en: Messages = {
 
 const tr: Messages = {
   meta: {
-    title: 'İlker Sevim — Kıdemli iOS ve Flutter Mühendisi',
-    description:
-      'İlker Sevim — İstanbul’da Kıdemli iOS ve Flutter Mühendisi. Mobil projeleri, mühendislik pratiklerini ve uzaktan, tam zamanlı ve sözleşmeli roller için hemen başlayabilirliği keşfedin.',
+    title: "İlker Sevim — " + profileCopyTr.role,
+    description: profileCopyTr.headline + " " + profileCopyTr.arrangements,
     ogLocale: 'tr_TR',
   },
   a11y: {
@@ -229,14 +231,14 @@ const tr: Messages = {
   },
   skills: {
     title: 'Yetkinlikler ve mühendislik pratikleri',
-    lead: 'Native mobil derinliği, çapraz platform teslimatı ve pratik bir web yığını.',
+    lead: "Önce Flutter; güçlü bir profesyonel Apple geçmişi ve kişisel Android / React projeleri.",
   },
   about: {
     title: 'Gerçek ürün kısıtlarıyla edinilmiş deneyim',
     paragraphs: [
-      'İstanbul merkezli kıdemli bir mobil mühendisim. Deneyimim bankacılık, ödemeler, telekom ve güvenli iletişimi kapsar; native iPhone ve iPad uygulamaları, paylaşılan iOS çerçeveleri ve çapraz platform teslimatı dahil.',
-      'Mobil geliştirmeyi yönettim, mühendisleri mentorladım ve derleme ile yayın iş akışlarını otomatikleştirdim. Açık projelerim mimari kararları, platform entegrasyonunu ve test pratiklerini kolayca incelenebilir kılar.',
-      'Yapay zekâ destekli geliştirmeye de aynı özeni getiririm: yararlı bağlam, sınırlı değişiklikler, insan incelemesi ve doğrulama.',
+      "İstanbul’da yaşayan bir mobil yazılım mühendisiyim. Bankacılık, ödeme, telekom ve güvenli iletişim ürünlerinde çalıştım. Flutter geçmişim 1,5 yıl ticari deneyim ve bundan ayrı 3 yıllık kişisel çalışmayı kapsıyor.",
+      "Profesyonel Apple deneyimim Swift, UIKit ve Objective-C ile WebRTC ve ses/video geliştirmeyi kapsıyor. Açık Apple portfolyomda SwiftUI, SwiftData ve Swift Concurrency çalışmalarım yer alıyor. Android ve React projelerim kişisel portfolyo çalışmaları.",
+      "Mobil ekiplere liderlik yaptım, geliştiricilere mentorluk verdim, derleme ve yayın süreçlerini otomatikleştirdim. Cursor ve Codex ile çalışırken değişiklikleri sınırlı tutuyor, kodu inceliyor ve sonucu testlerle doğruluyorum.",
     ],
     location: 'Konum',
     arrangements: 'Çalışma düzeni',
@@ -247,7 +249,9 @@ const tr: Messages = {
   },
   contact: {
     title: 'Güvenilir bir şey inşa edelim.',
-    note: 'iOS, Flutter ve mobil mühendislik fırsatlarına açığım.\nTürkiye’den uzaktan, ya da İstanbul’da hibrit ve ofis içi.',
+    note: "Flutter ve iOS mühendisliği fırsatlarına açığım.\nİstanbul/Türkiye’den uzaktan; İstanbul’da hibrit.",
+    flutterCv: "Flutter CV indir (PDF)",
+    iosCv: "iOS CV indir (PDF)",
     emailMe: 'E-posta gönder',
     invitation:
       'İşe alım görüşmeleri için ürün, ekip ve rol hakkında bilgi verin.',
@@ -263,9 +267,8 @@ const tr: Messages = {
 
 const fr: Messages = {
   meta: {
-    title: 'İlker Sevim — Ingénieur iOS & Flutter senior',
-    description:
-      'İlker Sevim — Ingénieur iOS & Flutter senior à Istanbul. Projets mobiles, pratiques d’ingénierie et disponibilité immédiate pour des postes à distance, en CDI ou en contrat.',
+    title: "İlker Sevim — " + profileCopyFr.role,
+    description: profileCopyFr.headline + " " + profileCopyFr.arrangements,
     ogLocale: 'fr_FR',
   },
   a11y: {
@@ -303,14 +306,14 @@ const fr: Messages = {
   },
   skills: {
     title: 'Compétences et pratiques d’ingénierie',
-    lead: 'Profondeur mobile native, livraison multiplateforme et stack web pragmatique.',
+    lead: "Flutter en premier, une expérience professionnelle Apple et des projets personnels Android et React.",
   },
   about: {
     title: 'Une expérience ancrée dans de vraies contraintes produit',
     paragraphs: [
-      'Je suis un ingénieur mobile senior basé à Istanbul. Mon expérience couvre la banque, les paiements, les télécoms et les communications sécurisées, y compris des applications iPhone et iPad natives, des frameworks iOS partagés et la livraison multiplateforme.',
-      'J’ai dirigé le développement mobile, mentoré des ingénieurs et automatisé les workflows de build et de publication. Mes projets publics rendent les décisions d’architecture, l’intégration plateforme et les pratiques de test faciles à examiner.',
-      'J’apporte le même soin au développement assisté par l’IA : contexte utile, changements ciblés, revue humaine et vérification.',
+      "Ingénieur mobile à Istanbul, j’ai travaillé dans la banque, les paiements, les télécoms et les communications sécurisées. Mon parcours Flutter comprend 1,5 an d’expérience commerciale et, séparément, 3 ans de pratique personnelle.",
+      "Mon expérience professionnelle Apple couvre Swift, UIKit, Objective-C, WebRTC et le développement audio/vidéo. Mon portfolio Apple présente SwiftUI, SwiftData et Swift Concurrency. Android et React sont des projets personnels.",
+      "J’ai dirigé des équipes mobiles, accompagné des développeurs et automatisé les builds et publications. Avec Cursor et Codex, je limite le périmètre des changements, relis le code et vérifie les résultats par des tests.",
     ],
     location: 'Localisation',
     arrangements: 'Modalités de travail',
@@ -321,7 +324,9 @@ const fr: Messages = {
   },
   contact: {
     title: 'Construisons quelque chose de fiable.',
-    note: 'Ouvert aux opportunités iOS, Flutter et ingénierie mobile.\nTélétravail depuis la Türkiye, ou hybride et sur site à Istanbul.',
+    note: "Disponible pour des postes Flutter et iOS.\nÀ distance depuis Istanbul, Türkiye ; hybride à Istanbul.",
+    flutterCv: "Télécharger le CV Flutter (PDF)",
+    iosCv: "Télécharger le CV iOS (PDF)",
     emailMe: 'M’écrire',
     invitation:
       'Pour les échanges de recrutement, parlez-moi du produit, de l’équipe et du rôle.',
@@ -337,9 +342,8 @@ const fr: Messages = {
 
 const ar: Messages = {
   meta: {
-    title: 'İlker Sevim — مهندس iOS وFlutter أول',
-    description:
-      'İlker Sevim — مهندس iOS وFlutter أول في إسطنبول. استكشف مشاريع الجوال وممارسات الهندسة والتوافر الفوري للأدوار عن بُعد وبدوام كامل وبالعقد.',
+    title: "İlker Sevim — " + profileCopyAr.role,
+    description: profileCopyAr.headline + " " + profileCopyAr.arrangements,
     ogLocale: 'ar_SA',
   },
   a11y: {
@@ -377,14 +381,14 @@ const ar: Messages = {
   },
   skills: {
     title: 'المهارات وممارسات الهندسة',
-    lead: 'عمق جوال أصلي، وتسليم عبر المنصات، ومكدس ويب عملي.',
+    lead: "Flutter أولاً، وخبرة مهنية في Apple، ومشاريع شخصية في Android وReact.",
   },
   about: {
     title: 'خبرة مبنية على قيود منتجات حقيقية',
     paragraphs: [
-      'أنا مهندس جوال أول مقيم في إسطنبول. تشمل خبرتي البنوك والمدفوعات والاتصالات والاتصالات الآمنة، بما في ذلك تطبيقات iPhone وiPad الأصلية وأُطر iOS المشتركة والتسليم عبر المنصات.',
-      'قدت تطوير الجوال، ووجّهت المهندسين، وأتمتُّ سير عمل البناء والنشر. تجعل مشاريعي العامة قرارات البنية المعمارية وتكامل المنصة وممارسات الاختبار سهلة المراجعة.',
-      'أحمل العناية نفسها إلى التطوير بمساعدة الذكاء الاصطناعي: سياق مفيد، وتغييرات محدودة النطاق، ومراجعة بشرية، وتحقق.',
+      "أنا مهندس تطبيقات جوال في إسطنبول، عملت في البنوك والمدفوعات والاتصالات والتواصل الآمن. تشمل خبرتي في Flutter سنة ونصف من العمل التجاري، وبشكل منفصل ثلاث سنوات من التطوير الشخصي.",
+      "تشمل خبرتي المهنية في Apple كلاً من Swift وUIKit وObjective-C وWebRTC وتطوير الصوت والفيديو. يعرض ملف أعمال Apple تطبيقات SwiftUI وSwiftData وSwift Concurrency. مشاريع Android وReact شخصية.",
+      "قدت فرق تطوير الجوال، وأرشدت المهندسين وأتمتت البناء والنشر. مع Cursor وCodex أحدد نطاق التغييرات، وأراجع الكود وأتحقق من النتائج بالاختبارات.",
     ],
     location: 'الموقع',
     arrangements: 'ترتيبات العمل',
@@ -395,7 +399,9 @@ const ar: Messages = {
   },
   contact: {
     title: 'لنبنِ شيئًا يمكن الاعتماد عليه.',
-    note: 'منفتح على فرص iOS وFlutter وهندسة الجوال.\nعن بُعد من تركيا، أو هجين وحضوري في إسطنبول.',
+    note: "متاح لفرص هندسة Flutter وiOS.\nعن بُعد من إسطنبول، تركيا؛ هجين في إسطنبول.",
+    flutterCv: "تنزيل سيرة Flutter الذاتية (PDF)",
+    iosCv: "تنزيل سيرة iOS الذاتية (PDF)",
     emailMe: 'راسلني',
     invitation:
       'لمحادثات التوظيف، أخبرني عن المنتج والفريق والدور.',
@@ -411,9 +417,8 @@ const ar: Messages = {
 
 const ja: Messages = {
   meta: {
-    title: 'İlker Sevim — シニア iOS / Flutter エンジニア',
-    description:
-      'İlker Sevim — イスタンブール在住のシニア iOS / Flutter エンジニア。モバイルプロジェクト、エンジニアリング実践、リモート・フルタイム・契約での即応可能性をご覧ください。',
+    title: "İlker Sevim — " + profileCopyJa.role,
+    description: profileCopyJa.headline + " " + profileCopyJa.arrangements,
     ogLocale: 'ja_JP',
   },
   a11y: {
@@ -451,14 +456,14 @@ const ja: Messages = {
   },
   skills: {
     title: 'スキルとエンジニアリング実践',
-    lead: 'ネイティブモバイルの深さ、クロスプラットフォーム配送、実用的な Web スタック。',
+    lead: "Flutter を中心に、Apple での実務経験と Android・React の個人プロジェクト。",
   },
   about: {
     title: '実プロダクトの制約から得た経験',
     paragraphs: [
-      'イスタンブールを拠点とするシニアモバイルエンジニアです。銀行・決済・通信・セキュア通信にわたり、ネイティブ iPhone / iPad アプリ、共有 iOS フレームワーク、クロスプラットフォーム配送の経験があります。',
-      'モバイル開発のリード、エンジニアのメンタリング、ビルド／リリース自動化を行ってきました。公開プロジェクトでは、アーキテクチャ判断、プラットフォーム連携、テスト実践をレビューしやすくしています。',
-      'AI 支援開発にも同じ慎重さで向き合います。有用な文脈、スコープを絞った変更、人によるレビューと検証です。',
+      "イスタンブール在住のモバイルエンジニアです。銀行、決済、通信、安全なコミュニケーション分野で働いてきました。Flutter の経験は商用開発 1.5 年と、それとは別の個人開発 3 年です。",
+      "Apple の実務経験は Swift・UIKit・Objective-C に加え、WebRTC と音声・映像開発を含みます。公開 Apple ポートフォリオでは SwiftUI・SwiftData・Swift Concurrency を実践しています。Android と React は個人プロジェクトです。",
+      "モバイルチームのリード、メンタリング、ビルド・リリースの自動化を経験しました。Cursor と Codex を使う際も変更範囲を絞り、コードをレビューし、テストで結果を検証します。",
     ],
     location: '所在地',
     arrangements: '勤務形態',
@@ -469,7 +474,9 @@ const ja: Messages = {
   },
   contact: {
     title: '信頼できるものを一緒に作りましょう。',
-    note: 'iOS・Flutter・モバイルエンジニアリングの機会に関心しています。\nトルコからのリモート、またはイスタンブールでのハイブリッド／出社。',
+    note: "Flutter・iOS エンジニアの仕事に対応可能。\nトルコ・イスタンブールからリモート、またはイスタンブールでハイブリッド。",
+    flutterCv: "Flutter 履歴書をダウンロード (PDF)",
+    iosCv: "iOS 履歴書をダウンロード (PDF)",
     emailMe: 'メールする',
     invitation:
       '採用のご相談では、プロダクト・チーム・役割について教えてください。',
@@ -485,9 +492,8 @@ const ja: Messages = {
 
 const es: Messages = {
   meta: {
-    title: 'İlker Sevim — Ingeniero sénior de iOS y Flutter',
-    description:
-      'İlker Sevim — Ingeniero sénior de iOS y Flutter en Estambul. Explore proyectos móviles, prácticas de ingeniería y disponibilidad inmediata para roles remotos, a jornada completa y por contrato.',
+    title: "İlker Sevim — " + profileCopyEs.role,
+    description: profileCopyEs.headline + " " + profileCopyEs.arrangements,
     ogLocale: 'es_ES',
   },
   a11y: {
@@ -525,14 +531,14 @@ const es: Messages = {
   },
   skills: {
     title: 'Habilidades y prácticas de ingeniería',
-    lead: 'Profundidad móvil nativa, entrega multiplataforma y un stack web práctico.',
+    lead: "Flutter primero, experiencia profesional en Apple y proyectos personales de Android y React.",
   },
   about: {
     title: 'Experiencia con restricciones reales de producto',
     paragraphs: [
-      'Soy un ingeniero móvil sénior con base en Estambul. Mi experiencia abarca banca, pagos, telecomunicaciones y comunicaciones seguras, incluidas aplicaciones nativas de iPhone e iPad, frameworks iOS compartidos y entrega multiplataforma.',
-      'He liderado el desarrollo móvil, mentorizado a ingenieros y automatizado flujos de build y publicación. Mis proyectos públicos facilitan la revisión de decisiones de arquitectura, integración de plataforma y prácticas de pruebas.',
-      'Aporto el mismo cuidado al desarrollo asistido por IA: contexto útil, cambios acotados, revisión humana y verificación.',
+      "Soy ingeniero móvil en Estambul, con experiencia en banca, pagos, telecomunicaciones y comunicaciones seguras. Mi trayectoria en Flutter incluye 1,5 años de trabajo comercial y, por separado, 3 años de desarrollo personal.",
+      "Mi experiencia profesional en Apple incluye Swift, UIKit, Objective-C, WebRTC y desarrollo de audio/vídeo. Mi portfolio Apple muestra SwiftUI, SwiftData y Swift Concurrency. Android y React son proyectos personales.",
+      "He liderado equipos móviles, formado a ingenieros y automatizado compilaciones y publicaciones. Con Cursor y Codex, acoto los cambios, reviso el código y verifico los resultados con pruebas.",
     ],
     location: 'Ubicación',
     arrangements: 'Modalidad de trabajo',
@@ -543,7 +549,9 @@ const es: Messages = {
   },
   contact: {
     title: 'Construyamos algo fiable.',
-    note: 'Abierto a oportunidades de iOS, Flutter e ingeniería móvil.\nRemoto desde Türkiye, o híbrido y presencial en Estambul.',
+    note: "Disponible para puestos de Flutter e iOS.\nRemoto desde Estambul, Türkiye; híbrido en Estambul.",
+    flutterCv: "Descargar CV Flutter (PDF)",
+    iosCv: "Descargar CV iOS (PDF)",
     emailMe: 'Enviarme un correo',
     invitation:
       'Para conversaciones de contratación, cuénteme sobre el producto, el equipo y el rol.',
@@ -559,9 +567,8 @@ const es: Messages = {
 
 const de: Messages = {
   meta: {
-    title: 'İlker Sevim — Senior iOS- & Flutter-Ingenieur',
-    description:
-      'İlker Sevim — Senior iOS- & Flutter-Ingenieur in Istanbul. Entdecken Sie Mobile-Projekte, Engineering-Praktiken und sofortige Verfügbarkeit für Remote-, Vollzeit- und Vertragsrollen.',
+    title: "İlker Sevim — " + profileCopyDe.role,
+    description: profileCopyDe.headline + " " + profileCopyDe.arrangements,
     ogLocale: 'de_DE',
   },
   a11y: {
@@ -599,14 +606,14 @@ const de: Messages = {
   },
   skills: {
     title: 'Fähigkeiten & Engineering-Praktiken',
-    lead: 'Native Mobile-Tiefe, plattformübergreifende Delivery und ein praxisnaher Web-Stack.',
+    lead: "Flutter zuerst, professionelle Apple-Erfahrung und persönliche Android- und React-Projekte.",
   },
   about: {
     title: 'Erfahrung mit echten Produktanforderungen',
     paragraphs: [
-      'Ich bin ein Senior-Mobile-Ingenieur mit Sitz in Istanbul. Meine Erfahrung umfasst Banking, Payments, Telekommunikation und sichere Kommunikation — inklusive nativer iPhone- und iPad-Apps, gemeinsamer iOS-Frameworks und plattformübergreifender Delivery.',
-      'Ich habe Mobile-Entwicklung geleitet, Ingenieure mentored und Build- sowie Release-Workflows automatisiert. Meine öffentlichen Projekte machen Architekturentscheidungen, Plattformintegration und Testpraktiken leicht überprüfbar.',
-      'Denselben Anspruch bringe ich in die KI-gestützte Entwicklung ein: nützlicher Kontext, begrenzte Änderungen, menschliche Review und Verifikation.',
+      "Ich bin Mobile-Entwickler in Istanbul und habe in Banken, Zahlungsverkehr, Telekommunikation und sicherer Kommunikation gearbeitet. Mein Flutter-Hintergrund umfasst 1,5 Jahre kommerzielle Arbeit und davon getrennt 3 Jahre persönliche Entwicklung.",
+      "Meine berufliche Apple-Erfahrung umfasst Swift, UIKit, Objective-C, WebRTC sowie Audio-/Videoentwicklung. Mein Apple-Portfolio zeigt SwiftUI, SwiftData und Swift Concurrency. Android und React sind persönliche Projekte.",
+      "Ich habe Mobile-Teams geleitet, Entwickler begleitet und Builds und Releases automatisiert. Mit Cursor und Codex begrenze ich Änderungen, prüfe den Code und verifiziere Ergebnisse durch Tests.",
     ],
     location: 'Standort',
     arrangements: 'Arbeitsmodell',
@@ -617,7 +624,9 @@ const de: Messages = {
   },
   contact: {
     title: 'Lassen Sie uns etwas Zuverlässiges bauen.',
-    note: 'Offen für Chancen in iOS, Flutter und Mobile Engineering.\nRemote aus der Türkiye, oder hybrid und vor Ort in Istanbul.',
+    note: "Offen für Flutter- und iOS-Stellen.\nRemote aus Istanbul, Türkiye; hybrid in Istanbul.",
+    flutterCv: "Flutter-Lebenslauf laden (PDF)",
+    iosCv: "iOS-Lebenslauf laden (PDF)",
     emailMe: 'E-Mail schreiben',
     invitation:
       'Für Einstellungsgespräche erzählen Sie mir bitte von Produkt, Team und Rolle.',
@@ -633,9 +642,8 @@ const de: Messages = {
 
 const it: Messages = {
   meta: {
-    title: 'İlker Sevim — Ingegnere senior iOS e Flutter',
-    description:
-      'İlker Sevim — Ingegnere senior iOS e Flutter a Istanbul. Esplora progetti mobili, pratiche di ingegneria e disponibilità immediata per ruoli remoti, a tempo pieno e a contratto.',
+    title: "İlker Sevim — " + profileCopyIt.role,
+    description: profileCopyIt.headline + " " + profileCopyIt.arrangements,
     ogLocale: 'it_IT',
   },
   a11y: {
@@ -673,14 +681,14 @@ const it: Messages = {
   },
   skills: {
     title: 'Competenze e pratiche di ingegneria',
-    lead: 'Profondità mobile nativa, delivery multipiattaforma e uno stack web pragmatico.',
+    lead: "Prima Flutter, esperienza professionale Apple e progetti personali Android e React.",
   },
   about: {
     title: 'Esperienza con vincoli di prodotto reali',
     paragraphs: [
-      'Sono un ingegnere mobile senior con base a Istanbul. La mia esperienza spazia tra banking, pagamenti, telecomunicazioni e comunicazioni sicure, incluse app native per iPhone e iPad, framework iOS condivisi e delivery multipiattaforma.',
-      'Ho guidato lo sviluppo mobile, fatto da mentor ad altri ingegneri e automatizzato i flussi di build e release. I miei progetti pubblici rendono facili da esaminare decisioni di architettura, integrazione di piattaforma e pratiche di test.',
-      'Porto la stessa cura nello sviluppo assistito da IA: contesto utile, modifiche circoscritte, review umana e verifica.',
+      "Sono un ingegnere mobile a Istanbul, con esperienza in banche, pagamenti, telecomunicazioni e comunicazioni sicure. Il mio percorso Flutter comprende 1,5 anni di lavoro commerciale e, separatamente, 3 anni di sviluppo personale.",
+      "La mia esperienza professionale Apple comprende Swift, UIKit, Objective-C, WebRTC e sviluppo audio/video. Il portfolio Apple mostra SwiftUI, SwiftData e Swift Concurrency. Android e React sono progetti personali.",
+      "Ho guidato team mobili, formato ingegneri e automatizzato build e rilasci. Con Cursor e Codex limito le modifiche, revisiono il codice e verifico i risultati con test.",
     ],
     location: 'Sede',
     arrangements: 'Modalità di lavoro',
@@ -691,7 +699,9 @@ const it: Messages = {
   },
   contact: {
     title: 'Costruiamo qualcosa di affidabile.',
-    note: 'Aperto a opportunità in iOS, Flutter e ingegneria mobile.\nRemoto dalla Türkiye, oppure ibrido e in sede a Istanbul.',
+    note: "Disponibile per ruoli Flutter e iOS.\nDa remoto da Istanbul, Türkiye; ibrido a Istanbul.",
+    flutterCv: "Scarica CV Flutter (PDF)",
+    iosCv: "Scarica CV iOS (PDF)",
     emailMe: 'Scrivimi',
     invitation:
       'Per conversazioni di assunzione, parlami del prodotto, del team e del ruolo.',
@@ -707,9 +717,8 @@ const it: Messages = {
 
 const zh: Messages = {
   meta: {
-    title: 'İlker Sevim — 高级 iOS 与 Flutter 工程师',
-    description:
-      'İlker Sevim — 驻伊斯坦布尔的高级 iOS 与 Flutter 工程师。探索移动项目、工程实践，以及远程、全职与合同制岗位的即时可用性。',
+    title: "İlker Sevim — " + profileCopyZh.role,
+    description: profileCopyZh.headline + " " + profileCopyZh.arrangements,
     ogLocale: 'zh_CN',
   },
   a11y: {
@@ -747,14 +756,14 @@ const zh: Messages = {
   },
   skills: {
     title: '技能与工程实践',
-    lead: '原生移动深度、跨平台交付，以及务实的 Web 技术栈。',
+    lead: "以 Flutter 为先，具备 Apple 专业经验，并开展 Android 和 React 个人项目。",
   },
   about: {
     title: '面对真实产品约束的经验',
     paragraphs: [
-      '我是一名驻伊斯坦布尔的高级移动工程师。经验覆盖银行、支付、电信与安全通信，包括原生 iPhone 与 iPad 应用、共享 iOS 框架以及跨平台交付。',
-      '我曾主导移动开发、指导工程师，并自动化构建与发布流程。我的公开项目便于评审架构决策、平台集成与测试实践。',
-      '我将同样的严谨带到 AI 辅助开发中：有用的上下文、范围明确的变更、人工审查与验证。',
+      "我是居住在伊斯坦布尔的移动工程师，曾从事银行、支付、电信和安全通信产品开发。我的 Flutter 经历包括 1.5 年商业开发，另有 3 年个人开发，二者分别列出。",
+      "我的 Apple 专业经验涵盖 Swift、UIKit、Objective-C，以及 WebRTC 和音视频开发。公开 Apple 作品集展示 SwiftUI、SwiftData 和 Swift Concurrency 实践。Android 与 React 属于个人作品。",
+      "我曾带领移动团队、指导工程师并自动化构建和发布。使用 Cursor 与 Codex 时，我限定变更范围、审查代码，并通过测试验证结果。",
     ],
     location: '地点',
     arrangements: '工作方式',
@@ -764,7 +773,9 @@ const zh: Messages = {
   },
   contact: {
     title: '一起构建可靠的产品。',
-    note: '欢迎 iOS、Flutter 与移动工程相关机会。\n可从土耳其远程，或在伊斯坦布尔混合/现场办公。',
+    note: "接受 Flutter 与 iOS 工程职位。\n从土耳其伊斯坦布尔远程办公；伊斯坦布尔混合办公。",
+    flutterCv: "下载 Flutter 简历 (PDF)",
+    iosCv: "下载 iOS 简历 (PDF)",
     emailMe: '给我发邮件',
     invitation: '招聘沟通时，请告诉我产品、团队与岗位信息。',
   },
@@ -827,5 +838,16 @@ export function applyDocumentMeta(locale: Locale): void {
   )
   if (twitterDescription) {
     twitterDescription.setAttribute('content', messages.meta.description)
+  }
+
+  for (const selector of ['meta[property="og:image:alt"]', 'meta[name="twitter:image:alt"]']) {
+    document.querySelector(selector)?.setAttribute('content', messages.meta.title)
+  }
+
+  const person = document.querySelector('script[type="application/ld+json"]')
+  if (person?.textContent) {
+    const data = JSON.parse(person.textContent)
+    data.jobTitle = messages.profile.role
+    person.textContent = JSON.stringify(data)
   }
 }

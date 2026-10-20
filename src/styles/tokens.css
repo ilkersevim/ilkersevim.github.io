@@ -84,11 +84,12 @@ html[lang='zh'] {
   --accent: #3eb5a8;
   --accent-hover: #5fc4b8;
   --accent-soft: #16363a;
+  --on-accent: #0c1a20;
   --inverse-bg: #071218;
   --inverse-fg: #e6eef1;
   --inverse-muted: #b7c9d0;
   --inverse-line: #35515c;
-  --inverse-accent-soft: #1a333a;
+  --inverse-accent-soft: #c3e5df;
   color-scheme: dark;
 }
 

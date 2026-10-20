@@ -1,3 +1,5 @@
+import { buildProjects } from './projectCatalog'
+
 export type ProjectLink = { label: string; href: string }
 export type Project = {
   id: string
@@ -6,6 +8,8 @@ export type Project = {
   tags: string[]
   evidence: string[]
   links: ProjectLink[]
+  proof: ProjectLink[]
+  image?: { src: string; width: number; height: number; alt: string; caption: string }
 }
 
 export type OpenSourceProject = {
@@ -15,151 +19,135 @@ export type OpenSourceProject = {
   href: string
 }
 
-export const projectsEn: Project[] = [
-  {
-    id: 'flutter-bloc-app',
-    title: 'Flutter engineering portfolio',
-    blurb:
-      'A cross-platform reference app with BLoC / Cubit, offline synchronization and native Swift / Kotlin integration.',
-    tags: ['Flutter', 'Dart', 'Clean Architecture'],
-    evidence: [
-      'Layered features and predictable state',
-      'Offline data and platform integration',
-      'Unit, widget, golden and integration tests',
+export const projectsEn: Project[] = buildProjects({
+  "flutter-bloc-app": {
+    "title": "Flutter engineering portfolio",
+    "blurb": "A Flutter reference app for iOS, Android, web and macOS, with a persistent counter, offline synchronization and native Swift / Kotlin bridges.",
+    "evidence": [
+      "Problem → Offline counter changes must survive restarts and a late remote read.",
+      "Decision → Persist changes and queue writes locally; re-read local state before saving remote data, then replay queued writes.",
+      "Proof → Queue replay and stale-read regression tests; the dated run below records their execution."
     ],
-    links: [
-      {
-        label: 'Live demo',
-        href: 'https://redjadet.github.io/flutter_bloc_app/',
-      },
-      {
-        label: '3-minute review',
-        href: 'https://github.com/redjadet/flutter_bloc_app#3-minute-review',
-      },
-      {
-        label: 'Google Play',
-        href: 'https://play.google.com/store/apps/details?id=com.ilkersevim.blocflutter',
-      },
-      {
-        label: 'Source & architecture',
-        href: 'https://github.com/redjadet/flutter_bloc_app',
-      },
-    ],
+    "imageAlt": "Counter with local increment and decrement controls.",
+    "imageCaption": "Counter with local increment and decrement controls."
   },
-  {
-    id: 'super-demo-ios',
-    title: 'Native iOS & iPadOS portfolio',
-    blurb:
-      'A SwiftUI / SwiftData sample with an offline feed, concurrency and UIKit interoperability.',
-    tags: ['SwiftUI', 'SwiftData', 'iOS / iPadOS'],
-    evidence: [
-      'Feature layers and dependency injection',
-      'Offline cache and URLSession networking',
-      'UI tests and an optional Flutter bridge',
+  "super-demo-ios": {
+    "title": "Apple platforms portfolio",
+    "blurb": "A SwiftUI / SwiftData feed for iOS and iPadOS, plus a macOS demo and local watchOS / tvOS companion demos. Companion snapshots do not sync with a phone.",
+    "evidence": [
+      "Problem → Removing a bookmark during an in-flight request can lose the latest intent.",
+      "Decision → Save the optimistic change and outbox atomically; preserve and drain the successor when the earlier request completes.",
+      "Proof → An in-memory SwiftData regression checks set → clear in one flush; the dated run records it. macOS build evidence and companion scope are documented separately."
     ],
-    links: [
-      {
-        label: '3-minute path',
-        href: 'https://github.com/redjadet/super_demo_ios#3-minute-path',
-      },
-      {
-        label: 'Source & reviewer guide',
-        href: 'https://github.com/redjadet/super_demo_ios',
-      },
-    ],
+    "imageAlt": "iPhone feed with bookmark actions.",
+    "imageCaption": "iPhone feed with bookmark actions."
   },
-  {
-    id: 'react-website',
-    title: 'React & TypeScript personal website',
-    blurb:
-      'This responsive website: typed content, accessible navigation and a small, reusable component system.',
-    tags: ['React', 'TypeScript', 'Vite', 'CSS Modules'],
-    evidence: [
-      'Accessible and responsive design',
-      'Typed content and reusable components',
-      'Optimized build and clean project structure',
+  "super-demo-android": {
+    "title": "Android portfolio · personal project",
+    "blurb": "A Kotlin / Compose app with an offline feed, persistent CRUD and post deep links, built as a personal engineering project.",
+    "evidence": [
+      "Problem → A feed refresh can overwrite a bookmark toggled while the network is waiting.",
+      "Decision → Read the latest bookmark state inside a Room transaction after the response; keep bookmarks local and expose updates through Flow.",
+      "Proof → Direct links cover the race, offline feed, CRUD and deep links; dated records show unit and emulator execution."
     ],
-    links: [
-      {
-        label: 'View source',
-        href: 'https://github.com/redjadet/react-web-portfolio',
-      },
-    ],
+    "imageAlt": "Android feed with cached posts.",
+    "imageCaption": "Android feed with cached posts."
   },
-]
+  "react-website": {
+    "title": "React website · personal project",
+    "blurb": "This React / TypeScript site: nine languages, theme switching and responsive navigation.",
+    "evidence": [
+      "Problem → Percentage observer margins can erase the active navigation area on wide screens.",
+      "Decision → Calculate a nonempty reading band in viewport-height pixels; rebuild it when the viewport or sticky header changes.",
+      "Proof → Regression tests cover resize and observer state; the browser report records real geometry, keyboard, zoom and locale checks."
+    ],
+    "imageAlt": "",
+    "imageCaption": ""
+  }
+}, {
+  "demo": "Live demo",
+  "review": "Technical review",
+  "source": "Source",
+  "mac": "macOS demo",
+  "companions": "watchOS / tvOS demos",
+  "case": "Design & evidence",
+  "queue": "Queue replay test",
+  "stale": "Stale-read test",
+  "race": "Race regression",
+  "offline": "Offline feed tests",
+  "crud": "CRUD tests",
+  "deepLink": "Deep-link tests",
+  "run": "Passing run",
+  "unitRun": "Passing unit run",
+  "emulatorRun": "Passing emulator run",
+  "navigation": "Navigation regression",
+  "qa": "Browser validation"
+})
 
-export const projectsTr: Project[] = [
-  {
-    id: 'flutter-bloc-app',
-    title: 'Flutter mühendislik portfolyosu',
-    blurb:
-      'BLoC / Cubit, çevrimdışı senkronizasyon ve native Swift / Kotlin entegrasyonu içeren çapraz platform referans uygulaması.',
-    tags: ['Flutter', 'Dart', 'Clean Architecture'],
-    evidence: [
-      'Katmanlı özellikler ve öngörülebilir durum',
-      'Çevrimdışı veri ve platform entegrasyonu',
-      'Birim, widget, golden ve entegrasyon testleri',
+export const projectsTr: Project[] = buildProjects({
+  "flutter-bloc-app": {
+    "title": "Flutter mühendislik portfolyosu",
+    "blurb": "iOS, Android, web ve macOS için Flutter referans uygulaması: kalıcı sayaç, çevrimdışı senkronizasyon ve Swift / Kotlin köprüleri.",
+    "evidence": [
+      "Sorun → Çevrimdışı sayaç değişiklikleri yeniden başlatmada ve geç gelen uzak okumada korunmalı.",
+      "Karar → Değişiklikleri ve yazma kuyruğunu yerelde sakla; uzak veriyi kaydetmeden yerel durumu tekrar oku, sonra kuyruğu yeniden gönder.",
+      "Kanıt → Kuyruk gönderimi ve eski okuma regresyonları doğrudan bağlı; tarihli kayıt testlerin çalıştırıldığını gösterir."
     ],
-    links: [
-      {
-        label: 'Canlı demo',
-        href: 'https://redjadet.github.io/flutter_bloc_app/',
-      },
-      {
-        label: '3 dakikalık inceleme',
-        href: 'https://github.com/redjadet/flutter_bloc_app#3-minute-review',
-      },
-      {
-        label: 'Google Play',
-        href: 'https://play.google.com/store/apps/details?id=com.ilkersevim.blocflutter',
-      },
-      {
-        label: 'Kaynak ve mimari',
-        href: 'https://github.com/redjadet/flutter_bloc_app',
-      },
-    ],
+    "imageAlt": "Yerel artırma ve azaltma kontrolleriyle sayaç.",
+    "imageCaption": "Yerel artırma ve azaltma kontrolleriyle sayaç."
   },
-  {
-    id: 'super-demo-ios',
-    title: 'Native iOS ve iPadOS portfolyosu',
-    blurb:
-      'Çevrimdışı akış, eşzamanlılık ve UIKit birlikte çalışabilirliği olan SwiftUI / SwiftData örneği.',
-    tags: ['SwiftUI', 'SwiftData', 'iOS / iPadOS'],
-    evidence: [
-      'Özellik katmanları ve bağımlılık enjeksiyonu',
-      'Çevrimdışı önbellek ve URLSession ağı',
-      'UI testleri ve isteğe bağlı Flutter köprüsü',
+  "super-demo-ios": {
+    "title": "Apple platformları portfolyosu",
+    "blurb": "iOS ve iPadOS için SwiftUI / SwiftData akışı; macOS demosu ve yerel watchOS / tvOS companion demoları. Companion anlık görüntüleri telefonla senkronize olmaz.",
+    "evidence": [
+      "Sorun → İstek sürerken bookmark kaldırmak son kullanıcı niyetini kaybettirebilir.",
+      "Karar → İyimser değişikliği ve outbox kaydını atomik sakla; önceki istek tamamlandığında sonraki işlemi koru ve gönder.",
+      "Kanıt → Bellek içi SwiftData testi aynı turda ekle → kaldır sırasını doğrular; tarihli çalışma kaydı bağlı. macOS derleme kanıtı ve companion kapsamı ayrı belgelerde."
     ],
-    links: [
-      {
-        label: '3 dakikalık yol',
-        href: 'https://github.com/redjadet/super_demo_ios#3-minute-path',
-      },
-      {
-        label: 'Kaynak ve inceleme rehberi',
-        href: 'https://github.com/redjadet/super_demo_ios',
-      },
-    ],
+    "imageAlt": "Bookmark işlemleriyle iPhone akışı.",
+    "imageCaption": "Bookmark işlemleriyle iPhone akışı."
   },
-  {
-    id: 'react-website',
-    title: 'React ve TypeScript kişisel web sitesi',
-    blurb:
-      'Bu duyarlı site: tipli içerik, erişilebilir gezinme ve küçük, yeniden kullanılabilir bir bileşen sistemi.',
-    tags: ['React', 'TypeScript', 'Vite', 'CSS Modules'],
-    evidence: [
-      'Erişilebilir ve duyarlı tasarım',
-      'Tipli içerik ve yeniden kullanılabilir bileşenler',
-      'Optimize derleme ve temiz proje yapısı',
+  "super-demo-android": {
+    "title": "Android portfolyosu · kişisel proje",
+    "blurb": "Çevrimdışı akış, kalıcı CRUD ve gönderi deep link’leri içeren Kotlin / Compose uygulaması; kişisel mühendislik projesi.",
+    "evidence": [
+      "Sorun → Ağ yanıtı beklenirken değişen bookmark, akış yenilenince eski değerle ezilebilir.",
+      "Karar → Yanıttan sonra güncel bookmark durumunu Room işlemi içinde oku; bookmark’ları yerelde tut, değişiklikleri Flow ile ilet.",
+      "Kanıt → Yarış, çevrimdışı akış, CRUD ve deep link testlerine doğrudan bağlantılar; tarihli birim testi ve emülatör çalıştırma kayıtları."
     ],
-    links: [
-      {
-        label: 'Kaynağı görüntüle',
-        href: 'https://github.com/redjadet/react-web-portfolio',
-      },
-    ],
+    "imageAlt": "Önbellekteki gönderilerle Android akışı.",
+    "imageCaption": "Önbellekteki gönderilerle Android akışı."
   },
-]
+  "react-website": {
+    "title": "React web sitesi · kişisel proje",
+    "blurb": "Bu React / TypeScript sitesi: dokuz dil, tema seçimi ve farklı ekranlara uyarlanan gezinme.",
+    "evidence": [
+      "Sorun → Yüzdelik gözlem marjinleri geniş ekranlarda aktif menü alanını boşaltabilir.",
+      "Karar → Okuma alanını ekran yüksekliğinden piksel olarak hesapla; ekran veya sabit başlık değişince yeniden kur.",
+      "Kanıt → Yeniden boyutlandırma ve gözlemci durumu regresyonları; gerçek geometri, klavye, büyütme ve dil kontrolleri tarayıcı raporunda."
+    ],
+    "imageAlt": "",
+    "imageCaption": ""
+  }
+}, {
+  "demo": "Canlı demo",
+  "review": "Teknik inceleme",
+  "source": "Kaynak kod",
+  "mac": "macOS demosu",
+  "companions": "watchOS / tvOS demoları",
+  "case": "Karar ve kanıt",
+  "queue": "Kuyruk gönderimi testi",
+  "stale": "Eski okuma testi",
+  "race": "Yarış regresyonu",
+  "offline": "Çevrimdışı akış testleri",
+  "crud": "CRUD testleri",
+  "deepLink": "Deep link testleri",
+  "run": "Başarılı çalışma",
+  "unitRun": "Başarılı birim testi çalışması",
+  "emulatorRun": "Başarılı emülatör çalışması",
+  "navigation": "Menü regresyonu",
+  "qa": "Tarayıcı doğrulaması"
+})
 
 export const openSourceProjectsEn = [
   {
@@ -223,224 +211,200 @@ export const openSourceProjectsTr = [
   },
 ] as const satisfies readonly OpenSourceProject[]
 
-export const projectsFr: Project[] = [
-  {
-    id: 'flutter-bloc-app',
-    title: 'Portfolio d’ingénierie Flutter',
-    blurb:
-      'Application de référence multiplateforme avec BLoC / Cubit, synchronisation hors ligne et intégration native Swift / Kotlin.',
-    tags: ['Flutter', 'Dart', 'Clean Architecture'],
-    evidence: [
-      'Fonctionnalités en couches et état prévisible',
-      'Données hors ligne et intégration plateforme',
-      'Tests unitaires, widget, golden et d’intégration',
+export const projectsFr: Project[] = buildProjects({
+  "flutter-bloc-app": {
+    "title": "Portfolio Flutter",
+    "blurb": "App Flutter pour iOS, Android, web et macOS : compteur persistant, synchronisation hors ligne et ponts Swift / Kotlin.",
+    "evidence": [
+      "Problème → Préserver les modifications du compteur hors ligne après redémarrage et lecture distante tardive.",
+      "Décision → Persister les changements et la file localement ; relire l’état local avant d’enregistrer la réponse distante, puis rejouer les écritures.",
+      "Preuve → Tests de rejeu et de lecture périmée ; l’exécution datée atteste leur passage."
     ],
-    links: [
-      {
-        label: 'Démo en ligne',
-        href: 'https://redjadet.github.io/flutter_bloc_app/',
-      },
-      {
-        label: 'Revue en 3 minutes',
-        href: 'https://github.com/redjadet/flutter_bloc_app#3-minute-review',
-      },
-      {
-        label: 'Google Play',
-        href: 'https://play.google.com/store/apps/details?id=com.ilkersevim.blocflutter',
-      },
-      {
-        label: 'Code source & architecture',
-        href: 'https://github.com/redjadet/flutter_bloc_app',
-      },
-    ],
+    "imageAlt": "Compteur avec commandes locales d’incrément et de décrément.",
+    "imageCaption": "Compteur avec commandes locales d’incrément et de décrément."
   },
-  {
-    id: 'super-demo-ios',
-    title: 'Portfolio iOS & iPadOS natif',
-    blurb:
-      'Exemple SwiftUI / SwiftData avec flux hors ligne, concurrence et interopérabilité UIKit.',
-    tags: ['SwiftUI', 'SwiftData', 'iOS / iPadOS'],
-    evidence: [
-      'Couches fonctionnelles et injection de dépendances',
-      'Cache hors ligne et réseau URLSession',
-      'Tests UI et pont Flutter optionnel',
+  "super-demo-ios": {
+    "title": "Portfolio plateformes Apple",
+    "blurb": "Fil SwiftUI / SwiftData pour iOS et iPadOS, démo macOS et démos compagnons locales watchOS / tvOS. Leurs instantanés ne sont pas synchronisés avec un téléphone.",
+    "evidence": [
+      "Problème → Retirer un favori pendant une requête peut perdre la dernière intention.",
+      "Décision → Enregistrer le changement optimiste et l’outbox atomiquement ; préserver puis traiter l’opération suivante après la réponse.",
+      "Preuve → Test SwiftData en mémoire : ajout → retrait dans un même cycle, avec exécution datée. Build macOS et périmètre des compagnons documentés séparément."
     ],
-    links: [
-      {
-        label: 'Parcours en 3 minutes',
-        href: 'https://github.com/redjadet/super_demo_ios#3-minute-path',
-      },
-      {
-        label: 'Code source & guide de revue',
-        href: 'https://github.com/redjadet/super_demo_ios',
-      },
-    ],
+    "imageAlt": "Fil iPhone avec favoris.",
+    "imageCaption": "Fil iPhone avec favoris."
   },
-  {
-    id: 'react-website',
-    title: 'Site personnel React & TypeScript',
-    blurb:
-      'Ce site responsive : contenu typé, navigation accessible et petit système de composants réutilisables.',
-    tags: ['React', 'TypeScript', 'Vite', 'CSS Modules'],
-    evidence: [
-      'Conception accessible et responsive',
-      'Contenu typé et composants réutilisables',
-      'Build optimisé et structure de projet claire',
+  "super-demo-android": {
+    "title": "Portfolio Android · projet personnel",
+    "blurb": "App Kotlin / Compose personnelle : fil hors ligne, CRUD persistant et liens profonds vers les publications.",
+    "evidence": [
+      "Problème → Un rafraîchissement peut écraser un favori modifié pendant l’attente réseau.",
+      "Décision → Relire les favoris dans une transaction Room après la réponse ; les garder locaux et publier les changements via Flow.",
+      "Preuve → Tests de concurrence, hors ligne, CRUD et liens profonds ; exécutions datées des tests unitaires et sur émulateur."
     ],
-    links: [
-      {
-        label: 'Voir le code source',
-        href: 'https://github.com/redjadet/react-web-portfolio',
-      },
-    ],
+    "imageAlt": "Fil Android et publications en cache.",
+    "imageCaption": "Fil Android et publications en cache."
   },
-]
+  "react-website": {
+    "title": "Site React · projet personnel",
+    "blurb": "Ce site React / TypeScript : neuf langues, thèmes et navigation responsive.",
+    "evidence": [
+      "Problème → Les marges en pourcentage peuvent vider la zone de navigation active sur écran large.",
+      "Décision → Calculer une zone de lecture en pixels selon la hauteur ; la recréer si l’écran ou l’en-tête change.",
+      "Preuve → Régressions de redimensionnement et état des observateurs ; géométrie réelle, clavier, zoom et langues dans le rapport navigateur."
+    ],
+    "imageAlt": "",
+    "imageCaption": ""
+  }
+}, {
+  "demo": "Démo",
+  "review": "Revue technique",
+  "source": "Code source",
+  "mac": "Démo macOS",
+  "companions": "Démos watchOS / tvOS",
+  "case": "Conception et preuves",
+  "queue": "Test de rejeu",
+  "stale": "Test de lecture périmée",
+  "race": "Test de concurrence",
+  "offline": "Tests hors ligne",
+  "crud": "Tests CRUD",
+  "deepLink": "Tests de liens profonds",
+  "run": "Exécution réussie",
+  "unitRun": "Tests unitaires réussis",
+  "emulatorRun": "Tests sur émulateur réussis",
+  "navigation": "Test de navigation",
+  "qa": "Validation navigateur"
+})
 
-export const projectsAr: Project[] = [
-  {
-    id: 'flutter-bloc-app',
-    title: 'محفظة هندسة Flutter',
-    blurb:
-      'تطبيق مرجعي متعدد المنصات مع BLoC / Cubit ومزامنة دون اتصال وتكامل أصلي لـ Swift / Kotlin.',
-    tags: ['Flutter', 'Dart', 'Clean Architecture'],
-    evidence: [
-      'ميزات طبقية وحالة متوقعة',
-      'بيانات دون اتصال وتكامل المنصة',
-      'اختبارات وحدة وودجت وgolden وتكامل',
+export const projectsAr: Project[] = buildProjects({
+  "flutter-bloc-app": {
+    "title": "ملف أعمال Flutter",
+    "blurb": "تطبيق Flutter على iOS وAndroid والويب وmacOS، بعدّاد دائم ومزامنة دون اتصال وجسور Swift / Kotlin.",
+    "evidence": [
+      "المشكلة ← حفظ تغييرات العدّاد دون اتصال بعد إعادة التشغيل والقراءات البعيدة المتأخرة.",
+      "القرار ← حفظ التغييرات وطابور الكتابة محلياً؛ إعادة قراءة الحالة المحلية قبل حفظ الرد، ثم إعادة إرسال الكتابات.",
+      "الدليل ← اختبارات إعادة الإرسال والقراءة القديمة؛ سجل مؤرخ يثبت تشغيلها."
     ],
-    links: [
-      {
-        label: 'عرض مباشر',
-        href: 'https://redjadet.github.io/flutter_bloc_app/',
-      },
-      {
-        label: 'مراجعة في 3 دقائق',
-        href: 'https://github.com/redjadet/flutter_bloc_app#3-minute-review',
-      },
-      {
-        label: 'Google Play',
-        href: 'https://play.google.com/store/apps/details?id=com.ilkersevim.blocflutter',
-      },
-      {
-        label: 'المصدر والبنية المعمارية',
-        href: 'https://github.com/redjadet/flutter_bloc_app',
-      },
-    ],
+    "imageAlt": "العدّاد مع أزرار محلية للزيادة والنقصان.",
+    "imageCaption": "العدّاد مع أزرار محلية للزيادة والنقصان."
   },
-  {
-    id: 'super-demo-ios',
-    title: 'محفظة iOS وiPadOS الأصلية',
-    blurb:
-      'نموذج SwiftUI / SwiftData مع موجز دون اتصال وتزامن وتشغيل متبادل مع UIKit.',
-    tags: ['SwiftUI', 'SwiftData', 'iOS / iPadOS'],
-    evidence: [
-      'طبقات الميزات وحقن التبعيات',
-      'ذاكرة مؤقتة دون اتصال وشبكات URLSession',
-      'اختبارات واجهة وجسر Flutter اختياري',
+  "super-demo-ios": {
+    "title": "ملف أعمال منصات Apple",
+    "blurb": "موجز SwiftUI / SwiftData على iOS وiPadOS، وعرض macOS وعروض مرافقة محلية على watchOS / tvOS. اللقطات لا تتزامن مع الهاتف.",
+    "evidence": [
+      "المشكلة ← إزالة إشارة مرجعية أثناء الطلب قد تفقد أحدث نية للمستخدم.",
+      "القرار ← حفظ التغيير المتفائل وoutbox ذرياً؛ الاحتفاظ بالعملية اللاحقة وتنفيذها بعد اكتمال الطلب السابق.",
+      "الدليل ← اختبار SwiftData في الذاكرة يراجع إضافة ثم إزالة في دورة واحدة، مع سجل مؤرخ. بناء macOS ونطاق العروض المرافقة موثقان منفصلين."
     ],
-    links: [
-      {
-        label: 'مسار 3 دقائق',
-        href: 'https://github.com/redjadet/super_demo_ios#3-minute-path',
-      },
-      {
-        label: 'المصدر ودليل المراجع',
-        href: 'https://github.com/redjadet/super_demo_ios',
-      },
-    ],
+    "imageAlt": "موجز iPhone مع الإشارات المرجعية.",
+    "imageCaption": "موجز iPhone مع الإشارات المرجعية."
   },
-  {
-    id: 'react-website',
-    title: 'موقع شخصي بـ React وTypeScript',
-    blurb:
-      'هذا الموقع المتجاوب: محتوى مكتوب بأنواع، وتنقل سهل الوصول، ونظام مكوّنات صغير قابل لإعادة الاستخدام.',
-    tags: ['React', 'TypeScript', 'Vite', 'CSS Modules'],
-    evidence: [
-      'تصميم سهل الوصول ومتجاوب',
-      'محتوى مكتوب بأنواع ومكوّنات قابلة لإعادة الاستخدام',
-      'بناء محسّن وهيكل مشروع نظيف',
+  "super-demo-android": {
+    "title": "ملف أعمال Android · مشروع شخصي",
+    "blurb": "تطبيق Kotlin / Compose شخصي، بموجز دون اتصال وعمليات CRUD دائمة وروابط عميقة للمنشورات.",
+    "evidence": [
+      "المشكلة ← تحديث الموجز قد يستبدل إشارة مرجعية تغيرت أثناء انتظار الشبكة.",
+      "القرار ← قراءة أحدث الإشارات في معاملة Room بعد الرد؛ حفظها محلياً وبث التحديثات عبر Flow.",
+      "الدليل ← روابط اختبارات السباق والعمل دون اتصال وCRUD والروابط العميقة؛ سجلات مؤرخة لاختبارات الوحدة والمحاكي."
     ],
-    links: [
-      {
-        label: 'عرض المصدر',
-        href: 'https://github.com/redjadet/react-web-portfolio',
-      },
-    ],
+    "imageAlt": "موجز Android بمنشورات مخزنة مؤقتاً.",
+    "imageCaption": "موجز Android بمنشورات مخزنة مؤقتاً."
   },
-]
+  "react-website": {
+    "title": "موقع React · مشروع شخصي",
+    "blurb": "هذا الموقع بـReact / TypeScript: تسع لغات وسمات وتنقل متجاوب.",
+    "evidence": [
+      "المشكلة ← هوامش المراقب النسبية قد تفرغ منطقة التنقل النشط على الشاشات العريضة.",
+      "القرار ← حساب نطاق قراءة بالبكسل حسب ارتفاع الشاشة؛ إعادة إنشائه عند تغير الشاشة أو الرأس الثابت.",
+      "الدليل ← اختبارات تغيير الحجم وحالة المراقب؛ تقرير المتصفح يسجل الهندسة الفعلية ولوحة المفاتيح والتكبير واللغات."
+    ],
+    "imageAlt": "",
+    "imageCaption": ""
+  }
+}, {
+  "demo": "عرض مباشر",
+  "review": "مراجعة تقنية",
+  "source": "الكود المصدري",
+  "mac": "عرض macOS",
+  "companions": "عروض watchOS / tvOS",
+  "case": "التصميم والدليل",
+  "queue": "اختبار إعادة الإرسال",
+  "stale": "اختبار القراءة القديمة",
+  "race": "اختبار السباق",
+  "offline": "اختبارات دون اتصال",
+  "crud": "اختبارات CRUD",
+  "deepLink": "اختبارات الروابط العميقة",
+  "run": "تشغيل ناجح",
+  "unitRun": "اختبارات وحدة ناجحة",
+  "emulatorRun": "اختبارات محاكي ناجحة",
+  "navigation": "اختبار التنقل",
+  "qa": "تحقق المتصفح"
+})
 
-export const projectsJa: Project[] = [
-  {
-    id: 'flutter-bloc-app',
-    title: 'Flutter エンジニアリング・ポートフォリオ',
-    blurb:
-      'BLoC / Cubit、オフライン同期、ネイティブ Swift / Kotlin 連携を備えたクロスプラットフォームの参考アプリ。',
-    tags: ['Flutter', 'Dart', 'Clean Architecture'],
-    evidence: [
-      'レイヤードな機能と予測可能な状態',
-      'オフラインデータとプラットフォーム連携',
-      'ユニット・ウィジェット・ゴールデン・統合テスト',
+export const projectsJa: Project[] = buildProjects({
+  "flutter-bloc-app": {
+    "title": "Flutter ポートフォリオ",
+    "blurb": "iOS・Android・Web・macOS 向け Flutter アプリ。永続カウンター、オフライン同期、Swift / Kotlin ブリッジを実装。",
+    "evidence": [
+      "課題 → オフラインのカウンター変更を再起動や遅いリモート読み込みから守る。",
+      "判断 → 変更と書き込みキューをローカル保存。リモート応答の保存前にローカル状態を再確認し、キューを再送する。",
+      "根拠 → キュー再送と古い読み込みの回帰テスト。日付付き記録で実行結果を確認可能。"
     ],
-    links: [
-      {
-        label: 'ライブデモ',
-        href: 'https://redjadet.github.io/flutter_bloc_app/',
-      },
-      {
-        label: '3分レビュー',
-        href: 'https://github.com/redjadet/flutter_bloc_app#3-minute-review',
-      },
-      {
-        label: 'Google Play',
-        href: 'https://play.google.com/store/apps/details?id=com.ilkersevim.blocflutter',
-      },
-      {
-        label: 'ソースとアーキテクチャ',
-        href: 'https://github.com/redjadet/flutter_bloc_app',
-      },
-    ],
+    "imageAlt": "ローカルの増減操作ができるカウンター。",
+    "imageCaption": "ローカルの増減操作ができるカウンター。"
   },
-  {
-    id: 'super-demo-ios',
-    title: 'ネイティブ iOS / iPadOS ポートフォリオ',
-    blurb:
-      'オフラインフィード、並行処理、UIKit 相互運用を備えた SwiftUI / SwiftData サンプル。',
-    tags: ['SwiftUI', 'SwiftData', 'iOS / iPadOS'],
-    evidence: [
-      '機能レイヤーと依存性注入',
-      'オフラインキャッシュと URLSession 通信',
-      'UI テストと任意の Flutter ブリッジ',
+  "super-demo-ios": {
+    "title": "Apple プラットフォームのポートフォリオ",
+    "blurb": "iOS・iPadOS 向け SwiftUI / SwiftData フィード、macOS デモ、watchOS / tvOS のローカル companion デモ。スナップショットは電話と同期しません。",
+    "evidence": [
+      "課題 → リクエスト中のブックマーク解除で最新の意図が失われる。",
+      "判断 → 楽観的更新と outbox を不可分に保存。先行リクエスト完了後も後続操作を保持し処理する。",
+      "根拠 → メモリ内 SwiftData テストで同一サイクルの追加 → 解除を検証。日付付き記録あり。macOS ビルドと companion の範囲は別資料に記載。"
     ],
-    links: [
-      {
-        label: '3分パス',
-        href: 'https://github.com/redjadet/super_demo_ios#3-minute-path',
-      },
-      {
-        label: 'ソースとレビューガイド',
-        href: 'https://github.com/redjadet/super_demo_ios',
-      },
-    ],
+    "imageAlt": "ブックマーク操作のある iPhone フィード。",
+    "imageCaption": "ブックマーク操作のある iPhone フィード。"
   },
-  {
-    id: 'react-website',
-    title: 'React / TypeScript 個人サイト',
-    blurb:
-      'このレスポンシブサイト：型付きコンテンツ、アクセシブルなナビゲーション、小さく再利用可能なコンポーネント体系。',
-    tags: ['React', 'TypeScript', 'Vite', 'CSS Modules'],
-    evidence: [
-      'アクセシブルでレスポンシブな設計',
-      '型付きコンテンツと再利用可能なコンポーネント',
-      '最適化されたビルドと整理された構成',
+  "super-demo-android": {
+    "title": "Android ポートフォリオ・個人開発",
+    "blurb": "オフラインフィード、永続 CRUD、投稿へのディープリンクを備えた Kotlin / Compose の個人プロジェクト。",
+    "evidence": [
+      "課題 → 通信待ち中に変えたブックマークがフィード更新で上書きされる。",
+      "判断 → 応答後に Room トランザクション内で最新状態を読み、ローカルに保持して Flow で更新を配信。",
+      "根拠 → 競合、オフライン、CRUD、ディープリンクのテストと、日付付きの単体テスト・エミュレーター実行記録。"
     ],
-    links: [
-      {
-        label: 'ソースを見る',
-        href: 'https://github.com/redjadet/react-web-portfolio',
-      },
-    ],
+    "imageAlt": "キャッシュ済み投稿を表示する Android フィード。",
+    "imageCaption": "キャッシュ済み投稿を表示する Android フィード。"
   },
-]
+  "react-website": {
+    "title": "React サイト・個人開発",
+    "blurb": "この React / TypeScript サイト。9 言語、テーマ切替、レスポンシブなナビゲーション。",
+    "evidence": [
+      "課題 → 割合指定のマージンが横長画面のナビゲーション判定領域を消す。",
+      "判断 → 高さ基準のピクセルで読み取り帯を計算し、画面や固定ヘッダーの変更で再構築。",
+      "根拠 → リサイズと observer 状態の回帰テスト。実際の形状、キーボード、拡大、言語はブラウザー記録で検証。"
+    ],
+    "imageAlt": "",
+    "imageCaption": ""
+  }
+}, {
+  "demo": "デモ",
+  "review": "技術レビュー",
+  "source": "ソース",
+  "mac": "macOS デモ",
+  "companions": "watchOS / tvOS デモ",
+  "case": "設計と根拠",
+  "queue": "キュー再送テスト",
+  "stale": "古い読み込みテスト",
+  "race": "競合回帰テスト",
+  "offline": "オフラインテスト",
+  "crud": "CRUD テスト",
+  "deepLink": "ディープリンクテスト",
+  "run": "成功した実行",
+  "unitRun": "単体テスト成功記録",
+  "emulatorRun": "エミュレーターテスト成功記録",
+  "navigation": "ナビゲーション回帰",
+  "qa": "ブラウザー検証"
+})
 
 export const openSourceProjectsFr = [
   {
@@ -535,78 +499,70 @@ export const openSourceProjectsJa = [
   },
 ] as const satisfies readonly OpenSourceProject[]
 
-export const projectsEs: Project[] = [
-  {
-    id: 'flutter-bloc-app',
-    title: 'Portafolio de ingeniería Flutter',
-    blurb:
-      'Aplicación de referencia multiplataforma con BLoC / Cubit, sincronización sin conexión e integración nativa Swift / Kotlin.',
-    tags: ['Flutter', 'Dart', 'Clean Architecture'],
-    evidence: [
-      'Funciones en capas y estado predecible',
-      'Datos sin conexión e integración de plataforma',
-      'Pruebas unitarias, de widget, golden y de integración',
+export const projectsEs: Project[] = buildProjects({
+  "flutter-bloc-app": {
+    "title": "Portfolio Flutter",
+    "blurb": "App Flutter para iOS, Android, web y macOS: contador persistente, sincronización sin conexión y puentes Swift / Kotlin.",
+    "evidence": [
+      "Problema → Conservar cambios del contador sin conexión tras reinicios y lecturas remotas tardías.",
+      "Decisión → Persistir cambios y cola localmente; releer el estado local antes de guardar la respuesta y reenviar las escrituras.",
+      "Prueba → Regresiones de reenvío y lectura obsoleta; la ejecución fechada acredita su resultado."
     ],
-    links: [
-      {
-        label: 'Demo en vivo',
-        href: 'https://redjadet.github.io/flutter_bloc_app/',
-      },
-      {
-        label: 'Revisión de 3 minutos',
-        href: 'https://github.com/redjadet/flutter_bloc_app#3-minute-review',
-      },
-      {
-        label: 'Google Play',
-        href: 'https://play.google.com/store/apps/details?id=com.ilkersevim.blocflutter',
-      },
-      {
-        label: 'Código y arquitectura',
-        href: 'https://github.com/redjadet/flutter_bloc_app',
-      },
-    ],
+    "imageAlt": "Contador con controles locales para sumar y restar.",
+    "imageCaption": "Contador con controles locales para sumar y restar."
   },
-  {
-    id: 'super-demo-ios',
-    title: 'Portafolio nativo de iOS e iPadOS',
-    blurb:
-      'Ejemplo SwiftUI / SwiftData con feed sin conexión, concurrencia e interoperabilidad con UIKit.',
-    tags: ['SwiftUI', 'SwiftData', 'iOS / iPadOS'],
-    evidence: [
-      'Capas de funciones e inyección de dependencias',
-      'Caché sin conexión y red con URLSession',
-      'Pruebas de UI y puente Flutter opcional',
+  "super-demo-ios": {
+    "title": "Portfolio de plataformas Apple",
+    "blurb": "Feed SwiftUI / SwiftData para iOS y iPadOS, demo macOS y demos locales de watchOS / tvOS. Sus instantáneas no se sincronizan con un teléfono.",
+    "evidence": [
+      "Problema → Quitar un marcador durante una solicitud puede perder la última intención.",
+      "Decisión → Guardar el cambio optimista y el outbox de forma atómica; conservar y procesar la operación posterior al completar la primera.",
+      "Prueba → SwiftData en memoria comprueba añadir → quitar en un ciclo, con ejecución fechada. La compilación macOS y el alcance de los companions se documentan aparte."
     ],
-    links: [
-      {
-        label: 'Ruta de 3 minutos',
-        href: 'https://github.com/redjadet/super_demo_ios#3-minute-path',
-      },
-      {
-        label: 'Código y guía de revisión',
-        href: 'https://github.com/redjadet/super_demo_ios',
-      },
-    ],
+    "imageAlt": "Feed de iPhone con marcadores.",
+    "imageCaption": "Feed de iPhone con marcadores."
   },
-  {
-    id: 'react-website',
-    title: 'Sitio personal con React y TypeScript',
-    blurb:
-      'Este sitio responsive: contenido tipado, navegación accesible y un pequeño sistema de componentes reutilizables.',
-    tags: ['React', 'TypeScript', 'Vite', 'CSS Modules'],
-    evidence: [
-      'Diseño accesible y responsive',
-      'Contenido tipado y componentes reutilizables',
-      'Build optimizado y estructura de proyecto clara',
+  "super-demo-android": {
+    "title": "Portfolio Android · proyecto personal",
+    "blurb": "App personal Kotlin / Compose: feed sin conexión, CRUD persistente y enlaces profundos a publicaciones.",
+    "evidence": [
+      "Problema → Una actualización puede sobrescribir un marcador cambiado durante la espera de red.",
+      "Decisión → Releer los marcadores en una transacción Room tras la respuesta; mantenerlos locales y emitir cambios con Flow.",
+      "Prueba → Tests de concurrencia, datos sin conexión, CRUD y enlaces profundos; ejecuciones fechadas de tests unitarios y en emulador."
     ],
-    links: [
-      {
-        label: 'Ver el código fuente',
-        href: 'https://github.com/redjadet/react-web-portfolio',
-      },
-    ],
+    "imageAlt": "Feed Android con publicaciones en caché.",
+    "imageCaption": "Feed Android con publicaciones en caché."
   },
-]
+  "react-website": {
+    "title": "Sitio React · proyecto personal",
+    "blurb": "Este sitio React / TypeScript: nueve idiomas, temas y navegación adaptable.",
+    "evidence": [
+      "Problema → Los márgenes porcentuales pueden vaciar el área de navegación activa en pantallas anchas.",
+      "Decisión → Calcular una franja de lectura en píxeles según la altura; recrearla al cambiar pantalla o cabecera.",
+      "Prueba → Regresiones de tamaño y observadores; geometría real, teclado, zoom e idiomas en el informe del navegador."
+    ],
+    "imageAlt": "",
+    "imageCaption": ""
+  }
+}, {
+  "demo": "Demo",
+  "review": "Revisión técnica",
+  "source": "Código fuente",
+  "mac": "Demo macOS",
+  "companions": "Demos watchOS / tvOS",
+  "case": "Diseño y evidencia",
+  "queue": "Test de reenvío",
+  "stale": "Test de lectura obsoleta",
+  "race": "Regresión de concurrencia",
+  "offline": "Tests sin conexión",
+  "crud": "Tests CRUD",
+  "deepLink": "Tests de enlaces profundos",
+  "run": "Ejecución correcta",
+  "unitRun": "Tests unitarios correctos",
+  "emulatorRun": "Tests en emulador correctos",
+  "navigation": "Regresión de navegación",
+  "qa": "Validación del navegador"
+})
 
 export const openSourceProjectsEs = [
   {
@@ -639,78 +595,70 @@ export const openSourceProjectsEs = [
   },
 ] as const satisfies readonly OpenSourceProject[]
 
-export const projectsDe: Project[] = [
-  {
-    id: 'flutter-bloc-app',
-    title: 'Flutter-Engineering-Portfolio',
-    blurb:
-      'Eine plattformübergreifende Referenz-App mit BLoC / Cubit, Offline-Synchronisation und nativer Swift- / Kotlin-Integration.',
-    tags: ['Flutter', 'Dart', 'Clean Architecture'],
-    evidence: [
-      'Geschichtete Features und vorhersagbarer State',
-      'Offline-Daten und Plattformintegration',
-      'Unit-, Widget-, Golden- und Integrationstests',
+export const projectsDe: Project[] = buildProjects({
+  "flutter-bloc-app": {
+    "title": "Flutter-Portfolio",
+    "blurb": "Flutter-App für iOS, Android, Web und macOS: persistenter Zähler, Offline-Synchronisierung und Swift-/Kotlin-Bridges.",
+    "evidence": [
+      "Problem → Offline-Zähleränderungen müssen Neustarts und verspätete Remote-Lesevorgänge überstehen.",
+      "Entscheidung → Änderungen und Warteschlange lokal speichern; lokalen Stand vor dem Speichern der Antwort erneut lesen, dann Schreibvorgänge wiederholen.",
+      "Beleg → Tests für Queue-Replay und veraltete Antworten; datierter Lauf belegt die Ausführung."
     ],
-    links: [
-      {
-        label: 'Live-Demo',
-        href: 'https://redjadet.github.io/flutter_bloc_app/',
-      },
-      {
-        label: '3-Minuten-Review',
-        href: 'https://github.com/redjadet/flutter_bloc_app#3-minute-review',
-      },
-      {
-        label: 'Google Play',
-        href: 'https://play.google.com/store/apps/details?id=com.ilkersevim.blocflutter',
-      },
-      {
-        label: 'Quellcode & Architektur',
-        href: 'https://github.com/redjadet/flutter_bloc_app',
-      },
-    ],
+    "imageAlt": "Zähler mit lokalen Plus- und Minus-Schaltflächen.",
+    "imageCaption": "Zähler mit lokalen Plus- und Minus-Schaltflächen."
   },
-  {
-    id: 'super-demo-ios',
-    title: 'Natives iOS- & iPadOS-Portfolio',
-    blurb:
-      'Ein SwiftUI- / SwiftData-Beispiel mit Offline-Feed, Concurrency und UIKit-Interoperabilität.',
-    tags: ['SwiftUI', 'SwiftData', 'iOS / iPadOS'],
-    evidence: [
-      'Feature-Schichten und Dependency Injection',
-      'Offline-Cache und URLSession-Networking',
-      'UI-Tests und optionale Flutter-Bridge',
+  "super-demo-ios": {
+    "title": "Apple-Plattformen-Portfolio",
+    "blurb": "SwiftUI-/SwiftData-Feed für iOS und iPadOS, macOS-Demo und lokale watchOS-/tvOS-Begleitdemos. Deren Snapshots werden nicht mit einem Telefon synchronisiert.",
+    "evidence": [
+      "Problem → Entfernen eines Lesezeichens während einer Anfrage kann die letzte Absicht verlieren.",
+      "Entscheidung → Optimistische Änderung und Outbox atomar speichern; Nachfolgeoperation nach Abschluss der Anfrage erhalten und abarbeiten.",
+      "Beleg → SwiftData-Test im Speicher prüft Setzen → Löschen in einem Durchlauf, mit datiertem Lauf. macOS-Build und Begleitdemos separat dokumentiert."
     ],
-    links: [
-      {
-        label: '3-Minuten-Pfad',
-        href: 'https://github.com/redjadet/super_demo_ios#3-minute-path',
-      },
-      {
-        label: 'Quellcode & Reviewer-Guide',
-        href: 'https://github.com/redjadet/super_demo_ios',
-      },
-    ],
+    "imageAlt": "iPhone-Feed mit Lesezeichen.",
+    "imageCaption": "iPhone-Feed mit Lesezeichen."
   },
-  {
-    id: 'react-website',
-    title: 'Persönliche Website mit React & TypeScript',
-    blurb:
-      'Diese responsive Website: typisierte Inhalte, barrierefreie Navigation und ein kleines, wiederverwendbares Komponentensystem.',
-    tags: ['React', 'TypeScript', 'Vite', 'CSS Modules'],
-    evidence: [
-      'Barrierefreies und responsives Design',
-      'Typisierte Inhalte und wiederverwendbare Komponenten',
-      'Optimierter Build und klare Projektstruktur',
+  "super-demo-android": {
+    "title": "Android-Portfolio · persönliches Projekt",
+    "blurb": "Persönliche Kotlin-/Compose-App: Offline-Feed, persistentes CRUD und Deep Links zu Beiträgen.",
+    "evidence": [
+      "Problem → Ein Feed-Refresh kann ein während der Netzwerkanfrage geändertes Lesezeichen überschreiben.",
+      "Entscheidung → Aktuelle Lesezeichen nach der Antwort in einer Room-Transaktion lesen; lokal halten und Änderungen per Flow ausgeben.",
+      "Beleg → Tests für Race, Offline-Feed, CRUD und Deep Links; datierte Unit- und Emulator-Testläufe."
     ],
-    links: [
-      {
-        label: 'Quellcode ansehen',
-        href: 'https://github.com/redjadet/react-web-portfolio',
-      },
-    ],
+    "imageAlt": "Android-Feed mit zwischengespeicherten Beiträgen.",
+    "imageCaption": "Android-Feed mit zwischengespeicherten Beiträgen."
   },
-]
+  "react-website": {
+    "title": "React-Website · persönliches Projekt",
+    "blurb": "Diese React-/TypeScript-Website: neun Sprachen, Themes und responsive Navigation.",
+    "evidence": [
+      "Problem → Prozentuale Observer-Ränder können den aktiven Navigationsbereich auf breiten Bildschirmen leeren.",
+      "Entscheidung → Leseband anhand der Höhe in Pixeln berechnen; bei Änderungen an Bildschirm oder Kopfzeile erneuern.",
+      "Beleg → Regressionen für Größenänderung und Observer-Zustand; echte Geometrie, Tastatur, Zoom und Sprachen im Browserbericht."
+    ],
+    "imageAlt": "",
+    "imageCaption": ""
+  }
+}, {
+  "demo": "Live-Demo",
+  "review": "Technische Prüfung",
+  "source": "Quellcode",
+  "mac": "macOS-Demo",
+  "companions": "watchOS-/tvOS-Demos",
+  "case": "Entwurf und Belege",
+  "queue": "Queue-Replay-Test",
+  "stale": "Stale-Read-Test",
+  "race": "Race-Regression",
+  "offline": "Offline-Tests",
+  "crud": "CRUD-Tests",
+  "deepLink": "Deep-Link-Tests",
+  "run": "Erfolgreicher Lauf",
+  "unitRun": "Erfolgreiche Unit-Tests",
+  "emulatorRun": "Erfolgreicher Emulatorlauf",
+  "navigation": "Navigationstest",
+  "qa": "Browserprüfung"
+})
 
 export const openSourceProjectsDe = [
   {
@@ -743,78 +691,70 @@ export const openSourceProjectsDe = [
   },
 ] as const satisfies readonly OpenSourceProject[]
 
-export const projectsIt: Project[] = [
-  {
-    id: 'flutter-bloc-app',
-    title: 'Portfolio di ingegneria Flutter',
-    blurb:
-      'App di riferimento multipiattaforma con BLoC / Cubit, sincronizzazione offline e integrazione nativa Swift / Kotlin.',
-    tags: ['Flutter', 'Dart', 'Clean Architecture'],
-    evidence: [
-      'Feature a livelli e stato prevedibile',
-      'Dati offline e integrazione di piattaforma',
-      'Test unitari, widget, golden e di integrazione',
+export const projectsIt: Project[] = buildProjects({
+  "flutter-bloc-app": {
+    "title": "Portfolio Flutter",
+    "blurb": "App Flutter per iOS, Android, web e macOS: contatore persistente, sincronizzazione offline e bridge Swift / Kotlin.",
+    "evidence": [
+      "Problema → Conservare le modifiche offline al contatore dopo riavvii e letture remote tardive.",
+      "Decisione → Salvare modifiche e coda localmente; rileggere lo stato locale prima di salvare la risposta, poi reinviare le scritture.",
+      "Prova → Test di reinvio e lettura obsoleta; l’esecuzione datata ne documenta il risultato."
     ],
-    links: [
-      {
-        label: 'Demo live',
-        href: 'https://redjadet.github.io/flutter_bloc_app/',
-      },
-      {
-        label: 'Review in 3 minuti',
-        href: 'https://github.com/redjadet/flutter_bloc_app#3-minute-review',
-      },
-      {
-        label: 'Google Play',
-        href: 'https://play.google.com/store/apps/details?id=com.ilkersevim.blocflutter',
-      },
-      {
-        label: 'Codice e architettura',
-        href: 'https://github.com/redjadet/flutter_bloc_app',
-      },
-    ],
+    "imageAlt": "Contatore con controlli locali di incremento e decremento.",
+    "imageCaption": "Contatore con controlli locali di incremento e decremento."
   },
-  {
-    id: 'super-demo-ios',
-    title: 'Portfolio nativo iOS e iPadOS',
-    blurb:
-      'Esempio SwiftUI / SwiftData con feed offline, concurrency e interoperabilità UIKit.',
-    tags: ['SwiftUI', 'SwiftData', 'iOS / iPadOS'],
-    evidence: [
-      'Livelli di feature e dependency injection',
-      'Cache offline e networking con URLSession',
-      'Test UI e bridge Flutter opzionale',
+  "super-demo-ios": {
+    "title": "Portfolio piattaforme Apple",
+    "blurb": "Feed SwiftUI / SwiftData per iOS e iPadOS, demo macOS e demo companion locali watchOS / tvOS. Le istantanee non si sincronizzano con un telefono.",
+    "evidence": [
+      "Problema → Rimuovere un segnalibro durante una richiesta può perdere l’ultima intenzione.",
+      "Decisione → Salvare modifica ottimistica e outbox atomicamente; conservare ed elaborare l’operazione successiva dopo la risposta.",
+      "Prova → Test SwiftData in memoria: aggiunta → rimozione nello stesso ciclo, con esecuzione datata. Build macOS e ambito companion documentati separatamente."
     ],
-    links: [
-      {
-        label: 'Percorso in 3 minuti',
-        href: 'https://github.com/redjadet/super_demo_ios#3-minute-path',
-      },
-      {
-        label: 'Codice e guida per reviewer',
-        href: 'https://github.com/redjadet/super_demo_ios',
-      },
-    ],
+    "imageAlt": "Feed iPhone con segnalibri.",
+    "imageCaption": "Feed iPhone con segnalibri."
   },
-  {
-    id: 'react-website',
-    title: 'Sito personale con React e TypeScript',
-    blurb:
-      'Questo sito responsive: contenuti tipizzati, navigazione accessibile e un piccolo sistema di componenti riusabili.',
-    tags: ['React', 'TypeScript', 'Vite', 'CSS Modules'],
-    evidence: [
-      'Design accessibile e responsive',
-      'Contenuti tipizzati e componenti riusabili',
-      'Build ottimizzata e struttura di progetto chiara',
+  "super-demo-android": {
+    "title": "Portfolio Android · progetto personale",
+    "blurb": "App personale Kotlin / Compose: feed offline, CRUD persistente e deep link ai post.",
+    "evidence": [
+      "Problema → Un refresh può sovrascrivere un segnalibro cambiato durante l’attesa di rete.",
+      "Decisione → Rileggere i segnalibri in una transazione Room dopo la risposta; mantenerli locali e pubblicare i cambiamenti con Flow.",
+      "Prova → Test di concorrenza, offline, CRUD e deep link; esecuzioni datate dei test unitari e su emulatore."
     ],
-    links: [
-      {
-        label: 'Vedi il codice sorgente',
-        href: 'https://github.com/redjadet/react-web-portfolio',
-      },
-    ],
+    "imageAlt": "Feed Android con post in cache.",
+    "imageCaption": "Feed Android con post in cache."
   },
-]
+  "react-website": {
+    "title": "Sito React · progetto personale",
+    "blurb": "Questo sito React / TypeScript: nove lingue, temi e navigazione responsive.",
+    "evidence": [
+      "Problema → I margini percentuali possono svuotare l’area di navigazione attiva su schermi ampi.",
+      "Decisione → Calcolare una fascia di lettura in pixel secondo l’altezza; ricrearla quando cambia schermo o intestazione.",
+      "Prova → Regressioni di ridimensionamento e observer; geometria reale, tastiera, zoom e lingue nel rapporto browser."
+    ],
+    "imageAlt": "",
+    "imageCaption": ""
+  }
+}, {
+  "demo": "Demo",
+  "review": "Revisione tecnica",
+  "source": "Codice sorgente",
+  "mac": "Demo macOS",
+  "companions": "Demo watchOS / tvOS",
+  "case": "Progetto e prove",
+  "queue": "Test di reinvio",
+  "stale": "Test lettura obsoleta",
+  "race": "Regressione concorrenza",
+  "offline": "Test offline",
+  "crud": "Test CRUD",
+  "deepLink": "Test deep link",
+  "run": "Esecuzione riuscita",
+  "unitRun": "Test unitari riusciti",
+  "emulatorRun": "Test su emulatore riusciti",
+  "navigation": "Regressione navigazione",
+  "qa": "Verifica browser"
+})
 
 export const openSourceProjectsIt = [
   {
@@ -847,76 +787,70 @@ export const openSourceProjectsIt = [
   },
 ] as const satisfies readonly OpenSourceProject[]
 
-export const projectsZh: Project[] = [
-  {
-    id: 'flutter-bloc-app',
-    title: 'Flutter 工程作品集',
-    blurb:
-      '跨平台参考应用，采用 BLoC / Cubit、离线同步以及原生 Swift / Kotlin 集成。',
-    tags: ['Flutter', 'Dart', 'Clean Architecture'],
-    evidence: [
-      '分层功能与可预测状态',
-      '离线数据与平台集成',
-      '单元、Widget、Golden 与集成测试',
+export const projectsZh: Project[] = buildProjects({
+  "flutter-bloc-app": {
+    "title": "Flutter 工程作品集",
+    "blurb": "面向 iOS、Android、Web 和 macOS 的 Flutter 示例应用：持久化计数器、离线同步及 Swift / Kotlin 桥接。",
+    "evidence": [
+      "问题 → 离线计数器修改需在重启及延迟远程读取后保留。",
+      "决策 → 在本地持久化修改及写入队列；保存远程响应前重新读取本地状态，再重放写入。",
+      "证据 → 队列重放与过期读取回归测试；附日期的记录证明实际运行。"
     ],
-    links: [
-      {
-        label: '在线演示',
-        href: 'https://redjadet.github.io/flutter_bloc_app/',
-      },
-      {
-        label: '三分钟评审',
-        href: 'https://github.com/redjadet/flutter_bloc_app#3-minute-review',
-      },
-      {
-        label: 'Google Play',
-        href: 'https://play.google.com/store/apps/details?id=com.ilkersevim.blocflutter',
-      },
-      {
-        label: '源码与架构',
-        href: 'https://github.com/redjadet/flutter_bloc_app',
-      },
-    ],
+    "imageAlt": "带本地增减控件的计数器。",
+    "imageCaption": "带本地增减控件的计数器。"
   },
-  {
-    id: 'super-demo-ios',
-    title: '原生 iOS 与 iPadOS 作品集',
-    blurb: 'SwiftUI / SwiftData 示例，含离线信息流、并发与 UIKit 互操作。',
-    tags: ['SwiftUI', 'SwiftData', 'iOS / iPadOS'],
-    evidence: [
-      '功能分层与依赖注入',
-      '离线缓存与 URLSession 网络',
-      'UI 测试与可选 Flutter 桥接',
+  "super-demo-ios": {
+    "title": "Apple 平台作品集",
+    "blurb": "iOS 和 iPadOS 的 SwiftUI / SwiftData 信息流，另含 macOS 演示与本地 watchOS / tvOS 配套演示。配套快照不与手机同步。",
+    "evidence": [
+      "问题 → 请求进行时取消书签，可能丢失最新意图。",
+      "决策 → 原子保存乐观更新与 outbox；前一请求完成后保留并处理后续操作。",
+      "证据 → 内存 SwiftData 测试验证同一轮添加 → 取消，附日期运行记录。macOS 构建证据与配套演示范围分别说明。"
     ],
-    links: [
-      {
-        label: '三分钟路径',
-        href: 'https://github.com/redjadet/super_demo_ios#3-minute-path',
-      },
-      {
-        label: '源码与评审指南',
-        href: 'https://github.com/redjadet/super_demo_ios',
-      },
-    ],
+    "imageAlt": "含书签操作的 iPhone 信息流。",
+    "imageCaption": "含书签操作的 iPhone 信息流。"
   },
-  {
-    id: 'react-website',
-    title: 'React 与 TypeScript 个人网站',
-    blurb: '本响应式网站：类型化内容、无障碍导航与小型可复用组件系统。',
-    tags: ['React', 'TypeScript', 'Vite', 'CSS Modules'],
-    evidence: [
-      '无障碍与响应式设计',
-      '类型化内容与可复用组件',
-      '优化构建与清晰项目结构',
+  "super-demo-android": {
+    "title": "Android 作品集 · 个人项目",
+    "blurb": "Kotlin / Compose 个人项目，含离线信息流、持久化 CRUD 和帖子深层链接。",
+    "evidence": [
+      "问题 → 网络等待期间变更的书签可能被信息流刷新覆盖。",
+      "决策 → 响应后在 Room 事务内读取最新书签；书签保留本地，通过 Flow 推送更新。",
+      "证据 → 竞争、离线、CRUD 和深层链接测试；附日期的单元测试与模拟器运行记录。"
     ],
-    links: [
-      {
-        label: '查看源码',
-        href: 'https://github.com/redjadet/react-web-portfolio',
-      },
-    ],
+    "imageAlt": "展示缓存帖子的 Android 信息流。",
+    "imageCaption": "展示缓存帖子的 Android 信息流。"
   },
-]
+  "react-website": {
+    "title": "React 网站 · 个人项目",
+    "blurb": "本 React / TypeScript 网站：九种语言、主题切换与响应式导航。",
+    "evidence": [
+      "问题 → 百分比观察边距可能使宽屏上的活动导航区域为空。",
+      "决策 → 按视口高度计算像素阅读带；视口或固定页头改变时重建。",
+      "证据 → 尺寸变化与观察器状态回归；浏览器报告记录实际几何、键盘、缩放和语言检查。"
+    ],
+    "imageAlt": "",
+    "imageCaption": ""
+  }
+}, {
+  "demo": "在线演示",
+  "review": "技术审阅",
+  "source": "源码",
+  "mac": "macOS 演示",
+  "companions": "watchOS / tvOS 演示",
+  "case": "设计与证据",
+  "queue": "队列重放测试",
+  "stale": "过期读取测试",
+  "race": "竞争回归",
+  "offline": "离线测试",
+  "crud": "CRUD 测试",
+  "deepLink": "深层链接测试",
+  "run": "成功运行",
+  "unitRun": "单元测试成功记录",
+  "emulatorRun": "模拟器测试成功记录",
+  "navigation": "导航回归",
+  "qa": "浏览器验证"
+})
 
 export const openSourceProjectsZh = [
   {

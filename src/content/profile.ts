@@ -20,108 +20,91 @@ export const profile = {
 } as const
 
 export const profileCopyEn: ProfileCopy = {
-  role: 'Senior iOS & Flutter Engineer',
-  headline:
-    'I build reliable mobile experiences across iOS, iPadOS and Flutter.',
-  support:
-    'Public repos highlight architecture, offline data, native bridges and test coverage — structured for a quick technical review.',
+  role: "Flutter Cross-Platform Developer & Senior iOS Engineer",
+  headline: "I build Flutter apps and native Apple experiences, with personal Android and React projects.",
+  support: "Explore offline changes, request races and the design decisions behind them — with regression tests and dated run records.",
   location: 'Istanbul, Türkiye · UTC+3',
   locationShort: 'Istanbul, Türkiye',
-  arrangements: 'Remote from Türkiye; Istanbul hybrid or onsite',
+  arrangements: "Remote from Istanbul, Türkiye; hybrid in Istanbul",
   availability: 'Immediate · Full-time & contract',
 }
 
 export const profileCopyTr: ProfileCopy = {
-  role: 'Kıdemli iOS ve Flutter Mühendisi',
-  headline:
-    'iOS, iPadOS ve Flutter’da güvenilir mobil deneyimler geliştiriyorum.',
-  support:
-    'Açık depolar mimariyi, çevrimdışı veriyi, native köprüleri ve test kapsamını öne çıkarır — hızlı teknik inceleme için yapılandırılmıştır.',
+  role: "Flutter Çoklu Platform Geliştiricisi ve Kıdemli iOS Mühendisi",
+  headline: "Flutter ve Apple uygulamaları geliştiriyorum; Android ve React çalışmalarımı kişisel projelerde gösteriyorum.",
+  support: "Çevrimdışı değişiklikler, istek yarışları ve tasarım kararları: ilgili regresyon testleri ve tarihli çalıştırma kayıtlarıyla incelenebilir.",
   location: 'İstanbul, Türkiye · UTC+3',
   locationShort: 'İstanbul, Türkiye',
-  arrangements: 'Türkiye’den uzaktan; İstanbul’da hibrit veya ofis içi',
+  arrangements: "İstanbul/Türkiye’den uzaktan; İstanbul’da hibrit",
   availability: 'Hemen · Tam zamanlı ve sözleşmeli',
 }
 
 export const profileCopyFr: ProfileCopy = {
-  role: 'Ingénieur iOS & Flutter senior',
-  headline:
-    'Je conçois des expériences mobiles fiables sur iOS, iPadOS et Flutter.',
-  support:
-    'Les dépôts publics mettent en avant l’architecture, les données hors ligne, les ponts natifs et la couverture de tests — structurés pour une revue technique rapide.',
+  role: "Développeur Flutter multiplateforme et ingénieur iOS senior",
+  headline: "Je développe des apps Flutter et Apple, avec des projets personnels Android et React.",
+  support: "Modifications hors ligne, requêtes concurrentes et choix de conception : tests de régression et exécutions datées à l’appui.",
   location: 'Istanbul, Türkiye · UTC+3',
   locationShort: 'Istanbul, Türkiye',
-  arrangements: 'Télétravail depuis la Türkiye ; hybride ou sur site à Istanbul',
+  arrangements: "À distance depuis Istanbul, Türkiye ; hybride à Istanbul",
   availability: 'Disponible immédiatement · CDI et contrat',
 }
 
 export const profileCopyAr: ProfileCopy = {
-  role: 'مهندس iOS وFlutter أول',
-  headline:
-    'أبني تجارب جوال موثوقة عبر iOS وiPadOS وFlutter.',
-  support:
-    'تُبرز المستودعات العامة البنية المعمارية والبيانات دون اتصال والجسور الأصلية وتغطية الاختبارات — مُنظَّمة لمراجعة تقنية سريعة.',
+  role: "مطور Flutter متعدد المنصات ومهندس iOS أول",
+  headline: "أطور تطبيقات Flutter وApple، إلى جانب مشاريع شخصية على Android وReact.",
+  support: "تغييرات دون اتصال وسباقات الطلبات وقرارات التصميم، مع اختبارات تراجع وسجلات تشغيل مؤرخة.",
   location: 'إسطنبول، تركيا · UTC+3',
   locationShort: 'إسطنبول، تركيا',
-  arrangements: 'عن بُعد من تركيا؛ هجين أو حضوري في إسطنبول',
+  arrangements: "عن بُعد من إسطنبول، تركيا؛ هجين في إسطنبول",
   availability: 'متاح فورًا · دوام كامل وعقود',
 }
 
 export const profileCopyJa: ProfileCopy = {
-  role: 'シニア iOS / Flutter エンジニア',
-  headline:
-    'iOS・iPadOS・Flutter で信頼性の高いモバイル体験を構築しています。',
-  support:
-    '公開リポジトリではアーキテクチャ、オフラインデータ、ネイティブブリッジ、テストカバレッジを明示しており、技術レビューしやすい構成です。',
+  role: "Flutter クロスプラットフォーム開発者 ＆ シニア iOS エンジニア",
+  headline: "Flutter・Apple 向けアプリを開発し、個人プロジェクトで Android と React にも取り組んでいます。",
+  support: "オフライン変更やリクエスト競合への設計判断を、回帰テストと日付付き実行記録から確認できます。",
   location: 'トルコ・イスタンブール · UTC+3',
   locationShort: 'トルコ・イスタンブール',
-  arrangements: 'トルコからリモート、またはイスタンブールでハイブリッド／出社',
+  arrangements: "トルコ・イスタンブールからリモート、またはイスタンブールでハイブリッド",
   availability: '即応可能 · フルタイムおよび契約',
 }
 
 export const profileCopyEs: ProfileCopy = {
-  role: 'Ingeniero sénior de iOS y Flutter',
-  headline:
-    'Diseño experiencias móviles fiables en iOS, iPadOS y Flutter.',
-  support:
-    'Los repositorios públicos destacan la arquitectura, los datos sin conexión, los puentes nativos y la cobertura de pruebas — estructurados para una revisión técnica rápida.',
+  role: "Desarrollador Flutter multiplataforma e ingeniero sénior de iOS",
+  headline: "Desarrollo apps Flutter y Apple, con proyectos personales de Android y React.",
+  support: "Cambios sin conexión, solicitudes concurrentes y decisiones de diseño, con pruebas de regresión y ejecuciones fechadas.",
   location: 'Estambul, Türkiye · UTC+3',
   locationShort: 'Estambul, Türkiye',
-  arrangements: 'Remoto desde Türkiye; híbrido o presencial en Estambul',
+  arrangements: "Remoto desde Estambul, Türkiye; híbrido en Estambul",
   availability: 'Disponible de inmediato · Jornada completa y contrato',
 }
 
 export const profileCopyDe: ProfileCopy = {
-  role: 'Senior iOS- & Flutter-Ingenieur',
-  headline:
-    'Ich entwickle zuverlässige Mobile-Erlebnisse für iOS, iPadOS und Flutter.',
-  support:
-    'Öffentliche Repositories zeigen Architektur, Offline-Daten, native Bridges und Testabdeckung — strukturiert für eine schnelle technische Prüfung.',
+  role: "Flutter-Cross-Platform-Entwickler & Senior iOS Engineer",
+  headline: "Ich entwickle Flutter- und Apple-Apps sowie persönliche Android- und React-Projekte.",
+  support: "Offline-Änderungen, konkurrierende Anfragen und Entwurfsentscheidungen — mit Regressionstests und datierten Testläufen.",
   location: 'Istanbul, Türkiye · UTC+3',
   locationShort: 'Istanbul, Türkiye',
-  arrangements: 'Remote aus der Türkiye; hybrid oder vor Ort in Istanbul',
+  arrangements: "Remote aus Istanbul, Türkiye; hybrid in Istanbul",
   availability: 'Sofort verfügbar · Vollzeit und Vertrag',
 }
 
 export const profileCopyIt: ProfileCopy = {
-  role: 'Ingegnere senior iOS e Flutter',
-  headline:
-    'Progetto esperienze mobili affidabili su iOS, iPadOS e Flutter.',
-  support:
-    'I repository pubblici evidenziano architettura, dati offline, bridge nativi e copertura dei test — strutturati per una revisione tecnica rapida.',
+  role: "Sviluppatore Flutter multipiattaforma e ingegnere iOS senior",
+  headline: "Sviluppo app Flutter e Apple, con progetti personali Android e React.",
+  support: "Modifiche offline, richieste concorrenti e scelte progettuali, con test di regressione ed esecuzioni datate.",
   location: 'Istanbul, Türkiye · UTC+3',
   locationShort: 'Istanbul, Türkiye',
-  arrangements: 'Remoto dalla Türkiye; ibrido o in sede a Istanbul',
+  arrangements: "Da remoto da Istanbul, Türkiye; ibrido a Istanbul",
   availability: 'Disponibile subito · Tempo pieno e contratto',
 }
 
 export const profileCopyZh: ProfileCopy = {
-  role: '高级 iOS 与 Flutter 工程师',
-  headline: '我在 iOS、iPadOS 和 Flutter 上打造可靠的移动体验。',
-  support:
-    '公开仓库突出架构、离线数据、原生桥接与测试覆盖——便于快速技术评审。',
+  role: "Flutter 跨平台开发者与高级 iOS 工程师",
+  headline: "我开发 Flutter 和 Apple 应用，也通过个人项目实践 Android 与 React。",
+  support: "从离线修改、请求竞争到设计决策，均可查看回归测试和有日期的运行记录。",
   location: '土耳其伊斯坦布尔 · UTC+3',
   locationShort: '土耳其伊斯坦布尔',
-  arrangements: '可从土耳其远程；伊斯坦布尔混合或现场办公',
+  arrangements: "从土耳其伊斯坦布尔远程办公；伊斯坦布尔混合办公",
   availability: '可立即到岗 · 全职与合同制',
 }
