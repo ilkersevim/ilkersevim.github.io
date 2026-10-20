@@ -34,6 +34,7 @@ export function LanguageSwitcher() {
   const listRef = useRef<HTMLDivElement>(null)
   const activeRef = useRef<HTMLButtonElement>(null)
 
+  // Keep the active locale chip in view when the user switches language.
   useLayoutEffect(() => {
     const root = listRef.current
     const active = activeRef.current
@@ -48,6 +49,26 @@ export function LanguageSwitcher() {
       reduceMotion ? 'auto' : 'smooth',
     )
   }, [locale])
+
+  // Locale effect alone misses viewport shrink: desktop→narrow can clip AR/ZH/JA
+  // while scrollLeft stays 0. Re-center instantly when the strip's width changes.
+  useLayoutEffect(() => {
+    const root = listRef.current
+    if (!root || typeof ResizeObserver === 'undefined') return
+
+    let prevWidth = root.clientWidth
+    const observer = new ResizeObserver(() => {
+      const width = root.clientWidth
+      if (width === prevWidth) return
+      prevWidth = width
+      const active = activeRef.current
+      if (!active) return
+      scrollActiveIntoSwitcher(root, active, 'auto')
+    })
+    observer.observe(root)
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <div
