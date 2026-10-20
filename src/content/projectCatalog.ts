@@ -82,7 +82,7 @@ const catalog: Record<ProjectId, {
     links: [{ label: 'source', href: web }],
     proof: [
       { label: 'navigation', href: `${web}/blob/main/src/hooks/useActiveSection.test.tsx` },
-      { label: 'qa', href: `${web}/blob/main/docs/validation/2026-10-20-flutter-first.md` },
+      { label: 'qa', href: `${web}/blob/main/docs/validation/2026-10-20-browser-zoom.md` },
     ],
   },
 }

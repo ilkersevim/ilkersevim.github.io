@@ -11,6 +11,7 @@
 - [ ] RTL smoke: Arabic (`ar`) sets `lang`/`dir` and readable layout
 - [ ] Theme: toggle updates `data-theme`, persists, no FOUC on reload
 - [ ] Responsive: header + language strip usable at ~320–390px and desktop
+- [ ] Native browser zoom: 200% anchors update the active menu; 400% short-viewport Tab / Shift+Tab keeps CV focus visible (EN / TR / AR)
 - [ ] Triple-remote tip sync when shipping: `origin` (`react-web-portfolio`), `usersite` (`redjadet.github.io`), and `orgsite` (`ilkersevim.github.io`)
 - [ ] Legacy redirects still target `https://ilkersevim.github.io/` (`redirect-pages/`, `redirect-usersite/`)
 - [ ] No secrets, tokens, or private credentials in the diff

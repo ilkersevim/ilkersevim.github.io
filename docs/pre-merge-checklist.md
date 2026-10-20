@@ -21,6 +21,7 @@ pnpm check   # lint + test:run + build
 | RTL | Switching to `ar` sets `document.documentElement.lang="ar"` and `dir="rtl"`; header/lang strip remain usable. |
 | Theme | Toggle flips `data-theme` / `color-scheme`, writes `localStorage.theme`, survives reload (no FOUC flash of wrong theme). |
 | Responsive | Header and language strip work at 320–390px and desktop; no clipped controls. |
+| Native browser zoom | At 200%, each anchor selects the matching menu link. At 400% (about 367 × 196 CSS px), Tab / Shift+Tab to both CV links keeps focus visible; EN / TR / AR have no horizontal overflow. Use the browser's zoom control, independently of text enlargement or viewport emulation. See the [dated zoom regression record](validation/2026-10-20-browser-zoom.md). |
 | Redirect | `redirect-pages/` and `redirect-usersite/` send legacy Pages traffic to `https://ilkersevim.github.io/`. |
 | Secrets | No tokens, credentials, or private keys in commits. |
 
