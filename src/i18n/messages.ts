@@ -161,7 +161,7 @@ const en: Messages = {
   about: {
     title: 'Experience with real product constraints',
     paragraphs: [
-      "I am a mobile engineer in Istanbul, with professional experience in banking, payments, telecom and secure communications. My Flutter background includes 1.5 years of commercial work and, separately, 3 years of personal development.",
+      "I am a mobile engineer in Istanbul, with professional experience in banking, payments, telecom and secure communications. I have 1.5 years of commercial Flutter experience. My personal Flutter work spans 3 years.",
       "My professional Apple work uses Swift, UIKit and Objective-C, alongside WebRTC and audio/video development. My public Apple portfolio demonstrates SwiftUI, SwiftData and Swift Concurrency; Android and React are personal portfolio projects.",
       "I have led mobile development, mentored engineers and automated builds and releases. With Cursor and Codex, I keep changes scoped, review the code and verify the result with tests.",
     ],
@@ -236,7 +236,7 @@ const tr: Messages = {
   about: {
     title: 'Gerçek ürün kısıtlarıyla edinilmiş deneyim',
     paragraphs: [
-      "İstanbul’da yaşayan bir mobil yazılım mühendisiyim. Bankacılık, ödeme, telekom ve güvenli iletişim ürünlerinde çalıştım. Flutter geçmişim 1,5 yıl ticari deneyim ve bundan ayrı 3 yıllık kişisel çalışmayı kapsıyor.",
+      "İstanbul’da yaşayan bir mobil yazılım mühendisiyim. Bankacılık, ödeme, telekom ve güvenli iletişim ürünlerinde çalıştım. Flutter ile 1,5 yıl ticari deneyimim var. Kişisel Flutter çalışmalarım 3 yıllık bir dönemi kapsıyor.",
       "Profesyonel Apple deneyimim Swift, UIKit ve Objective-C ile WebRTC ve ses/video geliştirmeyi kapsıyor. Açık Apple portfolyomda SwiftUI, SwiftData ve Swift Concurrency çalışmalarım yer alıyor. Android ve React projelerim kişisel portfolyo çalışmaları.",
       "Mobil ekiplere liderlik yaptım, geliştiricilere mentorluk verdim, derleme ve yayın süreçlerini otomatikleştirdim. Cursor ve Codex ile çalışırken değişiklikleri sınırlı tutuyor, kodu inceliyor ve sonucu testlerle doğruluyorum.",
     ],
@@ -311,7 +311,7 @@ const fr: Messages = {
   about: {
     title: 'Une expérience ancrée dans de vraies contraintes produit',
     paragraphs: [
-      "Ingénieur mobile à Istanbul, j’ai travaillé dans la banque, les paiements, les télécoms et les communications sécurisées. Mon parcours Flutter comprend 1,5 an d’expérience commerciale et, séparément, 3 ans de pratique personnelle.",
+      "Ingénieur mobile à Istanbul, j’ai travaillé dans la banque, les paiements, les télécoms et les communications sécurisées. J’ai 1,5 an d’expérience commerciale avec Flutter. Ma pratique personnelle de Flutter s’étend sur 3 ans.",
       "Mon expérience professionnelle Apple couvre Swift, UIKit, Objective-C, WebRTC et le développement audio/vidéo. Mon portfolio Apple présente SwiftUI, SwiftData et Swift Concurrency. Android et React sont des projets personnels.",
       "J’ai dirigé des équipes mobiles, accompagné des développeurs et automatisé les builds et publications. Avec Cursor et Codex, je limite le périmètre des changements, relis le code et vérifie les résultats par des tests.",
     ],
@@ -386,7 +386,7 @@ const ar: Messages = {
   about: {
     title: 'خبرة مبنية على قيود منتجات حقيقية',
     paragraphs: [
-      "أنا مهندس تطبيقات جوال في إسطنبول، عملت في البنوك والمدفوعات والاتصالات والتواصل الآمن. تشمل خبرتي في Flutter سنة ونصف من العمل التجاري، وبشكل منفصل ثلاث سنوات من التطوير الشخصي.",
+      "أنا مهندس تطبيقات جوال في إسطنبول، عملت في البنوك والمدفوعات والاتصالات والتواصل الآمن. لدي سنة ونصف من الخبرة التجارية في Flutter. يمتد عملي الشخصي في Flutter على ثلاث سنوات.",
       "تشمل خبرتي المهنية في Apple كلاً من Swift وUIKit وObjective-C وWebRTC وتطوير الصوت والفيديو. يعرض ملف أعمال Apple تطبيقات SwiftUI وSwiftData وSwift Concurrency. مشاريع Android وReact شخصية.",
       "قدت فرق تطوير الجوال، وأرشدت المهندسين وأتمتت البناء والنشر. مع Cursor وCodex أحدد نطاق التغييرات، وأراجع الكود وأتحقق من النتائج بالاختبارات.",
     ],
@@ -461,7 +461,7 @@ const ja: Messages = {
   about: {
     title: '実プロダクトの制約から得た経験',
     paragraphs: [
-      "イスタンブール在住のモバイルエンジニアです。銀行、決済、通信、安全なコミュニケーション分野で働いてきました。Flutter の経験は商用開発 1.5 年と、それとは別の個人開発 3 年です。",
+      "イスタンブール在住のモバイルエンジニアです。銀行、決済、通信、安全なコミュニケーション分野で働いてきました。Flutter の商用開発経験は 1.5 年です。個人での Flutter 開発は 3 年間にわたります。",
       "Apple の実務経験は Swift・UIKit・Objective-C に加え、WebRTC と音声・映像開発を含みます。公開 Apple ポートフォリオでは SwiftUI・SwiftData・Swift Concurrency を実践しています。Android と React は個人プロジェクトです。",
       "モバイルチームのリード、メンタリング、ビルド・リリースの自動化を経験しました。Cursor と Codex を使う際も変更範囲を絞り、コードをレビューし、テストで結果を検証します。",
     ],
@@ -536,7 +536,7 @@ const es: Messages = {
   about: {
     title: 'Experiencia con restricciones reales de producto',
     paragraphs: [
-      "Soy ingeniero móvil en Estambul, con experiencia en banca, pagos, telecomunicaciones y comunicaciones seguras. Mi trayectoria en Flutter incluye 1,5 años de trabajo comercial y, por separado, 3 años de desarrollo personal.",
+      "Soy ingeniero móvil en Estambul, con experiencia en banca, pagos, telecomunicaciones y comunicaciones seguras. Tengo 1,5 años de experiencia comercial con Flutter. Mi trabajo personal con Flutter abarca 3 años.",
       "Mi experiencia profesional en Apple incluye Swift, UIKit, Objective-C, WebRTC y desarrollo de audio/vídeo. Mi portfolio Apple muestra SwiftUI, SwiftData y Swift Concurrency. Android y React son proyectos personales.",
       "He liderado equipos móviles, formado a ingenieros y automatizado compilaciones y publicaciones. Con Cursor y Codex, acoto los cambios, reviso el código y verifico los resultados con pruebas.",
     ],
@@ -611,7 +611,7 @@ const de: Messages = {
   about: {
     title: 'Erfahrung mit echten Produktanforderungen',
     paragraphs: [
-      "Ich bin Mobile-Entwickler in Istanbul und habe in Banken, Zahlungsverkehr, Telekommunikation und sicherer Kommunikation gearbeitet. Mein Flutter-Hintergrund umfasst 1,5 Jahre kommerzielle Arbeit und davon getrennt 3 Jahre persönliche Entwicklung.",
+      "Ich bin Mobile-Entwickler in Istanbul und habe in Banken, Zahlungsverkehr, Telekommunikation und sicherer Kommunikation gearbeitet. Ich habe 1,5 Jahre kommerzielle Flutter-Erfahrung. Meine privaten Flutter-Projekte erstrecken sich über 3 Jahre.",
       "Meine berufliche Apple-Erfahrung umfasst Swift, UIKit, Objective-C, WebRTC sowie Audio-/Videoentwicklung. Mein Apple-Portfolio zeigt SwiftUI, SwiftData und Swift Concurrency. Android und React sind persönliche Projekte.",
       "Ich habe Mobile-Teams geleitet, Entwickler begleitet und Builds und Releases automatisiert. Mit Cursor und Codex begrenze ich Änderungen, prüfe den Code und verifiziere Ergebnisse durch Tests.",
     ],
@@ -686,7 +686,7 @@ const it: Messages = {
   about: {
     title: 'Esperienza con vincoli di prodotto reali',
     paragraphs: [
-      "Sono un ingegnere mobile a Istanbul, con esperienza in banche, pagamenti, telecomunicazioni e comunicazioni sicure. Il mio percorso Flutter comprende 1,5 anni di lavoro commerciale e, separatamente, 3 anni di sviluppo personale.",
+      "Sono un ingegnere mobile a Istanbul, con esperienza in banche, pagamenti, telecomunicazioni e comunicazioni sicure. Ho 1,5 anni di esperienza commerciale con Flutter. Il mio lavoro personale con Flutter copre un periodo di 3 anni.",
       "La mia esperienza professionale Apple comprende Swift, UIKit, Objective-C, WebRTC e sviluppo audio/video. Il portfolio Apple mostra SwiftUI, SwiftData e Swift Concurrency. Android e React sono progetti personali.",
       "Ho guidato team mobili, formato ingegneri e automatizzato build e rilasci. Con Cursor e Codex limito le modifiche, revisiono il codice e verifico i risultati con test.",
     ],
@@ -761,7 +761,7 @@ const zh: Messages = {
   about: {
     title: '面对真实产品约束的经验',
     paragraphs: [
-      "我是居住在伊斯坦布尔的移动工程师，曾从事银行、支付、电信和安全通信产品开发。我的 Flutter 经历包括 1.5 年商业开发，另有 3 年个人开发，二者分别列出。",
+      "我是居住在伊斯坦布尔的移动工程师，曾从事银行、支付、电信和安全通信产品开发。我有 1.5 年 Flutter 商业开发经验。我的个人 Flutter 项目实践跨度为 3 年。",
       "我的 Apple 专业经验涵盖 Swift、UIKit、Objective-C，以及 WebRTC 和音视频开发。公开 Apple 作品集展示 SwiftUI、SwiftData 和 Swift Concurrency 实践。Android 与 React 属于个人作品。",
       "我曾带领移动团队、指导工程师并自动化构建和发布。使用 Cursor 与 Codex 时，我限定变更范围、审查代码，并通过测试验证结果。",
     ],

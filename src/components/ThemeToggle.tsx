@@ -52,7 +52,6 @@ export function ThemeToggle() {
       className={styles.toggle}
       onClick={toggleTheme}
       aria-label={switchLabel}
-      aria-pressed={isDark}
       title={switchLabel}
     >
       {isDark ? <SunIcon /> : <MoonIcon />}

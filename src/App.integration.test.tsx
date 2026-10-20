@@ -44,7 +44,7 @@ describe('App integration', () => {
     expect(screen.getByText(getMessages('ar').profile.role)).toBeInTheDocument()
   })
 
-  it('toggles theme data attribute and persistence', async () => {
+  it('uses action labels without pressed state while toggling and persisting theme', async () => {
     const user = userEvent.setup()
     renderWithProviders(createElement(App))
 
@@ -52,6 +52,7 @@ describe('App integration', () => {
       name: getMessages('en').theme.switchToDark,
     })
     expect(document.documentElement.getAttribute('data-theme')).toBe('light')
+    expect(toggle).not.toHaveAttribute('aria-pressed')
 
     await user.click(toggle)
 
@@ -59,9 +60,20 @@ describe('App integration', () => {
       expect(document.documentElement.getAttribute('data-theme')).toBe('dark')
     })
     expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('dark')
-    expect(
-      screen.getByRole('button', { name: getMessages('en').theme.switchToLight }),
-    ).toBeInTheDocument()
+    const switchToLight = screen.getByRole('button', {
+      name: getMessages('en').theme.switchToLight,
+    })
+    expect(switchToLight).not.toHaveAttribute('aria-pressed')
+
+    await user.click(switchToLight)
+
+    await waitFor(() => {
+      expect(document.documentElement.getAttribute('data-theme')).toBe('light')
+    })
+    expect(localStorage.getItem(THEME_STORAGE_KEY)).toBe('light')
+    expect(screen.getByRole('button', {
+      name: getMessages('en').theme.switchToDark,
+    })).not.toHaveAttribute('aria-pressed')
   })
 
   it.each([
