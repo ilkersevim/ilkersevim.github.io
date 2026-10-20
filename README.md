@@ -6,9 +6,9 @@
 [![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
 [![Node.js 24](https://img.shields.io/badge/Node.js-24-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 
-Professional website for a senior iOS and Flutter engineer based in Istanbul. Live at [ilkersevim.github.io](https://ilkersevim.github.io/). It brings together selected public projects, engineering practices, availability and contact links. React and TypeScript are demonstrated through the website itself; the mobile apps are clearly presented as portfolio references.
+Professional website for İlker Sevim, Flutter Cross-Platform Developer & Senior iOS Engineer. Live at [ilkersevim.github.io](https://ilkersevim.github.io/). Flutter and Apple work leads; Android and React are personal portfolio projects. Work preference: remote from Istanbul, Türkiye; hybrid in Istanbul. The site includes technical evidence, dated test runs and separate Flutter / iOS CV downloads.
 
-![Portfolio preview — hero and selected work sections](public/og.png)
+![İlker Sevim — Flutter Cross-Platform Developer & Senior iOS Engineer](public/og.png)
 
 ## For technical reviewers
 
@@ -16,9 +16,12 @@ Suggested reading order:
 
 | Priority | What to open | Why |
 | --- | --- | --- |
-| 1 | [Flutter portfolio — 3-minute review](https://github.com/redjadet/flutter_bloc_app#3-minute-review) | Cross-platform architecture, offline-first counter, native bridges, tests |
-| 2 | [iOS portfolio — 3-minute path](https://github.com/redjadet/super_demo_ios#3-minute-path) | SwiftUI layers, SwiftData cache, UIKit showcase, optional Flutter embed |
-| 3 | [This repository](https://github.com/redjadet/react-web-portfolio) | Typed content, CSS Modules, accessibility and GitHub Pages deploy |
+| 1 | [Flutter reviewer path](https://github.com/redjadet/flutter_bloc_app#reviewer-path) | Persist and replay offline counter writes; stale-read and queue regressions |
+| 2 | [Apple three-minute path](https://github.com/redjadet/super_demo_ios/blob/main/docs/portfolio.md#3-minute-path) | Preserve the latest bookmark intent during an in-flight request; macOS and local watchOS / tvOS demos |
+| 3 | [Android three-minute path](https://github.com/redjadet/super_demo_android/blob/main/docs/portfolio.md#3-minute-path) | Room transaction race, offline feed, CRUD and deep links |
+| 4 | [This repository](https://github.com/redjadet/react-web-portfolio) | Viewport-height navigation geometry, nine locales and accessible controls |
+
+Each project card links design evidence and relevant regressions. Mobile test links are pinned to the commit of the linked successful run, with its date visible. A test file alone is not a passing result. [Validation record](docs/validation/2026-10-20-flutter-first.md) explains the checked scope and publication gate.
 
 Contact: [ilkersevim2007@gmail.com](mailto:ilkersevim2007@gmail.com) · [LinkedIn](https://www.linkedin.com/in/ilker-sevim-95020820/) · [GitHub](https://github.com/redjadet)
 
@@ -54,7 +57,9 @@ Pre-merge gate: [docs/pre-merge-checklist.md](docs/pre-merge-checklist.md). PRs 
 
 ## Update content
 
-Edit `src/content/profile.ts`, `projects.ts` and `skills.ts`. Put static assets in `public/`; reference them through `import.meta.env.BASE_URL` so asset paths stay correct for the org-site root (`base: '/'`).
+Edit `src/content/profile.ts`, `projects.ts`, `projectCatalog.ts`, `skills.ts` and `src/i18n/messages.ts`. Platform links and pinned run references live once in `projectCatalog.ts`; copy is translated in nine locales. Keep `index.html` defaults and the sharing image consistent with the English identity.
+
+Put static assets in `public/`; reference them through `import.meta.env.BASE_URL` so asset paths stay correct for the org-site root (`base: '/'`). [Asset provenance](docs/portfolio-assets.md) records the real app screenshots and unchanged CV PDFs. The sharing image source is `scripts/og.html`: serve it with `pnpm dev`, open `/scripts/og.html` at 1200 × 630, then capture that viewport as `public/og.png`.
 
 ## Deploy
 

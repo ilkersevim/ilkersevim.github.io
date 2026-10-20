@@ -15,6 +15,7 @@ export function Hero() {
           <p className={styles.role}>{t.profile.role}</p>
           <p className={styles.headline}>{t.profile.headline}</p>
           <p className={styles.support}>{t.profile.support}</p>
+          <p className={styles.arrangements}>{t.profile.arrangements}</p>
           <div className={styles.actions}>
             <a className="btn btn--primary" href="#work">
               {t.hero.exploreWork}

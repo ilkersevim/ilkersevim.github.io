@@ -30,7 +30,6 @@ export function Contact() {
             <a
               className={['btn', styles.emailButton].join(' ')}
               href={'mailto:' + profile.email}
-              aria-label={t.a11y.emailName(profile.name)}
             >
               {t.contact.emailMe}
             </a>
@@ -44,6 +43,14 @@ export function Contact() {
           <a className={styles.email} href={'mailto:' + profile.email}>
             {profile.email}
           </a>
+          <div className={styles.downloads}>
+            <a href={import.meta.env.BASE_URL + 'cv/ilker-sevim-flutter.pdf'} download>
+              {t.contact.flutterCv}
+            </a>
+            <a href={import.meta.env.BASE_URL + 'cv/ilker-sevim-ios.pdf'} download>
+              {t.contact.iosCv}
+            </a>
+          </div>
         </div>
         <p className={styles.invitation}>{t.contact.invitation}</p>
       </div>

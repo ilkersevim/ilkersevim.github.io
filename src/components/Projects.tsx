@@ -36,12 +36,39 @@ export function Projects() {
                     </ExternalLink>
                   ))}
                 </div>
+                {project.image && (
+                  <figure className={styles.preview}>
+                    <img
+                      src={import.meta.env.BASE_URL + project.image.src}
+                      width={project.image.width}
+                      height={project.image.height}
+                      alt={project.image.alt}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <figcaption>{project.image.caption}</figcaption>
+                  </figure>
+                )}
               </div>
-              <ul className={styles.evidence}>
-                {project.evidence.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+              <div className={styles.evidence}>
+                <ul>
+                  {project.evidence.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <div className={styles.proof}>
+                  {project.proof.map((link) => (
+                    <ExternalLink
+                      key={link.href}
+                      href={link.href}
+                      className="text-link"
+                      label={t.a11y.projectLink(project.title, link.label)}
+                    >
+                      {link.label}<Arrow />
+                    </ExternalLink>
+                  ))}
+                </div>
+              </div>
             </li>
           ))}
         </ol>

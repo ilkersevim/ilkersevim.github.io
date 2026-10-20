@@ -2,21 +2,39 @@ export type SkillGroup = { id: string; title: string; items: string[] }
 
 export const skillGroupsEn: SkillGroup[] = [
   {
-    id: 'native',
-    title: 'Native iOS & iPadOS',
-    items: [
-      'Swift · SwiftUI · UIKit',
-      'Objective-C · Swift Concurrency',
-      'Xcode · CocoaPods',
-    ],
-  },
-  {
     id: 'flutter',
     title: 'Flutter & Dart',
     items: [
       'BLoC / Cubit · Clean Architecture',
       'Responsive and adaptive UI',
       'Swift / Kotlin platform integration',
+    ],
+  },
+  {
+    "id": "native",
+    "title": "Apple · professional & portfolio",
+    "items": [
+      "Professional: Swift · UIKit · Objective-C",
+      "Portfolio: SwiftUI · SwiftData · Swift Concurrency",
+      "iOS · iPadOS · macOS · watchOS · tvOS"
+    ]
+  },
+  {
+    "id": "android",
+    "title": "Android · personal portfolio",
+    "items": [
+      "Kotlin · Jetpack Compose",
+      "Coroutines / Flow · Room",
+      "Hilt · Retrofit"
+    ]
+  },
+  {
+    id: 'web',
+    title: "React · personal portfolio",
+    items: [
+      'React · TypeScript · Vite',
+      'HTML / CSS · CSS Modules',
+      'Responsive and accessible UI',
     ],
   },
   {
@@ -38,15 +56,6 @@ export const skillGroupsEn: SkillGroup[] = [
     ],
   },
   {
-    id: 'web',
-    title: 'React web',
-    items: [
-      'React · TypeScript · Vite',
-      'HTML / CSS · CSS Modules',
-      'Responsive and accessible UI',
-    ],
-  },
-  {
     id: 'ai',
     title: 'AI-assisted development',
     items: [
@@ -59,21 +68,39 @@ export const skillGroupsEn: SkillGroup[] = [
 
 export const skillGroupsTr: SkillGroup[] = [
   {
-    id: 'native',
-    title: 'Native iOS ve iPadOS',
-    items: [
-      'Swift · SwiftUI · UIKit',
-      'Objective-C · Swift Concurrency',
-      'Xcode · CocoaPods',
-    ],
-  },
-  {
     id: 'flutter',
     title: 'Flutter ve Dart',
     items: [
       'BLoC / Cubit · Clean Architecture',
       'Duyarlı ve uyarlanabilir arayüz',
       'Swift / Kotlin platform entegrasyonu',
+    ],
+  },
+  {
+    "id": "native",
+    "title": "Apple · profesyonel ve portfolyo",
+    "items": [
+      "Profesyonel: Swift · UIKit · Objective-C",
+      "Portfolyo: SwiftUI · SwiftData · Swift Concurrency",
+      "iOS · iPadOS · macOS · watchOS · tvOS"
+    ]
+  },
+  {
+    "id": "android",
+    "title": "Android · kişisel portfolyo",
+    "items": [
+      "Kotlin · Jetpack Compose",
+      "Coroutines / Flow · Room",
+      "Hilt · Retrofit"
+    ]
+  },
+  {
+    id: 'web',
+    title: "React · kişisel portfolyo",
+    items: [
+      'React · TypeScript · Vite',
+      'HTML / CSS · CSS Modules',
+      'Duyarlı ve erişilebilir arayüz',
     ],
   },
   {
@@ -95,15 +122,6 @@ export const skillGroupsTr: SkillGroup[] = [
     ],
   },
   {
-    id: 'web',
-    title: 'React web',
-    items: [
-      'React · TypeScript · Vite',
-      'HTML / CSS · CSS Modules',
-      'Duyarlı ve erişilebilir arayüz',
-    ],
-  },
-  {
     id: 'ai',
     title: 'Yapay zekâ destekli geliştirme',
     items: [
@@ -116,21 +134,39 @@ export const skillGroupsTr: SkillGroup[] = [
 
 export const skillGroupsFr: SkillGroup[] = [
   {
-    id: 'native',
-    title: 'iOS & iPadOS natifs',
-    items: [
-      'Swift · SwiftUI · UIKit',
-      'Objective-C · Swift Concurrency',
-      'Xcode · CocoaPods',
-    ],
-  },
-  {
     id: 'flutter',
     title: 'Flutter & Dart',
     items: [
       'BLoC / Cubit · Clean Architecture',
       'Interface responsive et adaptative',
       'Intégration plateforme Swift / Kotlin',
+    ],
+  },
+  {
+    "id": "native",
+    "title": "Apple · professionnel et portfolio",
+    "items": [
+      "Professionnel : Swift · UIKit · Objective-C",
+      "Portfolio : SwiftUI · SwiftData · Swift Concurrency",
+      "iOS · iPadOS · macOS · watchOS · tvOS"
+    ]
+  },
+  {
+    "id": "android",
+    "title": "Android · portfolio personnel",
+    "items": [
+      "Kotlin · Jetpack Compose",
+      "Coroutines / Flow · Room",
+      "Hilt · Retrofit"
+    ]
+  },
+  {
+    id: 'web',
+    title: "React · portfolio personnel",
+    items: [
+      'React · TypeScript · Vite',
+      'HTML / CSS · CSS Modules',
+      'Interface responsive et accessible',
     ],
   },
   {
@@ -152,15 +188,6 @@ export const skillGroupsFr: SkillGroup[] = [
     ],
   },
   {
-    id: 'web',
-    title: 'Web React',
-    items: [
-      'React · TypeScript · Vite',
-      'HTML / CSS · CSS Modules',
-      'Interface responsive et accessible',
-    ],
-  },
-  {
     id: 'ai',
     title: 'Développement assisté par l’IA',
     items: [
@@ -173,21 +200,39 @@ export const skillGroupsFr: SkillGroup[] = [
 
 export const skillGroupsAr: SkillGroup[] = [
   {
-    id: 'native',
-    title: 'iOS وiPadOS الأصليون',
-    items: [
-      'Swift · SwiftUI · UIKit',
-      'Objective-C · Swift Concurrency',
-      'Xcode · CocoaPods',
-    ],
-  },
-  {
     id: 'flutter',
     title: 'Flutter وDart',
     items: [
       'BLoC / Cubit · Clean Architecture',
       'واجهة متجاوبة ومتكيّفة',
       'تكامل منصة Swift / Kotlin',
+    ],
+  },
+  {
+    "id": "native",
+    "title": "Apple · خبرة مهنية وملف أعمال",
+    "items": [
+      "مهنياً: Swift · UIKit · Objective-C",
+      "ملف الأعمال: SwiftUI · SwiftData · Swift Concurrency",
+      "iOS · iPadOS · macOS · watchOS · tvOS"
+    ]
+  },
+  {
+    "id": "android",
+    "title": "Android · ملف أعمال شخصي",
+    "items": [
+      "Kotlin · Jetpack Compose",
+      "Coroutines / Flow · Room",
+      "Hilt · Retrofit"
+    ]
+  },
+  {
+    id: 'web',
+    title: "React · ملف أعمال شخصي",
+    items: [
+      'React · TypeScript · Vite',
+      'HTML / CSS · CSS Modules',
+      'واجهة متجاوبة وسهلة الوصول',
     ],
   },
   {
@@ -209,15 +254,6 @@ export const skillGroupsAr: SkillGroup[] = [
     ],
   },
   {
-    id: 'web',
-    title: 'ويب React',
-    items: [
-      'React · TypeScript · Vite',
-      'HTML / CSS · CSS Modules',
-      'واجهة متجاوبة وسهلة الوصول',
-    ],
-  },
-  {
     id: 'ai',
     title: 'تطوير بمساعدة الذكاء الاصطناعي',
     items: [
@@ -230,21 +266,39 @@ export const skillGroupsAr: SkillGroup[] = [
 
 export const skillGroupsJa: SkillGroup[] = [
   {
-    id: 'native',
-    title: 'ネイティブ iOS / iPadOS',
-    items: [
-      'Swift · SwiftUI · UIKit',
-      'Objective-C · Swift Concurrency',
-      'Xcode · CocoaPods',
-    ],
-  },
-  {
     id: 'flutter',
     title: 'Flutter / Dart',
     items: [
       'BLoC / Cubit · Clean Architecture',
       'レスポンシブ／アダプティブ UI',
       'Swift / Kotlin プラットフォーム連携',
+    ],
+  },
+  {
+    "id": "native",
+    "title": "Apple・実務とポートフォリオ",
+    "items": [
+      "実務：Swift · UIKit · Objective-C",
+      "ポートフォリオ：SwiftUI · SwiftData · Swift Concurrency",
+      "iOS · iPadOS · macOS · watchOS · tvOS"
+    ]
+  },
+  {
+    "id": "android",
+    "title": "Android・個人ポートフォリオ",
+    "items": [
+      "Kotlin · Jetpack Compose",
+      "Coroutines / Flow · Room",
+      "Hilt · Retrofit"
+    ]
+  },
+  {
+    id: 'web',
+    title: "React・個人ポートフォリオ",
+    items: [
+      'React · TypeScript · Vite',
+      'HTML / CSS · CSS Modules',
+      'レスポンシブでアクセシブルな UI',
     ],
   },
   {
@@ -266,15 +320,6 @@ export const skillGroupsJa: SkillGroup[] = [
     ],
   },
   {
-    id: 'web',
-    title: 'React Web',
-    items: [
-      'React · TypeScript · Vite',
-      'HTML / CSS · CSS Modules',
-      'レスポンシブでアクセシブルな UI',
-    ],
-  },
-  {
     id: 'ai',
     title: 'AI 支援開発',
     items: [
@@ -287,21 +332,39 @@ export const skillGroupsJa: SkillGroup[] = [
 
 export const skillGroupsEs: SkillGroup[] = [
   {
-    id: 'native',
-    title: 'iOS e iPadOS nativos',
-    items: [
-      'Swift · SwiftUI · UIKit',
-      'Objective-C · Swift Concurrency',
-      'Xcode · CocoaPods',
-    ],
-  },
-  {
     id: 'flutter',
     title: 'Flutter y Dart',
     items: [
       'BLoC / Cubit · Clean Architecture',
       'Interfaz responsiva y adaptativa',
       'Integración de plataforma Swift / Kotlin',
+    ],
+  },
+  {
+    "id": "native",
+    "title": "Apple · profesional y portfolio",
+    "items": [
+      "Profesional: Swift · UIKit · Objective-C",
+      "Portfolio: SwiftUI · SwiftData · Swift Concurrency",
+      "iOS · iPadOS · macOS · watchOS · tvOS"
+    ]
+  },
+  {
+    "id": "android",
+    "title": "Android · portfolio personal",
+    "items": [
+      "Kotlin · Jetpack Compose",
+      "Coroutines / Flow · Room",
+      "Hilt · Retrofit"
+    ]
+  },
+  {
+    id: 'web',
+    title: "React · portfolio personal",
+    items: [
+      'React · TypeScript · Vite',
+      'HTML / CSS · CSS Modules',
+      'Interfaz responsiva y accesible',
     ],
   },
   {
@@ -323,15 +386,6 @@ export const skillGroupsEs: SkillGroup[] = [
     ],
   },
   {
-    id: 'web',
-    title: 'Web con React',
-    items: [
-      'React · TypeScript · Vite',
-      'HTML / CSS · CSS Modules',
-      'Interfaz responsiva y accesible',
-    ],
-  },
-  {
     id: 'ai',
     title: 'Desarrollo asistido por IA',
     items: [
@@ -344,21 +398,39 @@ export const skillGroupsEs: SkillGroup[] = [
 
 export const skillGroupsDe: SkillGroup[] = [
   {
-    id: 'native',
-    title: 'Natives iOS & iPadOS',
-    items: [
-      'Swift · SwiftUI · UIKit',
-      'Objective-C · Swift Concurrency',
-      'Xcode · CocoaPods',
-    ],
-  },
-  {
     id: 'flutter',
     title: 'Flutter & Dart',
     items: [
       'BLoC / Cubit · Clean Architecture',
       'Responsives und adaptives UI',
       'Swift- / Kotlin-Plattformintegration',
+    ],
+  },
+  {
+    "id": "native",
+    "title": "Apple · Beruf und Portfolio",
+    "items": [
+      "Beruflich: Swift · UIKit · Objective-C",
+      "Portfolio: SwiftUI · SwiftData · Swift Concurrency",
+      "iOS · iPadOS · macOS · watchOS · tvOS"
+    ]
+  },
+  {
+    "id": "android",
+    "title": "Android · persönliches Portfolio",
+    "items": [
+      "Kotlin · Jetpack Compose",
+      "Coroutines / Flow · Room",
+      "Hilt · Retrofit"
+    ]
+  },
+  {
+    id: 'web',
+    title: "React · persönliches Portfolio",
+    items: [
+      'React · TypeScript · Vite',
+      'HTML / CSS · CSS Modules',
+      'Responsives und barrierefreies UI',
     ],
   },
   {
@@ -380,15 +452,6 @@ export const skillGroupsDe: SkillGroup[] = [
     ],
   },
   {
-    id: 'web',
-    title: 'React-Web',
-    items: [
-      'React · TypeScript · Vite',
-      'HTML / CSS · CSS Modules',
-      'Responsives und barrierefreies UI',
-    ],
-  },
-  {
     id: 'ai',
     title: 'KI-gestützte Entwicklung',
     items: [
@@ -401,21 +464,39 @@ export const skillGroupsDe: SkillGroup[] = [
 
 export const skillGroupsIt: SkillGroup[] = [
   {
-    id: 'native',
-    title: 'iOS e iPadOS nativi',
-    items: [
-      'Swift · SwiftUI · UIKit',
-      'Objective-C · Swift Concurrency',
-      'Xcode · CocoaPods',
-    ],
-  },
-  {
     id: 'flutter',
     title: 'Flutter e Dart',
     items: [
       'BLoC / Cubit · Clean Architecture',
       'UI responsive e adattiva',
       'Integrazione di piattaforma Swift / Kotlin',
+    ],
+  },
+  {
+    "id": "native",
+    "title": "Apple · lavoro e portfolio",
+    "items": [
+      "Professionale: Swift · UIKit · Objective-C",
+      "Portfolio: SwiftUI · SwiftData · Swift Concurrency",
+      "iOS · iPadOS · macOS · watchOS · tvOS"
+    ]
+  },
+  {
+    "id": "android",
+    "title": "Android · portfolio personale",
+    "items": [
+      "Kotlin · Jetpack Compose",
+      "Coroutines / Flow · Room",
+      "Hilt · Retrofit"
+    ]
+  },
+  {
+    id: 'web',
+    title: "React · portfolio personale",
+    items: [
+      'React · TypeScript · Vite',
+      'HTML / CSS · CSS Modules',
+      'UI responsive e accessibile',
     ],
   },
   {
@@ -437,15 +518,6 @@ export const skillGroupsIt: SkillGroup[] = [
     ],
   },
   {
-    id: 'web',
-    title: 'Web con React',
-    items: [
-      'React · TypeScript · Vite',
-      'HTML / CSS · CSS Modules',
-      'UI responsive e accessibile',
-    ],
-  },
-  {
     id: 'ai',
     title: 'Sviluppo assistito da IA',
     items: [
@@ -458,21 +530,39 @@ export const skillGroupsIt: SkillGroup[] = [
 
 export const skillGroupsZh: SkillGroup[] = [
   {
-    id: 'native',
-    title: '原生 iOS 与 iPadOS',
-    items: [
-      'Swift · SwiftUI · UIKit',
-      'Objective-C · Swift Concurrency',
-      'Xcode · CocoaPods',
-    ],
-  },
-  {
     id: 'flutter',
     title: 'Flutter 与 Dart',
     items: [
       'BLoC / Cubit · Clean Architecture',
       '响应式与自适应界面',
       'Swift / Kotlin 平台集成',
+    ],
+  },
+  {
+    "id": "native",
+    "title": "Apple · 专业经验与作品集",
+    "items": [
+      "专业经验：Swift · UIKit · Objective-C",
+      "作品集：SwiftUI · SwiftData · Swift Concurrency",
+      "iOS · iPadOS · macOS · watchOS · tvOS"
+    ]
+  },
+  {
+    "id": "android",
+    "title": "Android · 个人作品集",
+    "items": [
+      "Kotlin · Jetpack Compose",
+      "Coroutines / Flow · Room",
+      "Hilt · Retrofit"
+    ]
+  },
+  {
+    id: 'web',
+    title: "React · 个人作品集",
+    items: [
+      'React · TypeScript · Vite',
+      'HTML / CSS · CSS Modules',
+      '响应式与无障碍界面',
     ],
   },
   {
@@ -491,15 +581,6 @@ export const skillGroupsZh: SkillGroup[] = [
       '单元 · UI · Widget · 集成测试',
       'GitHub Actions · Fastlane',
       'App Store 与 Google Play 工作流',
-    ],
-  },
-  {
-    id: 'web',
-    title: 'React Web',
-    items: [
-      'React · TypeScript · Vite',
-      'HTML / CSS · CSS Modules',
-      '响应式与无障碍界面',
     ],
   },
   {
