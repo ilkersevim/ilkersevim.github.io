@@ -1,94 +1,129 @@
 import { act, renderHook } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { useActiveSection } from './useActiveSection'
+import { useActiveSection, type SectionId } from './useActiveSection'
 
-const originalIntersectionObserver = globalThis.IntersectionObserver
-const originalResizeObserver = globalThis.ResizeObserver
 const originalHeight = window.innerHeight
-let headerHeight = 80
 let fixture: HTMLDivElement
-let resizeHeader: ResizeObserverCallback
-const observers: {
-  callback: IntersectionObserverCallback
-  options: IntersectionObserverInit
-  observe: ReturnType<typeof vi.fn>
-  disconnect: ReturnType<typeof vi.fn>
-}[] = []
+let tops: Record<SectionId, number>
+let resized: ResizeObserverCallback
+let frames: Map<number, FrameRequestCallback>
+const disconnect = vi.fn()
 
-function notify(index: number, id: string, isIntersecting: boolean, intersectionRatio: number) {
-  const entry = { target: document.getElementById(id), isIntersecting, intersectionRatio }
-  act(() => observers[index].callback([entry as IntersectionObserverEntry], {} as IntersectionObserver))
+function flushFrames() {
+  act(() => {
+    const pending = [...frames.values()]
+    frames.clear()
+    for (const callback of pending) callback(0)
+  })
+}
+
+function notifyScroll() {
+  act(() => window.dispatchEvent(new Event('scroll')))
+  flushFrames()
 }
 
 beforeEach(() => {
-  headerHeight = 80
-  observers.length = 0
+  tops = { work: -3000, skills: -1000, about: -100, contact: 700 }
+  frames = new Map()
+  let frameId = 0
+  disconnect.mockClear()
   Object.defineProperty(window, 'innerHeight', { configurable: true, value: 1000 })
+  document.documentElement.style.scrollPaddingTop = '96px'
   fixture = document.createElement('div')
   fixture.innerHTML = '<header></header><section id="work"></section><section id="skills"></section><section id="about"></section><section id="contact"></section>'
   document.body.append(fixture)
-  vi.spyOn(fixture.querySelector('header')!, 'getBoundingClientRect')
-    .mockImplementation(() => ({ height: headerHeight }) as DOMRect)
-  vi.stubGlobal('IntersectionObserver', class {
-    constructor(callback: IntersectionObserverCallback, options: IntersectionObserverInit) {
-      Object.assign(this, { callback, options })
-      observers.push(this as unknown as typeof observers[number])
-    }
-    observe = vi.fn()
-    disconnect = vi.fn()
+  for (const id of Object.keys(tops) as SectionId[]) {
+    vi.spyOn(document.getElementById(id)!, 'getBoundingClientRect')
+      .mockImplementation(() => ({ top: tops[id] }) as DOMRect)
+  }
+  vi.spyOn(window, 'requestAnimationFrame').mockImplementation((callback) => {
+    frames.set(++frameId, callback)
+    return frameId
   })
+  vi.spyOn(window, 'cancelAnimationFrame').mockImplementation((id) => { frames.delete(id) })
   vi.stubGlobal('ResizeObserver', class {
-    constructor(callback: ResizeObserverCallback) { resizeHeader = callback }
+    constructor(callback: ResizeObserverCallback) { resized = callback }
     observe = vi.fn()
-    disconnect = vi.fn()
+    disconnect = disconnect
   })
 })
 
 afterEach(() => {
   fixture.remove()
+  document.documentElement.style.removeProperty('scroll-padding-top')
   vi.restoreAllMocks()
-  vi.stubGlobal('IntersectionObserver', originalIntersectionObserver)
-  vi.stubGlobal('ResizeObserver', originalResizeObserver)
+  vi.unstubAllGlobals()
   Object.defineProperty(window, 'innerHeight', { configurable: true, value: originalHeight })
 })
 
-describe('active section reading band', () => {
-  it('uses viewport-height pixels, with a nonempty band', () => {
-    renderHook(useActiveSection)
-    expect(observers[0].options.rootMargin).toBe('-400px 0px -450px 0px')
-    expect(observers[0].observe).toHaveBeenCalledTimes(4)
-  })
-
-  it('rebuilds on viewport resize and disconnects old observers', () => {
-    const { unmount } = renderHook(useActiveSection)
-    Object.defineProperty(window, 'innerHeight', { configurable: true, value: 600 })
-    act(() => window.dispatchEvent(new Event('resize')))
-    expect(observers[0].disconnect).toHaveBeenCalledOnce()
-    expect(observers[1].options.rootMargin).toBe('-240px 0px -270px 0px')
-    unmount()
-    expect(observers[1].disconnect).toHaveBeenCalledOnce()
-    act(() => window.dispatchEvent(new Event('resize')))
-    expect(observers).toHaveLength(2)
-  })
-
-  it('keeps the band below a wrapped sticky header and leaves at least one pixel', () => {
-    renderHook(useActiveSection)
-    headerHeight = 600
-    act(() => resizeHeader([], {} as ResizeObserver))
-    expect(observers[1].options.rootMargin).toBe('-600px 0px -399px 0px')
-    headerHeight = 1200
-    act(() => resizeHeader([], {} as ResizeObserver))
-    expect(observers[2].options.rootMargin).toBe('-999px 0px -0px 0px')
-  })
-
-  it('retains visible sections across partial observer deliveries', () => {
+describe('active section from current geometry', () => {
+  it('updates Contact on scroll without waiting for intersection thresholds', () => {
     const { result } = renderHook(useActiveSection)
-    notify(0, 'work', true, 0.2)
-    notify(0, 'skills', true, 0.5)
-    expect(result.current).toBe('skills')
-    notify(0, 'skills', false, 0)
-    expect(result.current).toBe('work')
-    notify(0, 'work', false, 0)
+    expect(result.current).toBe('about')
+    tops.contact = 195
+    notifyScroll()
+    expect(result.current).toBe('contact')
+    tops.contact = 700
+    notifyScroll()
+    expect(result.current).toBe('about')
+  })
+
+  it('keeps a short-viewport anchor active below the sticky-header inset', () => {
+    Object.defineProperty(window, 'innerHeight', { configurable: true, value: 393 })
+    document.documentElement.style.scrollPaddingTop = '195px'
+    tops.contact = 195
+    const { result } = renderHook(useActiveSection)
+    expect(result.current).toBe('contact')
+  })
+
+  it('clears the active link when scrolling back above Work', () => {
+    const { result } = renderHook(useActiveSection)
+    tops = { work: 500, skills: 1500, about: 2500, contact: 3500 }
+    notifyScroll()
     expect(result.current).toBeNull()
+    tops.work = 350
+    notifyScroll()
+    expect(result.current).toBe('work')
+  })
+
+  it('recomputes after viewport resize and static-header inset changes', () => {
+    tops.contact = 300
+    const { result } = renderHook(useActiveSection)
+    expect(result.current).toBe('contact')
+    Object.defineProperty(window, 'innerHeight', { configurable: true, value: 196 })
+    document.documentElement.style.scrollPaddingTop = '16px'
+    act(() => window.dispatchEvent(new Event('resize')))
+    flushFrames()
+    expect(result.current).toBe('about')
+  })
+
+  it('uses fresh positions after locale reflow or a hash navigation', () => {
+    const { result } = renderHook(useActiveSection)
+    tops.contact = 200
+    act(() => resized([], {} as ResizeObserver))
+    flushFrames()
+    expect(result.current).toBe('contact')
+    tops.contact = 700
+    act(() => window.dispatchEvent(new Event('hashchange')))
+    flushFrames()
+    expect(result.current).toBe('about')
+  })
+
+  it('coalesces scrolling and removes pending work and listeners on unmount', () => {
+    const { unmount } = renderHook(useActiveSection)
+    act(() => {
+      window.dispatchEvent(new Event('scroll'))
+      window.dispatchEvent(new Event('scroll'))
+    })
+    expect(frames.size).toBe(1)
+    unmount()
+    expect(frames.size).toBe(0)
+    expect(disconnect).toHaveBeenCalledOnce()
+    act(() => {
+      window.dispatchEvent(new Event('scroll'))
+      window.dispatchEvent(new Event('resize'))
+      window.dispatchEvent(new Event('hashchange'))
+    })
+    expect(frames.size).toBe(0)
   })
 })

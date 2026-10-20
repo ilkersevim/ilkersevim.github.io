@@ -7,6 +7,13 @@
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
+/* Browser zoom and landscape can leave less room than the wrapped header.
+   Let it scroll away so keyboard focus and content keep the full viewport. */
+@media (max-height: 30rem) {
+  .header {
+    position: static;
+  }
+}
 .inner {
   display: flex;
   align-items: center;

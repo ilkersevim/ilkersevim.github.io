@@ -11,13 +11,16 @@ export function Header() {
   const activeSection = useActiveSection()
   const { t } = useLocale()
 
-  // Navigation wraps by viewport and locale, so anchor offsets need actual height.
+  // Wrapped sticky headers need an inset; short-screen static headers need none.
   useLayoutEffect(() => {
     const header = headerRef.current
     if (!header) return
 
     const updateHeaderOffset = () => {
-      const height = Math.ceil(header.getBoundingClientRect().height)
+      const position = window.getComputedStyle(header).position
+      const height = position === 'sticky' || position === 'fixed'
+        ? Math.ceil(header.getBoundingClientRect().height)
+        : 0
       document.documentElement.style.setProperty(
         '--header-offset',
         `${height}px`,
@@ -25,6 +28,7 @@ export function Header() {
     }
 
     updateHeaderOffset()
+    window.addEventListener('resize', updateHeaderOffset)
 
     const observer =
       typeof ResizeObserver === 'undefined'
@@ -34,6 +38,7 @@ export function Header() {
 
     return () => {
       observer?.disconnect()
+      window.removeEventListener('resize', updateHeaderOffset)
       document.documentElement.style.removeProperty('--header-offset')
     }
   }, [])

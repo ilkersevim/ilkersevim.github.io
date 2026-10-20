@@ -16,45 +16,45 @@ export function useActiveSection(): SectionId | null {
     }
 
     const header = document.querySelector('header')
-    let observer: IntersectionObserver | undefined
-    let currentMargin = ''
-
-    const observeViewport = () => {
+    let frame: number | null = null
+    const updateActiveSection = () => {
+      frame = null
       const height = Math.max(1, window.innerHeight)
-      const headerHeight = header?.getBoundingClientRect().height ?? 0
-      // IntersectionObserver resolves percentage margins against root WIDTH.
-      // Keep a nonempty reading band below the sticky header, in height pixels.
-      const top = Math.min(height - 1, Math.max(headerHeight, Math.round(height * 0.4)))
-      const bottom = Math.min(height, Math.max(top + 1, Math.round(height * 0.55)))
-      const rootMargin = `-${top}px 0px -${height - bottom}px 0px`
-      if (rootMargin === currentMargin) return
-      currentMargin = rootMargin
-      observer?.disconnect()
-
-      const visible = new Map<Element, IntersectionObserverEntry>()
-      observer = new IntersectionObserver((entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) visible.set(entry.target, entry)
-          else visible.delete(entry.target)
+      const scrollPadding = Number.parseFloat(
+        window.getComputedStyle(document.documentElement).scrollPaddingTop,
+      ) || 0
+      // Read current positions, including during smooth anchor navigation.
+      // Keep the reading line below the same inset used for anchors and focus.
+      const readingLine = Math.min(height - 1, Math.max(scrollPadding + 1, height * 0.4))
+      let next: SectionId | null = null
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= readingLine) {
+          next = section.id as SectionId
         }
-        const next = [...visible.values()]
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]?.target.id
-        setActive(sectionIds.includes(next as SectionId) ? next as SectionId : null)
-      }, { rootMargin, threshold: [0, 0.15, 0.35, 0.55, 0.75] })
-      for (const section of sections) observer.observe(section)
+      }
+      setActive(next)
     }
 
-    observeViewport()
-    window.addEventListener('resize', observeViewport)
-    const headerObserver = typeof ResizeObserver === 'undefined'
+    const scheduleUpdate = () => {
+      if (frame === null) frame = window.requestAnimationFrame(updateActiveSection)
+    }
+
+    updateActiveSection()
+    window.addEventListener('scroll', scheduleUpdate, { passive: true })
+    window.addEventListener('resize', scheduleUpdate)
+    window.addEventListener('hashchange', scheduleUpdate)
+    const resizeObserver = typeof ResizeObserver === 'undefined'
       ? null
-      : new ResizeObserver(observeViewport)
-    if (header) headerObserver?.observe(header)
+      : new ResizeObserver(scheduleUpdate)
+    if (header) resizeObserver?.observe(header)
+    for (const section of sections) resizeObserver?.observe(section)
 
     return () => {
-      observer?.disconnect()
-      headerObserver?.disconnect()
-      window.removeEventListener('resize', observeViewport)
+      if (frame !== null) window.cancelAnimationFrame(frame)
+      resizeObserver?.disconnect()
+      window.removeEventListener('scroll', scheduleUpdate)
+      window.removeEventListener('resize', scheduleUpdate)
+      window.removeEventListener('hashchange', scheduleUpdate)
     }
   }, [])
 

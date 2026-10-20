@@ -2,6 +2,8 @@
 
 This record covers the production build preview and published website for the Flutter-first portfolio update, based on `923fd4da8edfc2ffddd03aaaf37ef9775b36afce`. Application commit `829ecf2bcc3a2262e622647e144552f6231725f6` was merged as `451c49a8009bff06155d4d93617bb5714b2aabf3`. Local checks, hosted checks and live publication verification passed; deployment evidence is recorded below.
 
+The later [native browser zoom regression record](2026-10-20-browser-zoom.md) covers the 200% / 400% browser-zoom failures and their fixes. Its geometry-based navigation replaces the observer implementation measured in this historical record. Text enlargement below is a separate test scope.
+
 ## Environment and automated checks
 
 - Node 24, pnpm 12.8.1, Chromium 155.0.8059.85 through Playwright.

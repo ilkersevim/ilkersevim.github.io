@@ -57,9 +57,9 @@ export const projectsEn: Project[] = buildProjects({
     "title": "React website · personal project",
     "blurb": "This React / TypeScript site: nine languages, theme switching and responsive navigation.",
     "evidence": [
-      "Problem → Percentage observer margins can erase the active navigation area on wide screens.",
-      "Decision → Calculate a nonempty reading band in viewport-height pixels; rebuild it when the viewport or sticky header changes.",
-      "Proof → Regression tests cover resize and observer state; the browser report records real geometry, keyboard, 200% text enlargement and locale checks."
+      "Problem → Browser zoom can leave the wrong navigation link active and hide keyboard focus behind the header.",
+      "Decision → Read current section positions on scroll and resize; let the header scroll away in short viewports.",
+      "Proof → Navigation and header regressions; the dated browser report records native 200% / 400% zoom, keyboard focus and EN / TR / AR checks."
     ],
     "imageAlt": "",
     "imageCaption": ""
@@ -122,9 +122,9 @@ export const projectsTr: Project[] = buildProjects({
     "title": "React web sitesi · kişisel proje",
     "blurb": "Bu React / TypeScript sitesi: dokuz dil, tema seçimi ve farklı ekranlara uyarlanan gezinme.",
     "evidence": [
-      "Sorun → Yüzdelik gözlem marjinleri geniş ekranlarda aktif menü alanını boşaltabilir.",
-      "Karar → Okuma alanını ekran yüksekliğinden piksel olarak hesapla; ekran veya sabit başlık değişince yeniden kur.",
-      "Kanıt → Yeniden boyutlandırma ve gözlemci durumu regresyonları; gerçek geometri, klavye, %200 metin büyütme ve dil kontrolleri tarayıcı raporunda."
+      "Sorun → Tarayıcı zoom’unda aktif menü yanlış kalabilir; klavye odağı başlığın arkasında gizlenebilir.",
+      "Karar → Kaydırma ve boyut değişiminde bölümlerin güncel konumunu oku; kısa ekranlarda başlığın sayfayla kaymasını sağla.",
+      "Kanıt → Menü ve başlık regresyonları; gerçek %200 / %400 zoom, klavye odağı ve EN / TR / AR kontrolleri tarihli tarayıcı raporunda."
     ],
     "imageAlt": "",
     "imageCaption": ""
@@ -249,9 +249,9 @@ export const projectsFr: Project[] = buildProjects({
     "title": "Site React · projet personnel",
     "blurb": "Ce site React / TypeScript : neuf langues, thèmes et navigation responsive.",
     "evidence": [
-      "Problème → Les marges en pourcentage peuvent vider la zone de navigation active sur écran large.",
-      "Décision → Calculer une zone de lecture en pixels selon la hauteur ; la recréer si l’écran ou l’en-tête change.",
-      "Preuve → Régressions de redimensionnement et état des observateurs ; géométrie réelle, clavier, agrandissement du texte à 200 % et langues dans le rapport navigateur."
+      "Problème → Le zoom du navigateur peut laisser le mauvais lien actif et masquer le focus clavier sous l’en-tête.",
+      "Décision → Lire les positions actuelles au défilement et au redimensionnement ; laisser l’en-tête défiler dans les vues peu hautes.",
+      "Preuve → Régressions de navigation et d’en-tête ; rapport daté sur le zoom natif à 200 % / 400 %, le focus clavier et EN / TR / AR."
     ],
     "imageAlt": "",
     "imageCaption": ""
@@ -314,9 +314,9 @@ export const projectsAr: Project[] = buildProjects({
     "title": "موقع React · مشروع شخصي",
     "blurb": "هذا الموقع بـReact / TypeScript: تسع لغات وسمات وتنقل متجاوب.",
     "evidence": [
-      "المشكلة ← هوامش المراقب النسبية قد تفرغ منطقة التنقل النشط على الشاشات العريضة.",
-      "القرار ← حساب نطاق قراءة بالبكسل حسب ارتفاع الشاشة؛ إعادة إنشائه عند تغير الشاشة أو الرأس الثابت.",
-      "الدليل ← اختبارات تغيير الحجم وحالة المراقب؛ تقرير المتصفح يسجل الهندسة الفعلية ولوحة المفاتيح وتكبير النص إلى 200٪ واللغات."
+      "المشكلة ← تكبير المتصفح قد يبقي رابطاً خاطئاً نشطاً ويخفي تركيز لوحة المفاتيح خلف الرأس.",
+      "القرار ← قراءة مواضع الأقسام الحالية عند التمرير وتغيير الحجم؛ السماح للرأس بالتمرير في النوافذ القصيرة.",
+      "الدليل ← اختبارات انحدار للتنقل والرأس؛ تقرير مؤرخ للتكبير الفعلي 200٪ / 400٪ وتركيز لوحة المفاتيح وEN / TR / AR."
     ],
     "imageAlt": "",
     "imageCaption": ""
@@ -379,9 +379,9 @@ export const projectsJa: Project[] = buildProjects({
     "title": "React サイト・個人開発",
     "blurb": "この React / TypeScript サイト。9 言語、テーマ切替、レスポンシブなナビゲーション。",
     "evidence": [
-      "課題 → 割合指定のマージンが横長画面のナビゲーション判定領域を消す。",
-      "判断 → 高さ基準のピクセルで読み取り帯を計算し、画面や固定ヘッダーの変更で再構築。",
-      "根拠 → リサイズと observer 状態の回帰テスト。実際の形状、キーボード、テキストの 200% 拡大、言語はブラウザー記録で検証。"
+      "課題 → ブラウザーのズームで選択中のリンクがずれ、キーボードフォーカスがヘッダーに隠れる。",
+      "判断 → スクロールとサイズ変更時に現在のセクション位置を読み、低い画面ではヘッダーもスクロールさせる。",
+      "根拠 → ナビゲーションとヘッダーの回帰テスト。日付付き記録で実際の 200% / 400% ズーム、キーボードフォーカス、EN / TR / AR を確認。"
     ],
     "imageAlt": "",
     "imageCaption": ""
@@ -537,9 +537,9 @@ export const projectsEs: Project[] = buildProjects({
     "title": "Sitio React · proyecto personal",
     "blurb": "Este sitio React / TypeScript: nueve idiomas, temas y navegación adaptable.",
     "evidence": [
-      "Problema → Los márgenes porcentuales pueden vaciar el área de navegación activa en pantallas anchas.",
-      "Decisión → Calcular una franja de lectura en píxeles según la altura; recrearla al cambiar pantalla o cabecera.",
-      "Prueba → Regresiones de tamaño y observadores; geometría real, teclado, ampliación del texto al 200 % e idiomas en el informe del navegador."
+      "Problema → El zoom del navegador puede dejar activo el enlace incorrecto y ocultar el foco del teclado tras la cabecera.",
+      "Decisión → Leer las posiciones actuales al desplazar y redimensionar; dejar que la cabecera se desplace en ventanas bajas.",
+      "Prueba → Regresiones de navegación y cabecera; informe fechado con zoom nativo al 200 % / 400 %, foco del teclado y EN / TR / AR."
     ],
     "imageAlt": "",
     "imageCaption": ""
@@ -633,9 +633,9 @@ export const projectsDe: Project[] = buildProjects({
     "title": "React-Website · persönliches Projekt",
     "blurb": "Diese React-/TypeScript-Website: neun Sprachen, Themes und responsive Navigation.",
     "evidence": [
-      "Problem → Prozentuale Observer-Ränder können den aktiven Navigationsbereich auf breiten Bildschirmen leeren.",
-      "Entscheidung → Leseband anhand der Höhe in Pixeln berechnen; bei Änderungen an Bildschirm oder Kopfzeile erneuern.",
-      "Beleg → Regressionen für Größenänderung und Observer-Zustand; echte Geometrie, Tastatur, Textvergrößerung auf 200 % und Sprachen im Browserbericht."
+      "Problem → Browser-Zoom kann den falschen Link aktiv lassen und den Tastaturfokus hinter der Kopfzeile verbergen.",
+      "Entscheidung → Beim Scrollen und Größenwechsel aktuelle Abschnittspositionen lesen; die Kopfzeile in niedrigen Fenstern mitscrollen lassen.",
+      "Beleg → Regressionen für Navigation und Kopfzeile; datierter Bericht zu nativem Zoom bei 200 % / 400 %, Tastaturfokus und EN / TR / AR."
     ],
     "imageAlt": "",
     "imageCaption": ""
@@ -729,9 +729,9 @@ export const projectsIt: Project[] = buildProjects({
     "title": "Sito React · progetto personale",
     "blurb": "Questo sito React / TypeScript: nove lingue, temi e navigazione responsive.",
     "evidence": [
-      "Problema → I margini percentuali possono svuotare l’area di navigazione attiva su schermi ampi.",
-      "Decisione → Calcolare una fascia di lettura in pixel secondo l’altezza; ricrearla quando cambia schermo o intestazione.",
-      "Prova → Regressioni di ridimensionamento e observer; geometria reale, tastiera, ingrandimento del testo al 200% e lingue nel rapporto browser."
+      "Problema → Lo zoom del browser può lasciare attivo il link sbagliato e nascondere il focus della tastiera dietro l’intestazione.",
+      "Decisione → Leggere le posizioni attuali durante scorrimento e ridimensionamento; far scorrere l’intestazione nelle finestre basse.",
+      "Prova → Regressioni di navigazione e intestazione; rapporto datato con zoom nativo al 200% / 400%, focus della tastiera ed EN / TR / AR."
     ],
     "imageAlt": "",
     "imageCaption": ""
@@ -825,9 +825,9 @@ export const projectsZh: Project[] = buildProjects({
     "title": "React 网站 · 个人项目",
     "blurb": "本 React / TypeScript 网站：九种语言、主题切换与响应式导航。",
     "evidence": [
-      "问题 → 百分比观察边距可能使宽屏上的活动导航区域为空。",
-      "决策 → 按视口高度计算像素阅读带；视口或固定页头改变时重建。",
-      "证据 → 尺寸变化与观察器状态回归；浏览器报告记录实际几何、键盘、200% 文字放大和语言检查。"
+      "问题 → 浏览器缩放可能导致导航选中错误，并使键盘焦点被页头遮挡。",
+      "决策 → 滚动和调整大小时读取当前区块位置；视口较矮时让页头随页面滚动。",
+      "证据 → 导航和页头回归测试；带日期的报告记录实际 200% / 400% 浏览器缩放、键盘焦点及 EN / TR / AR 检查。"
     ],
     "imageAlt": "",
     "imageCaption": ""
