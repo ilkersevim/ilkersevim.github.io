@@ -59,7 +59,7 @@ export const projectsEn: Project[] = buildProjects({
     "evidence": [
       "Problem → Percentage observer margins can erase the active navigation area on wide screens.",
       "Decision → Calculate a nonempty reading band in viewport-height pixels; rebuild it when the viewport or sticky header changes.",
-      "Proof → Regression tests cover resize and observer state; the browser report records real geometry, keyboard, zoom and locale checks."
+      "Proof → Regression tests cover resize and observer state; the browser report records real geometry, keyboard, 200% text enlargement and locale checks."
     ],
     "imageAlt": "",
     "imageCaption": ""
@@ -124,7 +124,7 @@ export const projectsTr: Project[] = buildProjects({
     "evidence": [
       "Sorun → Yüzdelik gözlem marjinleri geniş ekranlarda aktif menü alanını boşaltabilir.",
       "Karar → Okuma alanını ekran yüksekliğinden piksel olarak hesapla; ekran veya sabit başlık değişince yeniden kur.",
-      "Kanıt → Yeniden boyutlandırma ve gözlemci durumu regresyonları; gerçek geometri, klavye, büyütme ve dil kontrolleri tarayıcı raporunda."
+      "Kanıt → Yeniden boyutlandırma ve gözlemci durumu regresyonları; gerçek geometri, klavye, %200 metin büyütme ve dil kontrolleri tarayıcı raporunda."
     ],
     "imageAlt": "",
     "imageCaption": ""
@@ -251,7 +251,7 @@ export const projectsFr: Project[] = buildProjects({
     "evidence": [
       "Problème → Les marges en pourcentage peuvent vider la zone de navigation active sur écran large.",
       "Décision → Calculer une zone de lecture en pixels selon la hauteur ; la recréer si l’écran ou l’en-tête change.",
-      "Preuve → Régressions de redimensionnement et état des observateurs ; géométrie réelle, clavier, zoom et langues dans le rapport navigateur."
+      "Preuve → Régressions de redimensionnement et état des observateurs ; géométrie réelle, clavier, agrandissement du texte à 200 % et langues dans le rapport navigateur."
     ],
     "imageAlt": "",
     "imageCaption": ""
@@ -316,7 +316,7 @@ export const projectsAr: Project[] = buildProjects({
     "evidence": [
       "المشكلة ← هوامش المراقب النسبية قد تفرغ منطقة التنقل النشط على الشاشات العريضة.",
       "القرار ← حساب نطاق قراءة بالبكسل حسب ارتفاع الشاشة؛ إعادة إنشائه عند تغير الشاشة أو الرأس الثابت.",
-      "الدليل ← اختبارات تغيير الحجم وحالة المراقب؛ تقرير المتصفح يسجل الهندسة الفعلية ولوحة المفاتيح والتكبير واللغات."
+      "الدليل ← اختبارات تغيير الحجم وحالة المراقب؛ تقرير المتصفح يسجل الهندسة الفعلية ولوحة المفاتيح وتكبير النص إلى 200٪ واللغات."
     ],
     "imageAlt": "",
     "imageCaption": ""
@@ -381,7 +381,7 @@ export const projectsJa: Project[] = buildProjects({
     "evidence": [
       "課題 → 割合指定のマージンが横長画面のナビゲーション判定領域を消す。",
       "判断 → 高さ基準のピクセルで読み取り帯を計算し、画面や固定ヘッダーの変更で再構築。",
-      "根拠 → リサイズと observer 状態の回帰テスト。実際の形状、キーボード、拡大、言語はブラウザー記録で検証。"
+      "根拠 → リサイズと observer 状態の回帰テスト。実際の形状、キーボード、テキストの 200% 拡大、言語はブラウザー記録で検証。"
     ],
     "imageAlt": "",
     "imageCaption": ""
@@ -539,7 +539,7 @@ export const projectsEs: Project[] = buildProjects({
     "evidence": [
       "Problema → Los márgenes porcentuales pueden vaciar el área de navegación activa en pantallas anchas.",
       "Decisión → Calcular una franja de lectura en píxeles según la altura; recrearla al cambiar pantalla o cabecera.",
-      "Prueba → Regresiones de tamaño y observadores; geometría real, teclado, zoom e idiomas en el informe del navegador."
+      "Prueba → Regresiones de tamaño y observadores; geometría real, teclado, ampliación del texto al 200 % e idiomas en el informe del navegador."
     ],
     "imageAlt": "",
     "imageCaption": ""
@@ -635,7 +635,7 @@ export const projectsDe: Project[] = buildProjects({
     "evidence": [
       "Problem → Prozentuale Observer-Ränder können den aktiven Navigationsbereich auf breiten Bildschirmen leeren.",
       "Entscheidung → Leseband anhand der Höhe in Pixeln berechnen; bei Änderungen an Bildschirm oder Kopfzeile erneuern.",
-      "Beleg → Regressionen für Größenänderung und Observer-Zustand; echte Geometrie, Tastatur, Zoom und Sprachen im Browserbericht."
+      "Beleg → Regressionen für Größenänderung und Observer-Zustand; echte Geometrie, Tastatur, Textvergrößerung auf 200 % und Sprachen im Browserbericht."
     ],
     "imageAlt": "",
     "imageCaption": ""
@@ -731,7 +731,7 @@ export const projectsIt: Project[] = buildProjects({
     "evidence": [
       "Problema → I margini percentuali possono svuotare l’area di navigazione attiva su schermi ampi.",
       "Decisione → Calcolare una fascia di lettura in pixel secondo l’altezza; ricrearla quando cambia schermo o intestazione.",
-      "Prova → Regressioni di ridimensionamento e observer; geometria reale, tastiera, zoom e lingue nel rapporto browser."
+      "Prova → Regressioni di ridimensionamento e observer; geometria reale, tastiera, ingrandimento del testo al 200% e lingue nel rapporto browser."
     ],
     "imageAlt": "",
     "imageCaption": ""
@@ -827,7 +827,7 @@ export const projectsZh: Project[] = buildProjects({
     "evidence": [
       "问题 → 百分比观察边距可能使宽屏上的活动导航区域为空。",
       "决策 → 按视口高度计算像素阅读带；视口或固定页头改变时重建。",
-      "证据 → 尺寸变化与观察器状态回归；浏览器报告记录实际几何、键盘、缩放和语言检查。"
+      "证据 → 尺寸变化与观察器状态回归；浏览器报告记录实际几何、键盘、200% 文字放大和语言检查。"
     ],
     "imageAlt": "",
     "imageCaption": ""
